@@ -1,0 +1,13 @@
+<ul id="add_tag_<%=buzz.id%>" class="add_tag flds" style="display:none;list-style: none outside none; height: 30px; padding: 0pt 0px;">
+  <%= form_for :buzz_tag, :url => tags_path(:buzz_id => @buzz.id), :remote => true do %>
+    <li class="tag_create_button">
+      <span><%= text_field_tag 'tag', '', :id => "tag_name_field", :size => 15, :maxlength => 20 %></span>
+    </li>
+    <div class="create_tag_buttons popup_actions">
+      <%= submit_tag "Add", :class => 'inner_button', :onclick => "return add_tag('#tag_name_field', '#error_explanation')" , :disable_with => "Saving..." %>
+      <a id="delete" onclick="cancel_add_buzz();">Cancel</a>
+    </div>
+    <li id="error_explanation"></li>
+  <% end %>
+</ul>
+<div class="clear"></div>

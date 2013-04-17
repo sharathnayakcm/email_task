@@ -1,0 +1,30 @@
+<div id="<%=channel_type%>_scrollbar" class="channels_or_cugs_list">
+  <ul>
+    <% if channels.present? %>
+     <% view_path =  BeehiveView.get_path(channel_type).gsub('[channel_type]', "#{channel_type}") %>
+      <% channels.each do |channel| %>
+        <li class="channel_topic_links cug_name" id="channel_topic_<%=channel[:id]%>">
+          <%= link_to "#{truncate(channel[:name], :length => 24)} <span id='channel_buzz_count_#{channel[:id]}'>(#{channel[:buzz_count]})</span>".html_safe, view_path.gsub('[channel_id]', "#{channel[:id]}"), :id => channel[:id], :remote => true, :class => 'channel_topic_link', :channel_name => channel[:name], :title => "#{channel[:name]}" %>
+          <% is_fav = check_channel_is_fav(current_user, channel[:id]) %>
+          <% path = is_fav.blank? ?  favourites_path(:channel_id => channel[:id], :channel_type => 'Channel') :  favourite_path(is_fav.id, :channel_id => channel[:id], :channel_type => 'Channel') %>
+          <% if is_tablet_device? %>
+            <div class="right"><span class = 'ipad_channel_icons_link down' id ="<%=channel[:id] %>"></span></div>
+            <div class="clear"></div>
+            <div class="ipad_channel_icons" id="ipad_channel_icons_<%=channel[:id]%>">
+              <%= render :partial => '/shared/channel_links' , :locals => {:path => path, :is_fav => is_fav, :channel => channel} %>
+            </div>
+          <% else %>
+            <%= render :partial => '/shared/channel_links' , :locals => {:path => path, :is_fav => is_fav, :channel => channel} %>
+          <% end %>
+        </li>
+      <% end %>
+    <% else %>
+      <li class="no_match_channel"><a><%= keyword.present? ? "No Matched Channel Present" : "No Channels" %></a></li>
+    <% end %>
+  </ul>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    left_nav_height()
+  });
+</script>

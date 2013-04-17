@@ -1,0 +1,6 @@
+$(".buzz_tags").append("<%= j render :partial => "tag", :locals => {:tag => @buzz_tag} %>");
+/* Used to update the title and count of the tag icon */
+<% tags = @buzz.tags %>
+$("#buzz_tag_img_<%= @buzz.id %>").attr("title", "<%= tags.pluck(:name).join(", ") %>");
+$("#buzz_tag_count_<%= @buzz.id %>").addClass('buzz_icons_count').html("<%= tags.count%>");
+$("#no_tags").hide();

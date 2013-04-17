@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <p>
+      Dear <%= @buzz_task.user.full_name %>,<br/><br/>
+    </p>
+    <p>
+      CUG Name :<%= @buzz_task.buzz.channel.name %>
+    </p>
+    <%  unless @buzz_task.due_date.blank? %>
+      <p>
+        Date :<%= @buzz_task.due_date %>
+      </p>
+    <% end %>
+    <p>
+      Priority of task :<%= @buzz_task.priority %>
+    </p>
+    <p>Buzzes:-<br />
+      <% @buzz_task.buzz.root.subtree.each do |buzz_ele| %>
+        <%= buzz_ele.message %> by <%= buzz_ele.user.full_name %>  <%= time_ago_in_words(buzz_ele.created_at).to_s + ' ago' %> <br />
+      <% end %>
+    </p>
+
+  </body>
+</html>

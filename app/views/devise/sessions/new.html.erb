@@ -1,0 +1,157 @@
+<div id="login">
+  <div class="logo"><%= image_tag('login_logo.png', :width=>"236", :height=>"139", :alt=>"Beehive" )%></div>
+  <div class="container">
+    <ul>
+      <li>
+        <div id="effect">
+          <%= notice.blank? ? "Welcome to Beehive!" : "Thank you! visit again" %>
+        </div>
+        <h1 id="login_box">Login</h1></li>
+      <span id="msg" style="display: none;"><%= show_flash_message unless (notice || alert).blank? %></span>
+      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id=> 'loginfrm', :onSubmit => 'return login_validation();'}) do |f| %>
+        <li class="fld"><%= f.text_field :email, :class => "txt_fld", :placeholder => 'Enter your email'%></li>
+        <li class="fld"><%= f.password_field :password, :class => "txt_fld", :placeholder => 'Enter your password' %></li>
+        <li>
+          <% if devise_mapping.rememberable? %>
+            <div style="float:left"><%= f.check_box :remember_me %>
+              <%= f.label :remember_me %></div>
+          <% end %>
+        </li>
+        <li class="right"><div class="left fp">
+            <%= link_to "Forgot Password?", new_password_path(resource_name) %></div>
+          <div class="login_button"><%= f.submit "Login"%></div>
+        </li>
+      <%  end %>
+    </ul>
+  </div>
+</div>
+
+
+<ul id="login_footer">
+  <li class="hover_effect">
+    <ul class="head">
+      <li>What's</li><li class="big">New?</li>
+    </ul>
+    <div class="content">
+      <div class="rezz_icon"></div>
+      <div class="tag_icon"></div>
+      <div class="dozz_icon"></div>
+    </div>
+    <div id="login_tooltag" class="reply display_none">
+      <div class="left"></div>
+      <div class="mid">Use rezzes to respond to a buzz from someone else.</div>
+      <div class="right"></div>
+      <div class="tip"></div>
+    </div>
+    <div id="login_tooltag" class="tag display_none">
+      <div class="left"></div>
+      <div class="mid">You can limit a buzz to specific members within a CUG to make it more relavant.</div>
+      <div class="right"></div>
+      <div class="tip"></div>
+    </div>
+    <div id="login_tooltag" class="dozz display_none">
+      <div class="left"></div>
+      <div class="mid">Use dozzes to send a buzz as a task to your task manager.</div>
+      <div class="right"></div>
+      <div class="tip"></div>
+    </div>
+
+  </li>
+  <li class="login_image">
+    <ul class="head">
+      <li>Useful</li><li class="big">Tips</li>
+    </ul>
+    <div class="content tips">
+      <ul class="tips_container">
+        <li class="login_enhancement_img">
+          Beehive is available on blackberry, android phones and tablets.
+        </li>
+        <li class="login_enhancement_img">
+          Use InSync actively on CUGs to let people know how much in sync you are.
+        </li>
+        <li class="login_enhancement_img">
+          CUGs show up only in the views of the subscribed users and does not clutter the views of other users.
+        </li>
+      </ul>
+    </div>
+  </li>
+  <li>
+    <ul class="head">
+      <li>Usage</li><li class="big">Stats..</li>
+    </ul>
+    <div class="content">
+      <ul class="stats_form">
+        <li class="inner_flds" style="clear: both;">
+          <span class="small">
+            <%= buzzers_count%>
+          </span>
+
+          <div class="buzzes" >
+            <%=  image_tag('login_enhancements/buzzers.png',:width => 19)%>
+          </div>
+          <div style="clear:both"></div>
+          Total no.of Buzzers
+        </li>
+        <li class="large-box" style="clear: both; padding-left: 1px;">
+          <ul class="inner_flds">
+            <li class="large_in">
+              <div class="fld">
+                <span class="small"><%= channel_count %></span>
+              </div><div class="buzzes">
+                <%=  image_tag('login_enhancements/channels.png',:width => 19)%>
+              </div>
+              <div style="clear:both"></div>
+              Total no.of Channels
+            </li>
+            <li class="large_in">
+              <div class="fld">
+                <span class="small"><%= cug_count %></span>
+              </div>
+              <div class="buzzes">
+                <%=  image_tag('login_enhancements/cugs.png',:width => 23)%>
+              </div>
+              <div style="clear:both"></div>
+              Total no.of CUGs
+            </li>
+          </ul>
+        </li>
+        <li class="inner_flds large-box" >
+          <div class="fld">
+            <span class="large"><%= buzzes_count %></span>
+          </div>
+          <div class="buzzes">
+            <%=  image_tag('login_enhancements/buzzes.png',:width => 30)%>
+          </div>
+          <div style="clear:both"></div>
+          Total no.of Buzzes till date</li>
+      </ul>
+    </div>
+  </li>
+</ul>
+
+<script type="text/javascript">
+<% if alert.blank? %>
+    $('#login_box').hide();
+    var isOn=0,
+    sets,
+    toAnimate="#effect",
+    settings={animation:13,animationType:"in",backwards:!1,easing:"easeOutQuint",
+      speed:1E3,sequenceDelay:50,startDelay:0,offsetX:100,offsetY:50,
+      onComplete:fireThis,restoreHTML:!0};
+
+    $(document).ready(function(){
+      $.cjTextFx(settings);
+      $.cjTextFx.animate(toAnimate)});
+
+
+    function fireThis()
+    {
+      sets={animationType:"out"};
+      $.cjTextFx.animate(toAnimate,sets)
+      setTimeout(function(){jQuery.cjTextFx.remove(true);$('#effect').css('height','0px'); $('#login_box').fadeIn(2000);},1200)
+    }
+<% else %>
+    $('#login_box').show();
+    $('#effect').hide();
+<% end %>
+</script>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class Subscription - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/models/subscription.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">ActiveRecord::Base
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-subscribe_me">::subscribe_me</a>
+    
+    <li><a href="#method-c-subscribe_users">::subscribe_users</a>
+    
+    <li><a href="#method-c-unsubscribe_me">::unsubscribe_me</a>
+    
+    <li><a href="#method-c-unsubscribe_users">::unsubscribe_users</a>
+    
+    <li><a href="#method-i-set_last_viewed">#set_last_viewed</a>
+    
+    <li><a href="#method-i-status">#status</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Api.html">Api</a>
+  
+    <li><a href="./Api/BaseController.html">Api::BaseController</a>
+  
+    <li><a href="./Api/BuzzesController.html">Api::BuzzesController</a>
+  
+    <li><a href="./Api/ChannelsController.html">Api::ChannelsController</a>
+  
+    <li><a href="./Api/CommandsController.html">Api::CommandsController</a>
+  
+    <li><a href="./Api/SessionsController.html">Api::SessionsController</a>
+  
+    <li><a href="./FileSizeValidator.html">FileSizeValidator</a>
+  
+    <li><a href="./FileSizeValidator/Helper.html">FileSizeValidator::Helper</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./AttachmentUploader.html">AttachmentUploader</a>
+  
+    <li><a href="./BeehiveCommand.html">BeehiveCommand</a>
+  
+    <li><a href="./Buzz.html">Buzz</a>
+  
+    <li><a href="./BuzzInsync.html">BuzzInsync</a>
+  
+    <li><a href="./BuzzMember.html">BuzzMember</a>
+  
+    <li><a href="./Channel.html">Channel</a>
+  
+    <li><a href="./ChannelAlias.html">ChannelAlias</a>
+  
+    <li><a href="./ChannelAssociation.html">ChannelAssociation</a>
+  
+    <li><a href="./HomeController.html">HomeController</a>
+  
+    <li><a href="./HomeHelper.html">HomeHelper</a>
+  
+    <li><a href="./MailmanLogger.html">MailmanLogger</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./PersonController.html">PersonController</a>
+  
+    <li><a href="./PersonHelper.html">PersonHelper</a>
+  
+    <li><a href="./RegistrationsController.html">RegistrationsController</a>
+  
+    <li><a href="./RezzsController.html">RezzsController</a>
+  
+    <li><a href="./RezzsHelper.html">RezzsHelper</a>
+  
+    <li><a href="./Setting.html">Setting</a>
+  
+    <li><a href="./SettingsHelper.html">SettingsHelper</a>
+  
+    <li><a href="./Subscription.html">Subscription</a>
+  
+    <li><a href="./Tag.html">Tag</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UserHelper.html">UserHelper</a>
+  
+    <li><a href="./UserMailer.html">UserMailer</a>
+  
+    <li><a href="./UserPreference.html">UserPreference</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./WatchChannel.html">WatchChannel</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Subscription</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-subscribe_me" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">subscribe_me</span><span
+            class="method-args">(channel, user)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="subscribe_me-source">
+            <pre><span class="ruby-comment"># File app/models/subscription.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">subscribe_me</span>(<span class="ruby-identifier">channel</span>, <span class="ruby-identifier">user</span>)
+  <span class="ruby-identifier">msg</span> = []
+  <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;$You can not subscribe your own #{channel.channel_or_cug}&quot;</span> <span class="ruby-keyword">if</span>  <span class="ruby-identifier">channel</span>.<span class="ruby-identifier">user_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-identifier">subscription</span> = <span class="ruby-constant">Subscription</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:channel_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">channel</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:is_core</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">channel</span>.<span class="ruby-identifier">is_cug</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">subscription</span>.<span class="ruby-identifier">valid?</span>
+    <span class="ruby-identifier">subscription</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">subscription</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span>, <span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;$#{val}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">val</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;You have been subscribed successfully to #{channel.channel_or_cug}  #{channel.name}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-operator">!</span><span class="ruby-identifier">msg</span>.<span class="ruby-identifier">blank?</span>
+  <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">success_status</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- subscribe_me-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- subscribe_me-method -->
+
+    
+      <div id="method-c-subscribe_users" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">subscribe_users</span><span
+            class="method-args">(channel, users)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="subscribe_users-source">
+            <pre><span class="ruby-comment"># File app/models/subscription.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">subscribe_users</span>(<span class="ruby-identifier">channel</span>, <span class="ruby-identifier">users</span>)
+  <span class="ruby-identifier">msg</span> = []
+  <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">users_name</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">invalid_users</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">users</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">email</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">email</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">valid_email</span>(<span class="ruby-identifier">email</span>)
+    <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_email</span> <span class="ruby-identifier">email</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">user</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">channel</span>.<span class="ruby-identifier">user_id</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-constant">Subscription</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:channel_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">channel</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{user.full_name} is already subscribed to this #{channel.channel_or_cug}&quot;</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">subscription</span> = <span class="ruby-constant">Subscription</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:channel_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">channel</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:is_core</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">channel</span>.<span class="ruby-identifier">is_cug</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">subscription</span>.<span class="ruby-identifier">valid?</span>
+            <span class="ruby-identifier">subscription</span>.<span class="ruby-identifier">save</span>
+            <span class="ruby-identifier">users_name</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">full_name</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;, &quot;</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">subscription</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">full_messages</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;$#{e}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">e</span>)
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;$You can not subscribe your own #{channel.channel_or_cug}&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">invalid_users</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">email</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;, &quot;</span>
+      <span class="ruby-comment">#msg &lt;&lt; &quot;User not found with the email id #{email}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{users_name[0, users_name.length - 2]} added successfully to the #{channel.channel_or_cug} #{channel.name}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">users_name</span>.<span class="ruby-identifier">blank?</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">invalid_users</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;$#{invalid_users[0, invalid_users.length - 2]} not found&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;You have been subscribed successfully&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-operator">!</span><span class="ruby-identifier">msg</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">msg</span>,<span class="ruby-identifier">success_status</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- subscribe_users-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- subscribe_users-method -->
+
+    
+      <div id="method-c-unsubscribe_me" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unsubscribe_me</span><span
+            class="method-args">(channel, user)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unsubscribe_me-source">
+            <pre><span class="ruby-comment"># File app/models/subscription.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">unsubscribe_me</span>(<span class="ruby-identifier">channel</span>, <span class="ruby-identifier">user</span>)
+  <span class="ruby-identifier">msg</span> = []
+  <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;$You can not unsubscribe your own #{channel.channel_or_cug}&quot;</span> <span class="ruby-keyword">if</span>  <span class="ruby-identifier">channel</span>.<span class="ruby-identifier">user_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>
+
+  <span class="ruby-identifier">subscription</span> = <span class="ruby-constant">Subscription</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:channel_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">channel</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">subscription</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">subscription</span>.<span class="ruby-identifier">destroy</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;$You are not subscribed to #{channel.name}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;You have been successfully unsubscribed from #{channel.channel_or_cug} #{channel.name}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-operator">!</span><span class="ruby-identifier">msg</span>.<span class="ruby-identifier">blank?</span>
+  <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">msg</span>,<span class="ruby-identifier">success_status</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- unsubscribe_me-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- unsubscribe_me-method -->
+
+    
+      <div id="method-c-unsubscribe_users" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unsubscribe_users</span><span
+            class="method-args">(channel, users)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unsubscribe_users-source">
+            <pre><span class="ruby-comment"># File app/models/subscription.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">unsubscribe_users</span>(<span class="ruby-identifier">channel</span>, <span class="ruby-identifier">users</span>)
+  <span class="ruby-identifier">msg</span> = []
+  <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">users</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">email</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">email</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">valid_email</span>(<span class="ruby-identifier">email</span>)
+    <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_email</span> <span class="ruby-identifier">email</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">user</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">channel</span>.<span class="ruby-identifier">user_id</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>
+        <span class="ruby-identifier">subscription</span> = <span class="ruby-constant">Subscription</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:channel_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">channel</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">first</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">subscription</span>.<span class="ruby-identifier">nil?</span>
+          <span class="ruby-identifier">subscription</span>.<span class="ruby-identifier">destroy</span>
+          <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{user.full_name} has been unsubscribed from #{channel.channel_or_cug} #{channel.name}&quot;</span>
+          <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;$#{user.full_name} has not subscribed to #{channel.channel_or_cug} #{channel.name}&quot;</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;$You can not unsubscribe your own #{channel.channel_or_cug}&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;$User with email id #{email} does not exist&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;You have unsubscribed the users successfully&quot;</span>
+    <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">success_status</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- unsubscribe_users-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- unsubscribe_users-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-set_last_viewed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_last_viewed</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_last_viewed-source">
+            <pre><span class="ruby-comment"># File app/models/subscription.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_last_viewed</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">last_viewed</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">save</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- set_last_viewed-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- set_last_viewed-method -->
+
+    
+      <div id="method-i-status" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">status</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="status-source">
+            <pre><span class="ruby-comment"># File app/models/subscription.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">status</span>
+   <span class="ruby-identifier">is_core</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;Core&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;Peripheral&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- status-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- status-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

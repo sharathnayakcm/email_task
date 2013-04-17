@@ -1,0 +1,13 @@
+<div class="insync_tabs">
+  <ul class="insync_stats">
+    <% core_buzzers =  @channel.type_buzzers(true) %>
+    <% peripheral_buzzers =  @channel.type_buzzers(false)  %>
+    <li><%= pluralize(core_buzzers.count, "core buzzer") %>  <%= core_buzzers.collect{|x|x.user.full_name}.compact.sort.join(", ") unless core_buzzers.blank? %>.</li>
+    <li><%= pluralize(peripheral_buzzers.count, "peripheral buzzer") %> <%= peripheral_buzzers.collect{|x|x.user.full_name}.compact.sort.join(", ") unless peripheral_buzzers.blank? %>.</li>
+    <li><%= @channel.unsync_buzz_count(current_user) %> buzzes out of sync.</li>
+    <% if @channel.is_subscribed?(current_user) %>
+      <li>  Your involvement in this CUG is <%= @channel.cug_status(current_user) %>.</li>
+    <% end %>
+    <li>The moderator of this CUG is <b><%= @channel.moderator_name(current_user) %></b>.</li>
+  </ul>
+</div>

@@ -1,0 +1,20 @@
+activating_home_link();
+$('.cug_related_block').html('');
+$('.cug_topic_links').removeClass('selected_cug_topic');
+$(".stats_filter_icons").hide();
+
+
+<% if params[:beehive_search][:is_cug] == 'true' %>
+  hide_advance_search_box();
+<% end %>
+
+<% if params[:beehive_search][:current_cug_id].to_i > 0 %>
+  $('#cug_topic_'+<%=  params[:beehive_search][:current_cug_id].to_i%>).addClass('selected_cug_topic');
+<% end %>
+
+
+$('.pagination').html('');
+$("#buzzes_list").html("<%= j render :partial => 'shared/beehive_search_buzzes' %>");
+
+$(".apple_overlay_link").overlay({mask: '#ebecff'});
+tooltip_active();

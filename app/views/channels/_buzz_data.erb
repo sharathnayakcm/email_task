@@ -1,0 +1,26 @@
+<% attachment_name = buzz.getting_attachment_name %>
+<div class="buzz_post <%= buzz.user_id == current_user.id ? 'buzz_post_by_you' : 'buzz_post_by_others' %>" id="buzz_<%=buzz.id%>">
+  <div class="left">
+    <span class="arrow_rezz_icon_block" id='rezz_view_<%=buzz.id%>'><%= view_rezzs_toggle(buzz) if buzz.root.subtree.count > 1 %></span>
+    <span class="buzzer_name_icon">&nbsp;</span>
+    <span class ="buzzer_names"><%= buzz.user_id == current_user.id ? 'You' : buzz.full_name %></span>
+    <span class="buzzed_time"><%= time_ago_in_words(buzz.created_at).to_s + ' ago' %></span>
+    <%= get_buzz_attachment(attachment_name, buzz.id) unless attachment_name.blank?%>
+  </div>
+  <% if is_tablet_device? %>
+    <div class="right"><span class = 'ipad_buzz_icons' id = <%=buzz.id%>></span></div>
+    <ul class="buzzers ipad_buzzers_icon" id = "ipad_buzzer_icons_<%=buzz.id%>">
+      <%= remove_buzz_link(buzz) %>
+      <%= create_and_view_rezz_link(buzz) %>
+    </ul>
+  <% else %>
+    <ul class="buzzers">
+      <%= remove_buzz_link(buzz) %>
+      <%= create_and_view_rezz_link(buzz) %>
+    </ul>
+  <% end %>
+  <div class="clear"></div>
+  <%= render :partial => '/shared/buzz_message', :locals => {:buzz => buzz} %>
+  <div id="rezz_<%= buzz.id %>" style="display:none" class="new_rezz"></div>
+  <div id="view_rezzs_<%= buzz.id %>" class="view_rezzs"></div>
+</div>

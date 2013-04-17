@@ -1,0 +1,69 @@
+<% if params[:is_channel] %>
+  type = 'channel'
+  $('#processing_channel').hide()
+  buzz_id = <%= params[:buzz_id] %>
+<% else %>
+  $("#check_empty_dozzes").html("<%= j render :partial => 'empty_dozzes', :locals => {:buzz_tasks => @buzz_tasks, :buzz_tasks_completed => @buzz_tasks.completed_dozzes} %>");
+  type = 'buzz'
+  buzz_id = <%= @buzz.id %>
+  if($('#channel_buzz_task_page').length > 0){
+  $('#channel_buzz_task_<%=params[:buzz_task_id]%>').next().remove();
+  $('#channel_buzz_task_<%=params[:buzz_task_id]%>').remove();
+  }
+<% end %>
+
+$("#"+type+"_buzz_task_<%=params[:buzz_task_id]%>").next().remove();
+$("#"+type+"_buzz_task_<%=params[:buzz_task_id]%>").remove();
+
+
+<% if @buzz.blank? %>
+  <% buzz_data, tasks = get_buzz_data(params[:buzz_id], current_user.id) %>
+<% else %>
+  <% buzz_data, tasks = @buzz, @buzz_tasks %>
+<% end %>
+
+<% beehive_view, beehive_view_for_normal, cugs, normal_cugs = BeehiveView.find_view_related_cugs(current_user, "Dozz", "Normal", params[:hide_insync_cugs])  %>
+
+if($('#channel_buzz_task_page').length > 0){
+<% channel_tasks = get_channel_buzz_tasks(buzz_data, current_user.id) %>
+$("#check_empty_dozzes").html("<%= j render :partial => 'empty_dozzes', :locals => {:buzz_tasks => channel_tasks, :buzz_tasks_completed => channel_tasks.completed_dozzes} %>");
+$("#buzz_buzz_task_<%=params[:buzz_task_id]%>").next().remove();
+$("#buzz_buzz_task_<%=params[:buzz_task_id]%>").remove();
+<% if tasks.size == 0 %>
+  $('#buzzes_list').html('')
+<% end %>
+}
+
+<% if tasks.size == 0 %>
+  $('#dozz_tasks_incom_count_'+buzz_id).removeClass('buzz_icons_count').html('')
+<% else %>
+  $('#dozz_tasks_incom_count_'+buzz_id).addClass('buzz_icons_count').html('<%= tasks.size %>')
+<% end %>
+$('#buzz_dozz_img_'+buzz_id).attr('title','<%= j buzz_dozz_tool_tip(tasks) %>')
+
+<%  if tasks.completed_dozzes.present? %>
+  $('.buzz_tasks_show_completed_links').show()
+<% end %>
+
+
+if($('#task_list_completed_buzz').html() != ''){
+$("#task_list_completed_buzz").html("<%= j render("buzz_completed_tasks_list") %>");
+$("#show_completed_tasks_link_buzz").hide()}
+
+if($('#task_list_completed_channel').html() != ''){
+$("#task_list_completed_channel").html("<%= j render("buzz_completed_tasks_list") %>");
+$("#show_completed_tasks_link_channel").hide()}
+
+$('#show_completed_tasks_link_buzz').show();
+
+
+if($('#cug_block_<%=beehive_view.id%>_data').length > 0)
+$('#cug_block_<%=beehive_view.id%>_data').html("<%= j (render :partial=> 'cugs/cugs', :locals => {:cugs => cugs, :cug_type => beehive_view.id, :keyword => ''}) %>")
+if($('#cug_block_<%beehive_view_for_normal.id%>_data').length > 0)
+$('#cug_block_<%beehive_view_for_normal.id%>_data').html("<%= j (render :partial=> 'cugs/cugs', :locals => {:cugs => normal_cugs, :cug_type => beehive_view_for_normal.id, :keyword => ''}) %>")
+if($('.cug_group_view').length > 1)
+  obj = $('.cug_group_view.open').prev().attr("id")
+else
+  obj = $('.cug_group_view').prev().attr("id")
+toggle_effect_channel(obj);
+$('#cug_block_<%=beehive_view.id%>').next().text('<%= "#{beehive_view.view_name} (#{cugs.size})"%>')

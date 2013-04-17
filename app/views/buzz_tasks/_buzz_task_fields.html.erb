@@ -1,0 +1,12 @@
+<tr id="buzz_buzz_task_<%=f.object.id%>" class="fields">
+  <td class="dozz_name"><%= f.text_field :name, :size => 18  %></td>
+  <td class="buzz_task_due_date_width"> <%= f.text_field :due_date, :value => f.object.due_date.blank? ? '' : f.object.due_date.strftime("%d %b %Y"),:class=> "inner_txt_fld_bz_task_date buzz_task_due_date", :autocomplete =>"OFF"%></td>
+  <td class="jump_button priority"><%= f.select("priority", BuzzTask::PRIORITY, {}) %></td>
+  <td class="actions_buzz_tasks"><div class="dozz_delete"><%= link_to_remove_fields "&nbsp;".html_safe, f%></div></td>
+  <% unless f.object.new_record? %>
+    <td class="mark_completed"><%= f.check_box :status, :onclick => "mark_as_completed(this,'#{f.object.buzz_id}','','');"%> </td>
+  <% else %>
+    <td class="mark_completed">-</td>
+  <% end %>
+  <%= f.hidden_field :user_id, :value => current_user.id%>
+</tr>

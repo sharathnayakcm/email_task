@@ -1,0 +1,5 @@
+<% if buzz_tasks.blank? && buzz_tasks_completed.blank? %>
+  <td colspan="5">No Dozzes associated with this buzz...</td>
+<% elsif buzz_tasks.blank? && !buzz_tasks_completed.blank? %>
+  <td colspan="5">No active Dozzes associated with this buzz ...</td>
+<% end %>

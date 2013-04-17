@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+
+require "rubygems"
+require "mailman"
+require "bundler/setup"
+require File.expand_path(File.dirname(__FILE__) + "/../lib/beehive_mailman.rb")
+include BeehiveMailman
+
+## need to change the file name mailman_development to mailman_production when runnig in production
+MAILMAN_CONFIG = YAML.load_file(File.join(Mailman.config.rails_root,"config", "mailman_development.yml"))
+
+Mailman.config.pop3 = {
+  :username => MAILMAN_CONFIG['beehive']['username'],
+  :password => MAILMAN_CONFIG['beehive']['password'],
+  :server   => MAILMAN_CONFIG['beehive']['server'],
+  :port     => MAILMAN_CONFIG['beehive']['port'],
+  :ssl      => true
+}
+
+Mailman::Application.run do
+
+  default do
+    b_mailman = BMailman.new(message)
+    begin
+      mailman_logger = MailmanLogger.create(:sender => b_mailman.from,:subject => b_mailman.subject,:message => b_mailman.body,:status => 'Received')
+      mailman_logger.update_attributes(:response => b_mailman.response,:status => "Response not delivered")
+      UserMailer.beehive_autoresponse(b_mailman.channel_name,b_mailman.from,b_mailman.process).deliver
+      mailman_logger.update_attributes(:response => b_mailman.response,:status => "Success")
+    rescue Exception => e
+      body_message = b_mailman.response + "Exception occured while receiving message. " +  b_mailman.disclaimer
+      UserMailer.beehive_autoresponse(b_mailman.channel_name,message.from,body_message).deliver
+      mailman_logger = MailmanLogger.create(:sender => b_mailman.from,:subject => b_mailman.channel_name,:message => body_message,:status => 'Exception')
+    end
+  end
+
+end

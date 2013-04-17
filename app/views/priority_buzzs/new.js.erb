@@ -1,0 +1,15 @@
+<% if @user_names.size < 1 %>
+  <% error = 'No Users subscribed to this CUG. Hence Buzz cannot be Prioritized.' %>
+<% else %>
+  $(".close_modal").show();
+  $("#overlay_data").hide().html("<%= j render("new") %>").fadeIn(2000);
+  buttons_styling();
+  check_uncheck_check_boxes('#priority_buzz .users_data', '#select_all_priority');
+  $('#priority_hide_insync_cugs').attr('value', $('.hide_show_insyn_chk_box').is(':checked'))
+<%end%>
+
+<% if error.present?  %>
+  $('.close_modal').click();
+  $("#msg").html("<span class='err_msg'><%= error %></span>")
+  notify();
+<% end %>

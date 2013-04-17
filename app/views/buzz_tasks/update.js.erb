@@ -1,0 +1,41 @@
+<% if params[:is_channel].present? %>
+  $('#buzzes_list').html('')
+  $("#cug_info_data").html("<%= j render("channel_buzz_task_list") %>");
+  init_datepicker();
+  buttons_styling();
+<% else %>
+  $("#overlay_data").html("<%= j render("buzz_task_list") %>");
+  <% if @success %>
+    <% beehive_view, beehive_view_for_normal, cugs, normal_cugs = BeehiveView.find_view_related_cugs(current_user, "Dozz", "Normal", params[:hide_insync_cugs])  %>
+    if($('#cug_block_<%=beehive_view.id%>_data').length > 0)
+    $('#cug_block_<%=beehive_view.id%>_data').html("<%= j (render :partial=> 'cugs/cugs', :locals => {:cugs => cugs, :cug_type => beehive_view.id, :keyword => ''}) %>")
+    if($('#cug_block_<%beehive_view_for_normal.id%>_data').length > 0)
+    $('#cug_block_<%beehive_view_for_normal.id%>_data').html("<%= j (render :partial=> 'cugs/cugs', :locals => {:cugs => normal_cugs, :cug_type => beehive_view_for_normal.id, :keyword => ''}) %>")
+     if($('.cug_group_view').length > 1)
+      obj = $('.cug_group_view.open').prev().attr("id")
+     else
+      obj = $('.cug_group_view').prev().attr("id")
+    toggle_effect_channel(obj);
+    $('#cug_block_<%=beehive_view.id%>').next().text('<%= "#{beehive_view.view_name} (#{cugs.size})"%>')
+    $(".close_modal").click();
+    <% if @buzz_tasks.size == 0 %>
+      $('#dozz_tasks_incom_count_<%=@buzz.id%>').removeClass('buzz_icons_count').html('')
+    <% else %>
+      $('#dozz_tasks_incom_count_<%=@buzz.id%>').addClass('buzz_icons_count').html('<%= @buzz_tasks.size %>')
+    <% end %>
+    $('#buzz_dozz_img_<%=@buzz.id%>').attr('title','<%= j buzz_dozz_tool_tip(@buzz_tasks).html_safe %>')
+    if($('#channel_buzz_task_page').length > 0){
+    <% @buzz_tasks = @channel_buzz_tasks %>
+    $("#cug_info_data").html("<%= j render("channel_buzz_task_list") %>");
+    }
+    tooltip_active();
+  <%end%>
+  init_datepicker();
+  buttons_styling();
+<% end %>
+<% if @success %>
+  $('#msg').html("<%= show_flash_message %>");
+  notify();
+  <%else%>
+  $("#dozz_error_msg").html("<span class='error_msg'>Dozz field(s) can't be empty.</span>")
+<%end%>

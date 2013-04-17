@@ -1,0 +1,16 @@
+<h2>Resend confirmation instructions</h2>
+<% msg = []
+flash.now[:error] = resource.errors.full_messages.each{|e| msg << "#{e}" unless msg.include?(e)} %>
+<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, :onSubmit => "return resend_confirmation_validation();" }) do |f| %>
+  <span id="msg" style="display: none;"><%= show_flash_message %></span>
+  <ul>
+    <li class="fld">
+      <%= f.email_field :email, :class => "txt_fld", :placeholder => 'Enter your email' %>
+    </li>
+    <%= f.submit "Resend Password", :class => 'inner_button', :disable_with => "Sending..." %>
+  </ul>
+<% end %>
+<p>
+  <br /><br /><br />
+  <%= render :partial => "devise/shared/links" %>
+</p>

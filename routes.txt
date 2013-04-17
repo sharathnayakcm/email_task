@@ -1,0 +1,191 @@
+                        new_user_session GET    /users/sign_in(.:format)                             devise/sessions#new
+                            user_session POST   /users/sign_in(.:format)                             devise/sessions#create
+                    destroy_user_session DELETE /users/sign_out(.:format)                            devise/sessions#destroy
+                           user_password POST   /users/password(.:format)                            devise/passwords#create
+                       new_user_password GET    /users/password/new(.:format)                        devise/passwords#new
+                      edit_user_password GET    /users/password/edit(.:format)                       devise/passwords#edit
+                                         PUT    /users/password(.:format)                            devise/passwords#update
+                cancel_user_registration GET    /users/cancel(.:format)                              registrations#cancel
+                       user_registration POST   /users(.:format)                                     registrations#create
+                   new_user_registration GET    /users/register(.:format)                            registrations#new
+                  edit_user_registration GET    /users/edit(.:format)                                registrations#edit
+                                         PUT    /users(.:format)                                     registrations#update
+                                         DELETE /users(.:format)                                     registrations#destroy
+                       user_confirmation POST   /users/confirmation(.:format)                        devise/confirmations#create
+                   new_user_confirmation GET    /users/confirmation/new(.:format)                    devise/confirmations#new
+                                         GET    /users/confirmation(.:format)                        devise/confirmations#show
+                          new_user_users GET    /users/new_user(.:format)                            users#new_user
+                       create_user_users POST   /users/create_user(.:format)                         users#create_user
+                         moderator_users GET    /users/moderator(.:format)                           users#moderator
+                           aliases_users GET    /users/aliases(.:format)                             users#aliases
+                          settings_users GET    /users/settings(.:format)                            users#settings
+                     save_settings_users PUT    /users/save_settings(.:format)                       users#save_settings
+                        upload_csv_users GET    /users/upload_csv(.:format)                          users#upload_csv
+                          save_csv_users POST   /users/save_csv(.:format)                            users#save_csv
+                        limit_user_users POST   /users/limit_user(.:format)                          users#limit_user
+                         deactivate_user GET    /users/:id/deactivate(.:format)                      users#deactivate
+                           activate_user GET    /users/:id/activate(.:format)                        users#activate
+                          edit_user_user GET    /users/:id/edit_user(.:format)                       users#edit_user
+                        update_user_user PUT    /users/:id/update_user(.:format)                     users#update_user
+               edit_user_preference_user GET    /users/:id/edit_user_preference(.:format)            users#edit_user_preference
+             update_user_preference_user PUT    /users/:id/update_user_preference(.:format)          users#update_user_preference
+                    channel_details_user GET    /users/:id/channel_details(.:format)                 users#channel_details
+                       edit_channel_user GET    /users/:id/edit_channel(.:format)                    users#edit_channel
+                      close_channel_user GET    /users/:id/close_channel(.:format)                   users#close_channel
+                     update_channel_user PUT    /users/:id/update_channel(.:format)                  users#update_channel
+                         limit_buzz_user GET    /users/:id/limit_buzz(.:format)                      users#limit_buzz
+                                   users GET    /users(.:format)                                     users#index
+                                         POST   /users(.:format)                                     users#create
+                                new_user GET    /users/new(.:format)                                 users#new
+                               edit_user GET    /users/:id/edit(.:format)                            users#edit
+                                    user GET    /users/:id(.:format)                                 users#show
+                                         PUT    /users/:id(.:format)                                 users#update
+                                         DELETE /users/:id(.:format)                                 users#destroy
+                             buzzes_home GET    /home/:id/buzzes(.:format)                           home#buzzes
+                            buzzers_home GET    /home/:id/buzzers(.:format)                          home#buzzers
+                associated_channels_home GET    /home/:id/associated_channels(.:format)              home#associated_channels
+                          cug_stats_home GET    /home/:id/cug_stats(.:format)                        home#cug_stats
+                       insync_stats_home GET    /home/:id/insync_stats(.:format)                     home#insync_stats
+              core_peripheral_stats_home GET    /home/:id/core_peripheral_stats(.:format)            home#core_peripheral_stats
+                         find_stats_home GET    /home/:id/find_stats(.:format)                       home#find_stats
+              process_command_home_index POST   /home/process_command(.:format)                      home#process_command
+                       search_home_index GET    /home/search(.:format)                               home#search
+                       insync_home_index GET    /home/insync(.:format)                               home#insync
+                     channels_home_index GET    /home/channels(.:format)                             home#channels
+                         cugs_home_index GET    /home/cugs(.:format)                                 home#cugs
+                        today_home_index GET    /home/today(.:format)                                home#today
+                     calendar_home_index GET    /home/calendar(.:format)                             home#calendar
+                 today_buzzes_home_index GET    /home/today_buzzes(.:format)                         home#today_buzzes
+              calendar_buzzes_home_index GET    /home/calendar_buzzes(.:format)                      home#calendar_buzzes
+                         help_home_index GET    /home/help(.:format)                                 home#help
+                  insync_buzz_home_index GET    /home/insync_buzz(.:format)                          home#insync_buzz
+               other_channels_home_index GET    /home/other_channels(.:format)                       home#other_channels
+            sub_unsub_channel_home_index GET    /home/sub_unsub_channel(.:format)                    home#sub_unsub_channel
+                    dashboard_home_index GET    /home/dashboard(.:format)                            home#dashboard
+                  delete_buzz_home_index GET    /home/delete_buzz(.:format)                          home#delete_buzz
+                 add_to_watch_home_index GET    /home/add_to_watch(.:format)                         home#add_to_watch
+                     all_cugs_home_index GET    /home/all_cugs(.:format)                             home#all_cugs
+          download_attachment_home_index GET    /home/download_attachment(.:format)                  home#download_attachment
+              change_cug_type_home_index GET    /home/change_cug_type(.:format)                      home#change_cug_type
+                cug_dashboard_home_index GET    /home/cug_dashboard(.:format)                        home#cug_dashboard
+                      add_cug_home_index GET    /home/add_cug(.:format)                              home#add_cug
+                   create_cug_home_index POST   /home/create_cug(.:format)                           home#create_cug
+                     get_cugs_home_index GET    /home/get_cugs(.:format)                             home#get_cugs
+           find_stats_results_home_index GET    /home/find_stats_results(.:format)                   home#find_stats_results
+                              home_index GET    /home(.:format)                                      home#index
+                                         POST   /home(.:format)                                      home#create
+                                new_home GET    /home/new(.:format)                                  home#new
+                               edit_home GET    /home/:id/edit(.:format)                             home#edit
+                                    home GET    /home/:id(.:format)                                  home#show
+                                         PUT    /home/:id(.:format)                                  home#update
+                                         DELETE /home/:id(.:format)                                  home#destroy
+                          view_all_rezzs GET    /rezzs/view_all(.:format)                            rezzs#view_all
+                           members_rezzs GET    /rezzs/members(.:format)                             rezzs#members
+                                   rezzs GET    /rezzs(.:format)                                     rezzs#index
+                                         POST   /rezzs(.:format)                                     rezzs#create
+                                new_rezz GET    /rezzs/new(.:format)                                 rezzs#new
+                               edit_rezz GET    /rezzs/:id/edit(.:format)                            rezzs#edit
+                                    rezz GET    /rezzs/:id(.:format)                                 rezzs#show
+                                         PUT    /rezzs/:id(.:format)                                 rezzs#update
+                                         DELETE /rezzs/:id(.:format)                                 rezzs#destroy
+                         delete_buzz_tag GET    /buzz_tags/:id/delete(.:format)                      buzz_tags#delete
+                       cug_tag_buzz_tags POST   /buzz_tags/cug_tag(.:format)                         buzz_tags#cug_tag
+                  buzz_new_tag_buzz_tags GET    /buzz_tags/buzz_new_tag(.:format)                    buzz_tags#buzz_new_tag
+                  add_buzz_tag_buzz_tags GET    /buzz_tags/add_buzz_tag(.:format)                    buzz_tags#add_buzz_tag
+                 buzz_tag_list_buzz_tags GET    /buzz_tags/buzz_tag_list(.:format)                   buzz_tags#buzz_tag_list
+               filter_buzz_tag_buzz_tags GET    /buzz_tags/filter_buzz_tag(.:format)                 buzz_tags#filter_buzz_tag
+                 filter_buzzes_buzz_tags POST   /buzz_tags/filter_buzzes(.:format)                   buzz_tags#filter_buzzes
+                filter_by_tags_buzz_tags GET    /buzz_tags/filter_by_tags(.:format)                  buzz_tags#filter_by_tags
+         filter_tags_by_buzzes_buzz_tags GET    /buzz_tags/filter_tags_by_buzzes(.:format)           buzz_tags#filter_tags_by_buzzes
+                               buzz_tags GET    /buzz_tags(.:format)                                 buzz_tags#index
+                                         POST   /buzz_tags(.:format)                                 buzz_tags#create
+                            new_buzz_tag GET    /buzz_tags/new(.:format)                             buzz_tags#new
+                           edit_buzz_tag GET    /buzz_tags/:id/edit(.:format)                        buzz_tags#edit
+                                buzz_tag GET    /buzz_tags/:id(.:format)                             buzz_tags#show
+                                         PUT    /buzz_tags/:id(.:format)                             buzz_tags#update
+                                         DELETE /buzz_tags/:id(.:format)                             buzz_tags#destroy
+               buzz_flag_list_buzz_flags GET    /buzz_flags/buzz_flag_list(.:format)                 buzz_flags#buzz_flag_list
+              filter_by_flags_buzz_flags GET    /buzz_flags/filter_by_flags(.:format)                buzz_flags#filter_by_flags
+              buzzes_by_flags_buzz_flags GET    /buzz_flags/buzzes_by_flags(.:format)                buzz_flags#buzzes_by_flags
+                              buzz_flags GET    /buzz_flags(.:format)                                buzz_flags#index
+                                         POST   /buzz_flags(.:format)                                buzz_flags#create
+                           new_buzz_flag GET    /buzz_flags/new(.:format)                            buzz_flags#new
+                          edit_buzz_flag GET    /buzz_flags/:id/edit(.:format)                       buzz_flags#edit
+                               buzz_flag GET    /buzz_flags/:id(.:format)                            buzz_flags#show
+                                         PUT    /buzz_flags/:id(.:format)                            buzz_flags#update
+                                         DELETE /buzz_flags/:id(.:format)                            buzz_flags#destroy
+         buzz_tasks_completed_buzz_tasks GET    /buzz_tasks/buzz_tasks_completed(.:format)           buzz_tasks#buzz_tasks_completed
+            cug_channel_tasks_buzz_tasks GET    /buzz_tasks/cug_channel_tasks(.:format)              buzz_tasks#cug_channel_tasks
+              buzz_task_update_buzz_task PUT    /buzz_tasks/:id/buzz_task_update(.:format)           buzz_tasks#buzz_task_update
+    buzz_task_mark_as_complete_buzz_task PUT    /buzz_tasks/:id/buzz_task_mark_as_complete(.:format) buzz_tasks#buzz_task_mark_as_complete
+      channel_buzz_task_update_buzz_task PUT    /buzz_tasks/:id/channel_buzz_task_update(.:format)   buzz_tasks#channel_buzz_task_update
+                     view_buzz_buzz_task GET    /buzz_tasks/:id/view_buzz(.:format)                  buzz_tasks#view_buzz
+                              buzz_tasks GET    /buzz_tasks(.:format)                                buzz_tasks#index
+                                         POST   /buzz_tasks(.:format)                                buzz_tasks#create
+                           new_buzz_task GET    /buzz_tasks/new(.:format)                            buzz_tasks#new
+                          edit_buzz_task GET    /buzz_tasks/:id/edit(.:format)                       buzz_tasks#edit
+                               buzz_task GET    /buzz_tasks/:id(.:format)                            buzz_tasks#show
+                                         PUT    /buzz_tasks/:id(.:format)                            buzz_tasks#update
+                                         DELETE /buzz_tasks/:id(.:format)                            buzz_tasks#destroy
+                              buzz_names GET    /buzz_names(.:format)                                buzz_names#index
+                                         POST   /buzz_names(.:format)                                buzz_names#create
+                           new_buzz_name GET    /buzz_names/new(.:format)                            buzz_names#new
+                          edit_buzz_name GET    /buzz_names/:id/edit(.:format)                       buzz_names#edit
+                               buzz_name GET    /buzz_names/:id(.:format)                            buzz_names#show
+                                         PUT    /buzz_names/:id(.:format)                            buzz_names#update
+                                         DELETE /buzz_names/:id(.:format)                            buzz_names#destroy
+                            api_sessions POST   /api/sessions(.:format)                              api/sessions#create
+            forgot_password_api_sessions POST   /api/sessions/forgot_password(.:format)              api/sessions#forgot_password
+            change_password_api_sessions POST   /api/sessions/change_password(.:format)              api/sessions#change_password
+                 preference_api_sessions GET    /api/sessions/preference(.:format)                   api/sessions#preference
+            save_preference_api_sessions POST   /api/sessions/save_preference(.:format)              api/sessions#save_preference
+                                         POST   /api/sessions(.:format)                              api/sessions#create
+                        new_api_sessions GET    /api/sessions/new(.:format)                          api/sessions#new
+                       edit_api_sessions GET    /api/sessions/edit(.:format)                         api/sessions#edit
+                                         GET    /api/sessions(.:format)                              api/sessions#show
+                                         PUT    /api/sessions(.:format)                              api/sessions#update
+                                         DELETE /api/sessions(.:format)                              api/sessions#destroy
+                  get_detail_api_channel GET    /api/channel/get_detail(.:format)                    api/channels#get_detail
+          get_channel_detail_api_channel GET    /api/channel/get_channel_detail(.:format)            api/channels#get_channel_detail
+          get_moderator_list_api_channel GET    /api/channel/get_moderator_list(.:format)            api/channels#get_moderator_list
+get_moderator_channel_detail_api_channel GET    /api/channel/get_moderator_channel_detail(.:format)  api/channels#get_moderator_channel_detail
+    subs_unsubscribe_channel_api_channel GET    /api/channel/subs_unsubscribe_channel(.:format)      api/channels#subs_unsubscribe_channel
+               close_channel_api_channel GET    /api/channel/close_channel(.:format)                 api/channels#close_channel
+              update_channel_api_channel POST   /api/channel/update_channel(.:format)                api/channels#update_channel
+             channel_buzzers_api_channel GET    /api/channel/channel_buzzers(.:format)               api/channels#channel_buzzers
+                 delete_buzz_api_channel GET    /api/channel/delete_buzz(.:format)                   api/channels#delete_buzz
+               swap_cug_type_api_channel GET    /api/channel/swap_cug_type(.:format)                 api/channels#swap_cug_type
+        get_cug_contribution_api_channel GET    /api/channel/get_cug_contribution(.:format)          api/channels#get_cug_contribution
+                   buzz_here_api_channel POST   /api/channel/buzz_here(.:format)                     api/channels#buzz_here
+             channel_members_api_channel GET    /api/channel/channel_members(.:format)               api/channels#channel_members
+                             api_channel POST   /api/channel(.:format)                               api/channels#create
+                         new_api_channel GET    /api/channel/new(.:format)                           api/channels#new
+                        edit_api_channel GET    /api/channel/edit(.:format)                          api/channels#edit
+                                         GET    /api/channel(.:format)                               api/channels#show
+                                         PUT    /api/channel(.:format)                               api/channels#update
+                                         DELETE /api/channel(.:format)                               api/channels#destroy
+             process_command_api_command POST   /api/command/process_command(.:format)               api/commands#process_command
+                             api_command POST   /api/command(.:format)                               api/commands#create
+                         new_api_command GET    /api/command/new(.:format)                           api/commands#new
+                        edit_api_command GET    /api/command/edit(.:format)                          api/commands#edit
+                                         GET    /api/command(.:format)                               api/commands#show
+                                         PUT    /api/command(.:format)                               api/commands#update
+                                         DELETE /api/command(.:format)                               api/commands#destroy
+                  insync_buzz_api_buzzes GET    /api/buzzes/insync_buzz(.:format)                    api/buzzes#insync_buzz
+                   limit_user_api_buzzes POST   /api/buzzes/limit_user(.:format)                     api/buzzes#limit_user
+                      members_api_buzzes GET    /api/buzzes/members(.:format)                        api/buzzes#members
+                  buzz_detail_api_buzzes GET    /api/buzzes/buzz_detail(.:format)                    api/buzzes#buzz_detail
+                              api_buzzes POST   /api/buzzes(.:format)                                api/buzzes#create
+                          new_api_buzzes GET    /api/buzzes/new(.:format)                            api/buzzes#new
+                         edit_api_buzzes GET    /api/buzzes/edit(.:format)                           api/buzzes#edit
+                                         GET    /api/buzzes(.:format)                                api/buzzes#show
+                                         PUT    /api/buzzes(.:format)                                api/buzzes#update
+                                         DELETE /api/buzzes(.:format)                                api/buzzes#destroy
+                           view_api_rezz GET    /api/rezz/view(.:format)                             api/rezzs#view
+                                api_rezz POST   /api/rezz(.:format)                                  api/rezzs#create
+                            new_api_rezz GET    /api/rezz/new(.:format)                              api/rezzs#new
+                           edit_api_rezz GET    /api/rezz/edit(.:format)                             api/rezzs#edit
+                                         GET    /api/rezz(.:format)                                  api/rezzs#show
+                                         PUT    /api/rezz(.:format)                                  api/rezzs#update
+                                         DELETE /api/rezz(.:format)                                  api/rezzs#destroy
+                                    root        /                                                    home#index

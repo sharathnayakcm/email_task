@@ -1,0 +1,12 @@
+<% if flash[:notice].present? %>
+  obj = ''
+  if($('.cug_group_view').length > 1)
+    obj = $('.cug_group_view.open').prev().attr("id");
+  $.ajax({
+    type: 'get',
+    url: "/cugs/get_cug_view?&cug_view_type="+$('#cug_view_type :selected').val()+"&hide_insync_cugs="+ $("#hide_insync_cugs").is(':checked')+"&opened_block="+obj
+  });
+
+<%end%>
+$('#msg').html("<%= show_flash_message %>");
+notify();

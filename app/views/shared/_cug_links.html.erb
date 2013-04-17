@@ -1,0 +1,4 @@
+<span class ="fav_icon_<%= cug[:id] %>">
+  <%= link_to  "&nbsp".html_safe, path, :remote => true, :class => "cug_fav_icon #{is_fav.blank? ? 'offstar' : 'onstar'}", :title => 'Favorite CUG', :method => "#{is_fav.blank? ? 'post' : 'delete'}" %>
+</span>
+<%= link_to '&nbsp;'.html_safe,  edit_cug_path(cug[:id], :cug_view_type => params[:cug_view_type]), :remote => true, :title => 'Edit CUG', :cug_type => cug_type, :class => 'cug_edit_link right', :id => cug[:id] %>

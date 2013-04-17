@@ -1,0 +1,65 @@
+<div class="logo">
+  <%= link_to image_tag("beehive-newui/dashboard_logo.png", :alt => "Beehive",:style => "border:none;"), root_path %>
+</div>
+<% if params[:controller] != 'users' %>
+  <%= form_for :beehive_search, {:url => beehive_search_home_index_path, :html => {:id => 'beehive_search'}, :remote => true} do |f| %>
+    <div class="search">
+      <%= f.hidden_field 'search_type', :id => 'search_type', :value => 'simple' %>
+      <%= f.hidden_field 'is_cug', :id => 'search_type', :value => controller.controller_name == 'cugs' ? true : false %>
+      <%= f.text_field :search_keyword, :id => "search_box", :class => 'search_fld', :placeholder => 'Search' %>
+      <div class="search_fld_icon"></div>
+      <% if controller.controller_name == 'cugs' %>
+        <div id="search_options">
+          <span class="right advance_search_link" style="display:none">
+            <%= link_to 'Advanced Search', advance_search_cugs_path, :id => 'advance_search_link', :remote => true %>
+          </span>
+          <div class="clear"></div>
+          <ul class="adv_search" id="advance_search_options" style="display:none;">
+            <li class="row">
+              <div id='close_search_link' class="right close" onClick="hide_advance_search_box();"></div>
+              <div class="clear"></div>
+            </li>
+            <li id="advance_search_filters"></li>
+            <li class="row">
+              <div class="popup_actions">
+                <%= f.submit 'Search', :value => 'Search', :class => 'inner_button sb advance_search_button' %>
+              </div>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+<!--Main NAv-->
+<ul class="top_links">
+  <li><%= link_to "&nbsp".html_safe, root_path, :title => TOOLTIP_MESSAGES['home'][tooltip_view], :class => 'home active' %></li>
+  <li><%= link_to "&nbsp;".html_safe, "javascript://", :class => "refresh", :remote => true, :title => 'Refresh' %></li>
+  <li><%= link_to "&nbsp;".html_safe, "javascript://", :class => "buzz_icon apple_overlay_link_buzz_out", :remote => true, :rel => "#overlay_block", :title => TOOLTIP_MESSAGES['add_buzz'][tooltip_view] %></li>
+  <% unless controller.controller_name == 'users' %>
+    <li><%= link_to "&nbsp;".html_safe, edit_user_registration_path, :title => TOOLTIP_MESSAGES['profile'][tooltip_view], :class => "profile", :remote => true %></li>
+  <% end %>
+  <% if current_user.is_admin? %>
+    <li><%= link_to "&nbsp;".html_safe, admin_users_path, :title => 'Manage', :class => "manage_users", :target => '_blank' %></li>
+  <% end %>
+  <% if is_tablet_device? %>
+    <li>
+      <%= link_to "&nbsp;".html_safe, icons_help_home_index_path, :title=>"Help", "data-remote" => true, :class => "icons_help apple_overlay_link_header", :rel => "#overlay_block"%>
+    </li>
+  <% end %>
+  <li><%= link_to "&nbsp;".html_safe, destroy_user_session_path, :title => 'Logout', :method => :delete, :class => "logout"%></li>
+</ul>
+<div class="buzzer_name"><div class="icon"></div>
+  <span class="buzzer_title">Buzzer:</span> <span class="buzzer_name_value"><%= current_user.full_name %></span></div>
+<div class="clear"></div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $( "input:submit, a", ".popup_actions" ).button();
+    $(".apple_overlay_link_header").overlay({mask: '#ebecff'});
+    $(".apple_overlay_link_buzz_out").overlay({mask: '#ebecff'});
+<% if controller.controller_name == "users" %>
+      $('.top_links li .home').removeClass('active');
+      $('.top_links li .manage_users').addClass('active')
+<% end %>
+  });
+</script>

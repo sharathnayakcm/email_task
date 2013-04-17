@@ -1,0 +1,6 @@
+<div class="pagination" id="more_buzzs_<%=buzzs.first.channel_id%>_<%=buzzs.current_page%>">
+  <div id="more_buzz" class ="more_buzz">
+    <div class="more_buzzes_icon">&nbsp;</div>
+    <%= link_to "more buzzes..", more_buzzs_buzz_path(:id => buzzs.first.channel_id,:type => params[:type],:hide_insync_cugs => params[:hide_insync_cugs],:page => buzzs.current_page.to_i + 1, :group_view => "true" ), :remote => true, :disable_with => "Loading buzzes..."%>
+  </div>
+</div>

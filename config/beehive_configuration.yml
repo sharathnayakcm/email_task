@@ -1,0 +1,21 @@
+## YAML Template.
+---
+
+user:
+  default_view: 1
+  buzz_rate_1:  24
+  buzz_rate_2:  72
+
+channel:
+  new_channels: 300
+
+buzz:
+  last_cug_buzzes:  10
+  new_buzzes:  24
+
+date:
+  start_days_ago: 3
+  max_calendar_days_diff: 7
+
+buzzer:
+  active_buzzers: 7

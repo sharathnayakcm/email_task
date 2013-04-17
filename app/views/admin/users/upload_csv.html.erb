@@ -1,0 +1,5 @@
+<h2>Upload CSV</h2>
+<%= form_for(:upload_csv, :url => save_csv_admin_users_path, :html => {:multipart => true}) do |f| %>
+  <div class="csv_style"><%= f.file_field :csv %></div>
+  <div class="csv_style"><%= f.submit "Submit" %></div>
+<% end %>

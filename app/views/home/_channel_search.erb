@@ -1,0 +1,15 @@
+<% if @search_data.count > 0 %>
+  <% @i = 0 %>
+<ul class="listing">
+  <% @search_data.each do |c| %>
+    <% if @i > 2 %>
+      </ul><ul class="listing">
+      <% @i = 0 %>
+    <% end %>
+    <li><a href="<%=  buzzes_home_path(c[:id]) %>"><%= truncate(c[:name], :length => 25) %><span class="number">(<%= c[:buzz_count] %>)</span></a></li>
+    <% @i += 1 %>
+  <% end %>
+  </ul>
+<% else %>
+  <p>Sorry, No matched records found.</p>
+<% end %>

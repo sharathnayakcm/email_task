@@ -1,0 +1,33 @@
+<div class="content " id="cug_content">
+  <div id="channel_buzz_task_page">
+    <%= form_for @channel, :url => buzz_task_path(@channel), :remote => true do |f| %>
+      <%= hidden_field_tag :channel_id, @channel.id  %>
+      <%= hidden_field_tag :is_channel, true  %>
+      <table class="dozz_grid" cellspacing="0" cellpadding="0"  >
+        <tr>
+          <th >Dozz</th>
+          <th >Date</th>
+          <th >Priority</th>
+          <th >Actions</th>
+          <th >Mark Complete</th>
+        </tr>
+        <tr id="errors"></tr>
+        <%= f.fields_for :buzz_tasks, @buzz_tasks do |builder| %>
+          <%= render "channel_buzz_task_fields", :f => builder %>
+        <% end %>
+        <tr id="task_list_completed_channel"></tr>
+        <tr id="check_empty_dozzes"><%= render :partial => 'empty_dozzes', :locals => {:buzz_tasks => @buzz_tasks, :buzz_tasks_completed => @buzz_tasks.completed_dozzes} %></tr>
+      </table>
+      <br />
+      <% disply_show_dozzes_link = @buzz_tasks.completed_dozzes.blank? ? 'none' : 'show' %>
+      <div class="popup_actions">
+        <%= f.submit "Save", :disable_with => "Saving...", :id => 'channel_buzz_task_submit_button' if @buzz_tasks.present?%>
+        <%= link_to "Show Completed Dozzes", buzz_tasks_completed_buzz_tasks_path(:channel_id => @channel.id, :is_channel => true), :remote => true, :id => 'show_completed_tasks_link_channel', :class => 'buzz_tasks_show_completed_links', :style => "display:#{disply_show_dozzes_link}" %>
+      </div>
+
+  <%#= link_to "Hide completed dozzes", 'javascript:void(0)', :id => 'hide_completed_tasks_link_channel', :class => 'buzz_tasks_hide_completed_links', :style => 'display:none' %>
+    <% end %>
+    <div class="buzz_buzz_tasks" style="clear:both;">
+    </div>
+  </div>
+</div>

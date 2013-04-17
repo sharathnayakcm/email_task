@@ -1,0 +1,92 @@
+<div class="left_col">
+  <!--left nav starts-->
+  <ul class="left_nav">
+    <li><%= link_to "&nbsp".html_safe, cugs_path, :class => "cug", :title =>TOOLTIP_MESSAGES['cug_list'][tooltip_view]%></li>
+    <li><%= link_to "&nbsp".html_safe, channels_path, :class => "channel active" , :title =>TOOLTIP_MESSAGES['channel_list'][tooltip_view] %></li>
+  </ul>
+  <!--add nav starts-->
+  <ul class="add_nav">
+    <a href="javascript://"><li title="<%= TOOLTIP_MESSAGES['add_channel'] [tooltip_view] %>" class="add add_cug_or_channel"  path="<%= new_channel_path(:group_type => "channel") %>"></li></a>
+  </ul>
+  <div class="clear"></div>
+  <div id="left_wrapper">
+    <!-- head starts -->
+    <%= form_for :channel_search, :url => get_channels_channels_path, :remote => true do |fs|  %>
+      <ul class="head">
+        <li class="pad">
+          <span>View:</span>
+          <span class="jump_button">
+            <%= select_tag("channel_view_type", options_for_select(BeehiveView.default_channel_views.collect{|chv| [chv['view_name'],chv['id']]}), :data => {:remote => true, :url => get_channels_channels_path}) %>
+          </span>
+        </li>
+      </ul>
+      <div class = "search_channel_name">
+        <div class="left"></div>
+        <%= text_field_tag 'channel_name', '',:placeholder => 'Search Channels', :id => 'search_channel_name_left_nav' %>
+      </div>
+    <% end %>
+    <!-- head ends -->
+    <ul class="sub_control">
+      <div id="channel_view_block"></div>
+    </ul>
+  </div>
+</div>
+
+<div class="body_col">
+  <div class="body_nav">
+    <ul class="breadcrum" id="breadcrum"></ul>
+    <ul class="right_nav channel_stats_icon" style="display: none;">
+      <li id="channel_subscribe" title=""></li>
+      <a href="javascript://"><li class="info" title="Insync Stats"></li></a>
+    </ul>
+
+
+
+
+    <div class="clear"></div>
+  </div>
+  <div id="wrapper">
+    <div class="clear"></div>
+    <div id="steps" class="buzz_scroll">
+      <div id="formElem">
+        <div id="add_new_buzz"></div>
+        <div id="channel_info_data" class="channel_related_block"></div>
+        <div id="buzzes_list"></div>
+        <div class="pagination channel_related_block"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% channel_view = current_user.user_preference.channel_view || BeehiveView.default_channel_view.id %>
+<!-- current_user.user_preference.default_view -->
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".apple_overlay_link").overlay({mask: '#ebecff'});
+    $(".buzz_scroll").mCustomScrollbar({
+      callbacks:{
+        onTotalScroll:function(){
+          if ($('.pagination').length) {
+            if($('.pagination .next_page').attr('href') != undefined){
+              var url;
+              url = $('.pagination .next_page').attr('href');
+              $('.pagination').html("<span class='pagination-loader'><img src='../../assets/ajax-loader.gif' /></span>").show();
+              return $.getScript(url);
+            }
+          }
+        }
+      },
+      advanced:{
+        updateOnBrowserResize:true,
+        updateOnContentResize:true,
+        autoExpandHorizontalScroll:false
+      }
+    });
+    update_scroll_by_keyword_arrows(".buzz_scroll");
+    $.ajax({
+      type: 'get',
+      url: "/channels/get_channels?&channel_view_type=<%= channel_view %>"
+    });
+
+  })
+</script>

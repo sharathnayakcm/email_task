@@ -1,0 +1,819 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+#user_nav{
+  text-align: right;
+}
+
+#main_header{
+  /* text-align: center; */
+}
+
+.header_options{
+  text-align: right;
+  padding: 0 20px 0 0;
+}
+
+.command_box{
+  width: 600px;
+  height: 100px;
+}
+
+.command_box_submit{
+  text-align: right;
+  width: 600px;
+}
+
+.dashboard_box{
+  width: 620px;
+  height: 100%;
+  padding-left: 200px;
+}
+
+.beehive_list{
+  padding-top: 20px;
+}
+
+.user_list{
+  padding: 5px;
+  margin: 5px;
+}
+
+.user_list td{
+  padding: 2px 5px 2px 5px;
+}
+
+#boxd  {
+  display: none;
+  padding: 8px;
+  color: white !important;
+  width: auto;
+  text-align: center;
+  margin: 0px auto;
+  position: relative;
+}
+
+.flash_msg{
+  background-color: #FFDCA8 !important;
+  color: black !important;
+}
+
+span.reference{
+  position:fixed;
+  left:5px;
+  top:5px;
+  font-size:10px;
+  text-shadow:1px 1px 1px #fff;
+}
+span.reference a{
+  color:#555;
+  text-decoration:none;
+  text-transform:uppercase;
+}
+
+span.reference a:hover{
+  color:#000;
+}
+
+
+.buzz_tag_list{
+  position: absolute;
+  right: 102px;
+  width: 350px;
+  z-index: 1;
+}
+
+.buzz_task_list{
+  position: absolute;
+  right: 115px;
+  width: 657px;
+  z-index: 1;
+}
+
+#dozz_empty_msg{
+  border: 1px solid #DDDDDD;
+  padding: 10px;
+  width: auto;
+}
+
+.dozz_grid .field_with_errors input, .channel_buzz_task_list .field_with_errors input{
+  border: 2px solid red;
+}
+
+.field_with_errors input{
+  border: 2px solid red;
+}
+
+.medium_buzz_task_col{
+  width: 110px;
+}
+
+.buzz_task_list table tr td{
+  padding: 5px;
+  border-right: 1px solid #ddd;
+  width: 110px;
+  text-align: center;
+  height: 25px;
+}
+
+.buzz_task_list_header .actions_buzz_tasks,.buzz_task_list_table .actions_buzz_tasks,#task_list_completed_buzz .actions_buzz_tasks
+{
+  width: 60px;
+}
+
+.buzz_task_list_header .priority,.buzz_task_list_table .priority,#task_list_completed_buzz .priority
+{
+  width: 82px;
+}
+
+.buzz_task_list_header .buzz_task_due_date_width,.buzz_task_list_table .buzz_task_due_date_width,#task_list_completed_buzz .buzz_task_due_date_width
+{
+  width: 115px;
+}
+
+.buzz_task_list_header .mark_completed,.buzz_task_list_table .mark_completed,#task_list_completed_buzz .mark_completed
+{
+  width: 105px;
+}
+
+.buzz_task_list_header .dozz_name,.buzz_task_list_table .dozz_name,#task_list_completed_buzz .dozz_name
+{
+  width: 190px;
+  word-wrap: break-word;
+}
+
+.buzz_task_list_table table, .channel_buzz_task_list table{
+  border: 1px solid #ddd
+}
+
+#check_empty_dozzes {
+  text-align: center;
+  padding: 20px 0 0 0;
+}
+
+
+.channel_buzz_task_list_header .actions_buzz_tasks,.channel_buzz_task_list .actions_buzz_tasks
+{
+  width: 125px;
+}
+
+.channel_buzz_task_list_header .priority,.channel_buzz_task_list .priority,#task_list_completed_channel .priority
+{
+  width: 82px;
+}
+
+.channel_buzz_task_list_header .buzz_task_due_date_width,.channel_buzz_task_list .buzz_task_due_date_width,#task_list_completed_channel .buzz_task_due_date_width
+{
+  width: 115px;
+}
+
+.channel_buzz_task_list_header .mark_completed,.channel_buzz_task_list .mark_completed
+{
+  width: 105px;
+}
+
+.channel_buzz_task_list_header .dozz_name,.channel_buzz_task_list .dozz_name,#task_list_completed_channel .dozz_name
+{
+  word-wrap: break-word;
+}
+
+.buzz_task_list_header tr th{
+  padding: 5px;
+  float:left;
+  border-right: 1px solid #fff;
+  background-color: #ddd;
+}
+
+.channel_buzz_task_list_header tr th{
+  padding: 5px;
+  float:left;
+  border-right: 1px solid #fff;
+  background-color: #ddd;
+}
+
+#cug_content .buzz_task_list table tr td{
+  padding : 5px
+}
+
+#cug_content .channel_buzz_task_list table tr td{
+  padding: 5px;
+  border-right: 1px solid #ddd;
+  padding: 5px;
+  text-align: center;
+  height: 25px;
+}
+
+#cug_content .channel_buzz_task_list #task_list_completed_channel table tr .dozz_name, #task_list_completed_buzz table tr .dozz_name{
+  text-align: left;
+}
+
+#steps #formElem .fields input[type=checkbox]{
+  margin-left: 46px;
+}
+
+#buzz_tasks_actions{
+  margin-top: 15px;
+}
+
+
+#channel_buzz_task_actions{
+  margin: 15px 0 0 0px;
+}
+
+
+#buzz_tasks_actions .add_field{
+  color: #fff;
+}
+
+.show_buzz_tasks_link
+{
+  float: right;
+  margin-right: 20px;
+  margin-top: 6px;
+}
+
+
+.buzz_flag_list{
+  position: absolute;
+  right: 70px;
+  width: 245px;
+  z-index: 1;
+}
+
+ul.buzz_flags li{
+  list-style: none;
+  padding: 5px;
+}
+
+ul.buzz_flags li img{
+  padding: 5px;
+  border: 2px solid #D7D5D5;
+  float: left;
+  margin-right: 60px;
+}
+
+ul.buzz_flags li img:hover{
+  border: 2px solid #4C4C4C;
+  cursor: pointer;
+}
+
+.buzz_flags_buzz_properties img{
+  padding: 2px;
+  border: 2px solid #D7D5D5;
+  float: left;
+  margin-right: 6px;
+  margin-top: 3px;
+}
+
+.buzz_flags_buzz_properties div{
+  margin-top: 3px;
+}
+
+.buzz_flags_buzz_properties img:hover{
+  border: 2px solid #4C4C4C;
+  cursor: pointer;
+}
+
+.selected_flag{
+  border: 2px  #0691C4 solid !important;
+}
+
+.add_buzz_tag{
+  padding:10px;
+}
+
+#add_new_tag span{
+  font-size: 16px !important;
+  padding-right: 23px;
+}
+
+.add_buzz_tag input{
+  float: none !important;
+}
+
+.cug_tag{
+  padding:10px 0;
+  margin-bottom: -10px;
+  width: 300px;
+  float: left;
+}
+
+.buzz_tag_list .buzz_tag_save{
+  width: 30px !important;
+  margin: 0 auto
+}
+
+.buzz_tags{
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 2px solid #D7D5D5;
+  overflow: auto;
+  padding: 6px 6px 10px;
+  margin-top: 4px;
+  color: #000;
+  width: 270px;
+}
+
+.label_buzz_tags{
+  padding:4px;
+}
+
+.label_buzz_tags span{
+  font-size: 12px !important;
+  top: 135px;
+}
+
+#buzz_tag_tag_id{
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #CCCCCC;
+  padding: 1px;
+  width: 150px;
+}
+
+#properties_buzz_tag_id{
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #CCCCCC;
+  padding: 1px;
+  width: 150px;
+
+}
+
+.divider_buzz_properties{
+  border-bottom: dashed 1px #bbbbbb;
+  margin: 5px 0 -5px 0;
+  display: none;
+}
+
+#buzz_tag_name{
+  padding-bottom: 5px;
+}
+
+#formElem .tag_filter{
+  padding-left: 75px !important;
+}
+
+#filter_tag .tags_check_box{
+  font-size: 14px ;
+}
+
+.buzz_tag_name{
+  padding: 2px 10px 2px 0;
+  float: left;
+}
+
+.label_buzz_tags buzz_tags img{
+  width: none;
+}
+
+#tag_title{
+  border-bottom: 1px dashed rgb(204, 204, 204);
+  padding: 2px;
+  padding-bottom: 7px;
+}
+
+#steps #formElem .content .buzz_tag_list .content right{
+  float: right;
+}
+
+#add_tag .new_tag{
+  float: left;
+}
+
+#steps #formElem .content #new_buzz_tag {
+  width: 92%;
+}
+
+.select_tag_title{
+  padding: 1px;
+}
+
+.new_tag{
+  cursor: pointer;
+}
+
+.step span #tag_title span.buzz_tag{
+  color: #5B5B5B;
+}
+
+#tag_name_field{
+  width: 155px;
+  height: 20px;
+}
+
+.label_buzz_tags span.heading3{
+  padding-left: 1px;
+}
+
+.details span.heading2{
+  padding-left: 1px;
+}
+
+#tag_title span.heading1{
+  padding-left: 1px;
+}
+
+.add_tag li.tag_create_button{
+  float: left;
+  padding: 6px 5px;
+}
+
+.add_tag_buzz_properties{
+  margin-left: 5px;
+}
+
+#no_tags{
+  color: #4C4C4C;
+}
+
+.buzz_tag_name a img{
+  border: 0px;
+}
+
+.top_channel_info_link{
+  cursor: pointer;
+}
+
+.float_right{
+  float:right;
+}
+
+.clear_both{
+  clear:both;
+}
+
+.tags_check_box li{
+  float: left;
+  list-style-type: none;
+  width: 161px;
+}
+
+#show_button{
+  clear: both;
+}
+
+/*.step span{
+  font-size: 12px;
+}*/
+
+.information a{
+  color: #0691C4;
+}
+
+.information a:hover{
+  text-decoration: none;
+  color: #757575;
+}
+
+.buzz_flag{
+  width: 100% !important;
+}
+
+#flag_title {
+  border-bottom: 1px dashed #CCCCCC;
+  padding: 2px 2px 7px;
+}
+
+#flag_title span.heading1{
+  color:#5B5B5B;
+  font-weight:bold
+}
+
+#flag_expiredate span.expiry_date{
+  margin-left: 40px;
+}
+
+#flag_expiredate span.heading1{
+  padding: 10px;
+  color:#5B5B5B;
+  font-weight:bold
+}
+
+.cug_insync_link a{
+  float: right;
+  padding-right: 10px;
+}
+
+#hide_insync_link{
+  cursor: pointer;
+}
+#show_insync_link{
+  cursor: pointer;
+}
+
+.cug_insync_link{
+  list-style: none;
+}
+
+.buzz_flag_list div.flags{
+  width: 205px !important;
+}
+
+.buzz_over_flag{
+  padding-right: 135px;
+  position: absolute;
+  right: 120px;
+  width: 120px;
+  z-index: 1;
+  background-color: #F4F4F4;
+  border: 1px solid #FFFFFF;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 0 0 3px #AAAAAA;
+  clear: both;
+  padding: 5px;
+}
+
+#buzz_flag_lists_save .inner_button{
+  margin-right: 5px;
+}
+
+.add_buzz_name{
+  position: absolute;
+  right: 135px;
+  width: 322px;
+  z-index: 1;
+}
+
+
+.buzz_name_field li{
+  width: auto !important;
+  list-style: none;
+  float: left;
+  padding: 3px;
+}
+
+.hidden_field_name{
+  visibility: hidden;
+}
+
+#buzz_name_title{
+  color: #5B5B5B;
+  font-weight: bold;
+}
+
+.step span.buzz_title{
+  color: #4D4D4D;
+  display: inline-block;
+}
+
+.pagination-loader{
+  margin-left: 410px;
+  position: relative;
+  bottom: 45px;
+}
+
+.more_buzz_icons{
+  display: none;
+}
+
+.more_buzz_actions_link{
+  float: left;
+  margin-bottom: 8px;
+}
+
+#left_pane{
+  float: left;
+}
+
+#main_pane{
+  float: left;
+  margin-left: 10px;
+  width: 70%;
+}
+
+#steps #formElem .manage_stats{
+  clear: none !important;
+  margin-top: 30px !important;
+}
+
+.help_icon{
+  float:left;
+  margin-top: 7px;
+  cursor: pointer;
+  padding-left: 2px;
+}
+#tool_tip{
+  margin: -100px 0 0 5px;
+  position: absolute;
+}
+#tool_tip .body{
+  background: none repeat scroll 0 0 #F9F9F9;
+  border: 1px solid #2EB6EA;
+  border-radius: 5px 5px 5px 5px;
+  height: 60px;
+  /*overflow-y: scroll;*/
+  padding: 5px;
+  width: 280px;
+}
+#tool_tip .tip{background:url(tip.png) no-repeat; width:11px; height:11px; position:absolute; margin-left:5px;}
+
+#channel_subscribe a{
+  color: #0691C4;
+  cursor: pointer;
+  margin-top: 2px;
+  padding-left: 12px;
+  float: left
+}
+
+.hide_show_insyn_chk_box{
+  vertical-align: text-top;
+}
+
+.err_msg, .error, .alert{
+  background: url("../assets/new_error.png")no-repeat;
+  padding-left: 21px;
+}
+
+.info_msg, .notice{
+  background: url("../assets/notification.png")no-repeat;
+  padding-left: 21px;
+}
+
+
+.apple_overlay {
+  display:none;
+  width:700px;
+  margin-left: 15px;
+}
+
+
+.apple_overlay .close_modal {
+  background-image: url("/assets/beehive-newui/popup-close.png");
+  cursor: pointer;
+  height: 31px;
+  position: absolute;
+  right: -4px;
+  top: -10px;
+  width: 29px;
+}
+
+
+#steps .select_group_view select {
+  float: none !important;
+  font-size: 12px;
+}
+
+.more_icon{
+  float: left;
+  margin-right: 9px;
+  margin-top: 1px;
+}
+#error_explanation{
+  color: red;
+  float: left;
+}
+
+#error_explanation_buzz_tag{
+  color: red;
+  float: left;
+}
+
+.create_tag_buttons{
+  float: left;
+  margin-top: 10px;
+}
+
+.channel_edit_link, .cug_edit_link{
+  background: url("../assets/beehive-newui/icons.png") no-repeat scroll -159px -232px transparent !important;
+  cursor: pointer;
+  height: 17px;
+  width: 20px;
+  z-index: 1;
+}
+
+.no_buzzs_found{
+  color: #666;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#beehive_channel_id{
+  margin-bottom: 5px;
+}
+
+#effect{position: relative !important;color:#5B5B5B !important; font-size: 24px;
+        font-weight: 500; padding: 0 0 10px 0;}
+
+.insync_effect_div{display: none}
+.insync_effect{position:absolute;}
+.insync_effect #text-fx span{font-size:14px; color:#5B5B5B !important;}
+.insync_effect #text-fx>div{position: relative;
+                            margin-left: -190px;
+                            margin-top: 3px;}
+
+#login_box {margin-top: -10px;}
+
+.rezz_textbox .buzz{
+  width: 640px;
+}
+
+.search_fld_icon{
+  background:url(../assets/beehive-newui/search.png) no-repeat right #fff;
+  cursor: pointer;
+  float: right;
+  height: 23px;
+  margin-right: 2px;
+  margin-top: -25px;
+  width: 21px;
+  z-index: 9999;
+}
+
+.add_tag_button{
+  margin: 4px 0 0 5px;
+}
+
+.radio_text_align{
+  vertical-align: -1px;
+}
+
+#buzz_channel_name{
+  width: 200px;
+}
+
+#buzz_properties_icon{
+  display: none;
+  margin-top: 3px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+/*.buzz_tags_buzz_properties{
+  display: none;
+}*/
+
+.buzz_tags_buzz_properties_heading{
+  margin-left: 8px;
+}
+
+#steps #formElem .buzz_properties_holder li .limit_members_for_buzz{
+  width: 180px;
+  overflow: auto;
+}
+
+#left_wrapper .sub_control li a.cug_color_red{
+  color: red;
+}
+
+#left_wrapper .sub_control li a.cug_color_red:hover{
+  color: red;
+}
+
+#left_wrapper .sub_control li.cug_name.selected_cug_topic a.cug_color_red{
+  color: red;
+}
+
+.view_icon{
+  cursor: pointer;
+}
+
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 55%;
+  margin-left: -50px;
+  margin-top: -50px;
+  text-align: center;
+  z-index: 9999;
+  overflow: auto;
+  width: 80px;
+  height: 65px;
+}
+
+.error_msg_color{
+  color: red;
+}
+
+.file_browse #buzz_attachment{
+  height: 20px;
+}
+
+#add_buzz_image_hld{
+  float: left;
+  height: 25px;
+  width: 19px;
+  position: relative;
+  right: 22px;
+}
+
+#add_buzz_image_hld.channel_icon_hld{
+  background: url("../assets/beehive-newui/icons.png") no-repeat scroll -48px -80px transparent !important
+}
+
+#add_buzz_image_hld.cug_icon_hld{
+  background: url("../assets/beehive-newui/icons.png") no-repeat scroll -11px -80px transparent !important
+}
+
+#empty_rezz_msg, #empty_buzz{
+  margin: 3px 0 3px 3px;
+}
+#empty_rezz_msg .err_msg, #empty_buzz .err_msg{
+  padding-left: 0 !important;
+}

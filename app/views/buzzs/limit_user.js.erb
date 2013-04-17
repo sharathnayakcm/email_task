@@ -1,0 +1,19 @@
+<% if flash[:notice] %>
+  $('.close_modal').click();
+  <% buzz_members = @buzz.buzz_members %>
+  <% if buzz_members.size > 0 %>
+    $("#limit_buzz_img_<%= @buzz.id %>").attr("title", '<%= @buzz.get_buzz_limited_member_names(buzz_members) %>');
+    $("#buzz_limit_count_<%= @buzz.id %>").addClass('buzz_icons_count').html("<%=  buzz_members.size %>")
+  <% else %>
+    $("#limit_buzz_img_<%= @buzz.id %>").attr("title", 'Limit Buzz');
+    $("#buzz_limit_count_<%= @buzz.id %>").removeClass('buzz_icons_count').html("")
+  <% end %>
+  $('#msg').html("<%= j show_flash_message %>");
+  notify();
+  tooltip_active();
+<% else %>
+  <% @ids.each do |id|  %>
+    $('#user_checkbox_'+<%=id%>).css('border', '2px solid red');
+  <% end %>
+  $('#error_explanation').show().html("<%= j flash.now[:error] %>").fadeOut(15000);
+<% end %>

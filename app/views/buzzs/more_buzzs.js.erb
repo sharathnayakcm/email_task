@@ -1,0 +1,9 @@
+$("#more_buzzs_<%=@channel.id%>_<%=@buzzs.current_page.to_i - 1 %>").hide();
+<% if params[:page].blank? %>
+  $("#buzzes_list_<%=@channel.id%>").append("<%= @buzzs.size == 0 ? "<div class='no_buzzs_found'>Sorry, no buzzes found. </div>".html_safe : (j render :partial => 'shared/buzz', :locals => {:buzzs => @buzzes, :page => params[:page]}) %>")
+<% else %>
+  $("#buzzes_list_<%=@channel.id%>").append("<%= (j render :partial => "shared/buzz", :locals => {:buzzs => @buzzs,:page => params[:page]}) %>")
+<% end %>
+var clickLink = $(".apple_overlay_link").overlay({mask: '#ebecff'});
+$(".apple_overlay_link").bind("click",function(){clickLink.load();});
+tooltip_active();

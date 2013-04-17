@@ -1,0 +1,39 @@
+<div class = "overlay_error_message"></div>
+<div class = "content" id = "add_tag_<%= @channel.id %>_<%= @buzz.id %>">
+  <div id = "tag_title">
+    <span class = "heading1 tag_list_title">Buzz Tags</span>
+  </div>
+  <div class = "cug_tag">
+    <table class = "details" id = "buzz_tags_<%= @channel.id %>_<%= @buzz.id %>">
+      <tr>
+        <td>
+          <span class = "heading2">Select Tag</span>
+        </td>
+      </tr>
+      <tr>
+        <td id = "<%= @buzz.id %>" class = "select_tag_title">
+          <!-- Used for getting the channel tags -->
+          <%= select_tag :tag_id, options_for_select(@cug_tags), :prompt => "Select...", :id => 'buzz_tag_tag_id', :path =>  buzz_tags_path(:buzz_id => @buzz.id, :channel_id => @buzz.channel_id) %></td>
+      </tr>
+      <%= hidden_field :buzz_tag, :buzz_id, :value => @buzz.id %>
+    </table>
+    <%= render :partial => "shared/add_tag", :locals => {:buzz => @buzz} %>
+    <% tags = @buzz.buzz_tags %>
+    <div class = "label_buzz_tags">
+      <span class = "heading3">Assigned Tags:</span>
+      <span id = "no_tags" style = "display:<%= tags.blank? ? 'inline-block' : 'none' %>">No tags assigned.</span>
+      <div class = "buzz_tags">
+        <% if tags.present? %>
+          <%= render :partial => 'buzz_tags/tag', :collection => tags %>
+        <% end %>
+      </div>
+    </div>
+    <div class="popup_actions">
+      <%= link_to "Add Tag", 'javascript://', :onclick => "show_add_tag_block();", :class => 'add_tag_button' %>
+    </div>
+  </div>
+  <div class="popup_action_info">
+    <span>You can tag a particular buzz. You can assign multiple tags for a particular buzz. The tags are user specific. Buzzes can be filtered based on the tag name(s).
+    </span>
+  </div>
+</div>

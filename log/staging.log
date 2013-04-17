@@ -1,0 +1,644 @@
+Connecting to database specified by database.yml
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-03-01 16:24:06 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/devise (31.7ms)
+Completed 500 Internal Server Error in 118ms
+
+ActionView::Template::Error (login_logo.png isn't precompiled):
+    1: <div id="login">
+    2:   <div class="logo"><%= image_tag('login_logo.png', :width=>"236", :height=>"139", :alt=>"Beehive" )%></div>
+    3:   <div class="container">
+    4:     <ul>
+    5:       <li>
+  app/views/devise/sessions/new.html.erb:2:in `_app_views_devise_sessions_new_html_erb___1016216120_91654650'
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-01 16:24:11 +0530
+Processing by ChannelsController#index as HTML
+Completed 401 Unauthorized in 1ms
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-03-01 16:24:11 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/devise (0.9ms)
+Completed 500 Internal Server Error in 3ms
+
+ActionView::Template::Error (login_logo.png isn't precompiled):
+    1: <div id="login">
+    2:   <div class="logo"><%= image_tag('login_logo.png', :width=>"236", :height=>"139", :alt=>"Beehive" )%></div>
+    3:   <div class="container">
+    4:     <ul>
+    5:       <li>
+  app/views/devise/sessions/new.html.erb:2:in `_app_views_devise_sessions_new_html_erb___1016216120_91654650'
+
+
+Connecting to database specified by database.yml
+Started GET "/" for 127.0.0.1 at 2013-03-01 16:25:02 +0530
+Processing by ChannelsController#index as HTML
+Completed 401 Unauthorized in 1ms
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-03-01 16:25:02 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/devise (33.9ms)
+Completed 500 Internal Server Error in 101ms
+
+ActionView::Template::Error (login_logo.png isn't precompiled):
+    1: <div id="login">
+    2:   <div class="logo"><%= image_tag('login_logo.png', :width=>"236", :height=>"139", :alt=>"Beehive" )%></div>
+    3:   <div class="container">
+    4:     <ul>
+    5:       <li>
+  app/views/devise/sessions/new.html.erb:2:in `_app_views_devise_sessions_new_html_erb__671853295_89480610'
+
+
+Connecting to database specified by database.yml
+Started GET "/" for 127.0.0.1 at 2013-03-01 18:12:14 +0530
+Processing by ChannelsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1[0m
+  [1m[35mUserPreference Load (0.2ms)[0m  SELECT `user_preferences`.* FROM `user_preferences` WHERE `user_preferences`.`user_id` = 3 LIMIT 1
+  [1m[36mBeehiveView Load (0.2ms)[0m  [1mSELECT `beehive_views`.* FROM `beehive_views` WHERE (view_for='channel' and ancestry is null)[0m
+  Rendered channels/index.html.erb within layouts/dashboard (87.2ms)
+Completed 500 Internal Server Error in 211ms
+
+ActionView::Template::Error (application.css isn't precompiled):
+    3: 
+    4:   <head>
+    5:     <title>Beehive</title>
+    6:     <%= stylesheet_link_tag  "application" %>
+    7:     <%= javascript_include_tag "application"%>
+    8:     <%= stylesheet_link_tag  "ipad" if is_tablet_device? %>
+    9:     <%= csrf_meta_tags %>
+  app/views/layouts/dashboard.html.erb:6:in `_app_views_layouts_dashboard_html_erb___662902475_92538100'
+
+
+Connecting to database specified by database.yml
+Compiled jquery.js  (1ms)  (pid 9148)
+Compiled jquery_ujs.js  (0ms)  (pid 9148)
+Compiled jquery-ui.js  (2ms)  (pid 9148)
+Compiled adhoc.js  (88ms)  (pid 9148)
+Compiled cj-text-fx.js  (0ms)  (pid 9148)
+Compiled jquery.autocomplete.js  (0ms)  (pid 9148)
+Compiled jquery.mCustomScrollbar.js  (24ms)  (pid 9148)
+Compiled jquery.mousewheel.min.js  (0ms)  (pid 9148)
+Compiled jquery.placeholder.js  (0ms)  (pid 9148)
+Compiled jquery.tagcloud.js  (0ms)  (pid 9148)
+Compiled jquery.tipTip.js  (0ms)  (pid 9148)
+Compiled jquery.tokeninput.js  (0ms)  (pid 9148)
+Compiled jquery.tools.min.js  (0ms)  (pid 9148)
+Compiled jquery.ui.button.js  (0ms)  (pid 9148)
+Compiled jquery.ui.touch-punch.js  (0ms)  (pid 9148)
+Compiled priority_buzzs.js  (0ms)  (pid 9148)
+Compiled response_expected_buzzs.js  (0ms)  (pid 9148)
+Compiled ui.dropdownchecklist.js  (0ms)  (pid 9148)
+Compiled user.js  (0ms)  (pid 9148)
+Compiled jquery.iframe-transport.js  (0ms)  (pid 9148)
+Compiled jquery.remotipart.js  (29ms)  (pid 9148)
+Compiled application.js  (233ms)  (pid 9148)
+Compiled adhoc.css  (60ms)  (pid 9148)
+Compiled help.css  (0ms)  (pid 9148)
+Compiled ipad.css  (0ms)  (pid 9148)
+Compiled jquery-ui-1.8.18.custom.css  (0ms)  (pid 9148)
+Compiled jquery.mCustomScrollbar.css  (0ms)  (pid 9148)
+Compiled manage-mode-styles.css  (0ms)  (pid 9148)
+Compiled priority_buzzs.css  (0ms)  (pid 9148)
+Compiled response_expected_buzzs.css  (0ms)  (pid 9148)
+Compiled styles.css  (0ms)  (pid 9148)
+Compiled tabs.css  (0ms)  (pid 9148)
+Compiled tags.css  (0ms)  (pid 9148)
+Compiled ui.dropdownchecklist.standalone.css  (0ms)  (pid 9148)
+Compiled application.css  (120ms)  (pid 9148)
+Compiled tinymce/preinit.js  (0ms)  (pid 9148)
+Compiled tinymce/tiny_mce_src.js  (3ms)  (pid 9148)
+Compiled tinymce.js  (12ms)  (pid 9148)
+Connecting to database specified by database.yml
+Compiled jquery.js  (1ms)  (pid 9148)
+Compiled jquery_ujs.js  (0ms)  (pid 9148)
+Compiled jquery-ui.js  (28ms)  (pid 9148)
+Compiled adhoc.js  (59ms)  (pid 9148)
+Compiled cj-text-fx.js  (0ms)  (pid 9148)
+Compiled jquery.autocomplete.js  (0ms)  (pid 9148)
+Compiled jquery.mCustomScrollbar.js  (0ms)  (pid 9148)
+Compiled jquery.mousewheel.min.js  (0ms)  (pid 9148)
+Compiled jquery.placeholder.js  (0ms)  (pid 9148)
+Compiled jquery.tagcloud.js  (0ms)  (pid 9148)
+Compiled jquery.tipTip.js  (0ms)  (pid 9148)
+Compiled jquery.tokeninput.js  (0ms)  (pid 9148)
+Compiled jquery.tools.min.js  (25ms)  (pid 9148)
+Compiled jquery.ui.button.js  (0ms)  (pid 9148)
+Compiled jquery.ui.touch-punch.js  (0ms)  (pid 9148)
+Compiled priority_buzzs.js  (0ms)  (pid 9148)
+Compiled response_expected_buzzs.js  (0ms)  (pid 9148)
+Compiled ui.dropdownchecklist.js  (0ms)  (pid 9148)
+Compiled user.js  (0ms)  (pid 9148)
+Compiled jquery.iframe-transport.js  (0ms)  (pid 9148)
+Compiled jquery.remotipart.js  (3ms)  (pid 9148)
+Compiled application.js  (176ms)  (pid 9148)
+Compiled adhoc.css  (4ms)  (pid 9148)
+Compiled help.css  (0ms)  (pid 9148)
+Compiled ipad.css  (0ms)  (pid 9148)
+Compiled jquery-ui-1.8.18.custom.css  (0ms)  (pid 9148)
+Compiled jquery.mCustomScrollbar.css  (0ms)  (pid 9148)
+Compiled manage-mode-styles.css  (0ms)  (pid 9148)
+Compiled priority_buzzs.css  (0ms)  (pid 9148)
+Compiled response_expected_buzzs.css  (0ms)  (pid 9148)
+Compiled styles.css  (0ms)  (pid 9148)
+Compiled tabs.css  (0ms)  (pid 9148)
+Compiled tags.css  (0ms)  (pid 9148)
+Compiled ui.dropdownchecklist.standalone.css  (0ms)  (pid 9148)
+Compiled application.css  (63ms)  (pid 9148)
+Compiled tinymce/preinit.js  (0ms)  (pid 9148)
+Compiled tinymce/tiny_mce_src.js  (4ms)  (pid 9148)
+Compiled tinymce.js  (284ms)  (pid 9148)
+Connecting to database specified by database.yml
+Started GET "/" for 127.0.0.1 at 2013-03-01 18:16:02 +0530
+Processing by ChannelsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1[0m
+  [1m[35mUserPreference Load (0.1ms)[0m  SELECT `user_preferences`.* FROM `user_preferences` WHERE `user_preferences`.`user_id` = 3 LIMIT 1
+  [1m[36mBeehiveView Load (0.1ms)[0m  [1mSELECT `beehive_views`.* FROM `beehive_views` WHERE (view_for='channel' and ancestry is null)[0m
+  Rendered channels/index.html.erb within layouts/dashboard (89.1ms)
+  Rendered shared/_header.erb (3.5ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 164ms (Views: 131.9ms | ActiveRecord: 4.6ms)
+Started GET "/channels/get_channels?&channel_view_type=203" for 127.0.0.1 at 2013-03-01 18:16:04 +0530
+Processing by ChannelsController#get_channels as */*
+  Parameters: {"channel_view_type"=>"203"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1
+  [1m[36mBeehiveView Load (0.1ms)[0m  [1mSELECT `beehive_views`.* FROM `beehive_views` WHERE `beehive_views`.`id` = 203 LIMIT 1[0m
+  [1m[35mBeehiveView Exists (2.6ms)[0m  SELECT 1 AS one FROM `beehive_views` WHERE `beehive_views`.`ancestry` = '203' LIMIT 1
+  [1m[36mSQL (4.1ms)[0m  [1mSELECT `channels`.`id` AS t0_r0, `channels`.`name` AS t0_r1, `channels`.`is_cug` AS t0_r2, `channels`.`user_id` AS t0_r3, `channels`.`is_active` AS t0_r4, `channels`.`created_at` AS t0_r5, `channels`.`updated_at` AS t0_r6, `channels`.`description` AS t0_r7, `channels`.`last_buzz_created_at` AS t0_r8, `channel_aliases`.`id` AS t1_r0, `channel_aliases`.`name` AS t1_r1, `channel_aliases`.`channel_id` AS t1_r2, `channel_aliases`.`user_id` AS t1_r3, `channel_aliases`.`created_at` AS t1_r4, `channel_aliases`.`updated_at` AS t1_r5, `subscriptions`.`id` AS t2_r0, `subscriptions`.`user_id` AS t2_r1, `subscriptions`.`channel_id` AS t2_r2, `subscriptions`.`created_at` AS t2_r3, `subscriptions`.`updated_at` AS t2_r4, `subscriptions`.`last_viewed` AS t2_r5, `subscriptions`.`is_core` AS t2_r6, `users`.`id` AS t3_r0, `users`.`first_name` AS t3_r1, `users`.`last_name` AS t3_r2, `users`.`is_admin` AS t3_r3, `users`.`is_active` AS t3_r4, `users`.`email` AS t3_r5, `users`.`encrypted_password` AS t3_r6, `users`.`reset_password_token` AS t3_r7, `users`.`reset_password_sent_at` AS t3_r8, `users`.`remember_created_at` AS t3_r9, `users`.`sign_in_count` AS t3_r10, `users`.`current_sign_in_at` AS t3_r11, `users`.`last_sign_in_at` AS t3_r12, `users`.`current_sign_in_ip` AS t3_r13, `users`.`last_sign_in_ip` AS t3_r14, `users`.`confirmation_token` AS t3_r15, `users`.`confirmed_at` AS t3_r16, `users`.`confirmation_sent_at` AS t3_r17, `users`.`authentication_token` AS t3_r18, `users`.`created_at` AS t3_r19, `users`.`updated_at` AS t3_r20, `users`.`display_name` AS t3_r21, `users`.`dozz_email` AS t3_r22, `users`.`remember_token` AS t3_r23, `users`.`cug_view` AS t3_r24, `users`.`dormant_days` AS t3_r25 FROM `channels` LEFT OUTER JOIN `channel_aliases` ON `channel_aliases`.`channel_id` = `channels`.`id` LEFT OUTER JOIN `subscriptions` ON `subscriptions`.`channel_id` = `channels`.`id` LEFT OUTER JOIN `users` ON `users`.`id` = `subscriptions`.`user_id` WHERE (is_cug = 0 and channels.created_at > '2012-05-05' and channels.is_active = 1 and users.id != 3) AND ((channels.name like '%%' or channel_aliases.name like '%%')) ORDER BY channels.name[0m
+  [1m[35mSubscription Load (0.4ms)[0m  SELECT last_viewed FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 246 AND `subscriptions`.`user_id` = 3 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE `buzzs`.`channel_id` = 246 AND (user_id != 3 and created_at > '2013-03-01 12:28:03')[0m
+  [1m[35mChannelAlias Load (0.1ms)[0m  SELECT name FROM `channel_aliases` WHERE `channel_aliases`.`user_id` = 3 AND `channel_aliases`.`channel_id` = 246 LIMIT 1
+  [1m[36mSubscription Load (0.3ms)[0m  [1mSELECT last_viewed FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 239 AND `subscriptions`.`user_id` = 3 LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM `buzzs` WHERE `buzzs`.`channel_id` = 239 AND (user_id != 3 and created_at > '2013-03-01 12:28:20')
+  [1m[36mChannelAlias Load (0.1ms)[0m  [1mSELECT name FROM `channel_aliases` WHERE `channel_aliases`.`user_id` = 3 AND `channel_aliases`.`channel_id` = 239 LIMIT 1[0m
+  [1m[35mSubscription Load (0.1ms)[0m  SELECT last_viewed FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 234 AND `subscriptions`.`user_id` = 3 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE `buzzs`.`channel_id` = 234 AND (user_id != 3 and created_at > '2013-03-01 12:31:05')[0m
+  [1m[35mChannelAlias Load (0.1ms)[0m  SELECT name FROM `channel_aliases` WHERE `channel_aliases`.`user_id` = 3 AND `channel_aliases`.`channel_id` = 234 LIMIT 1
+  [1m[36mSubscription Load (0.4ms)[0m  [1mSELECT last_viewed FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 229 AND `subscriptions`.`user_id` = 3 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `buzzs` WHERE `buzzs`.`channel_id` = 229 AND (user_id != 3 and created_at > '2013-03-01 12:27:55')
+  [1m[36mChannelAlias Load (0.1ms)[0m  [1mSELECT name FROM `channel_aliases` WHERE `channel_aliases`.`user_id` = 3 AND `channel_aliases`.`channel_id` = 229 LIMIT 1[0m
+  [1m[35mSubscription Load (0.5ms)[0m  SELECT last_viewed FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 228 AND `subscriptions`.`user_id` = 3 LIMIT 1
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE `buzzs`.`channel_id` = 228 AND (user_id != 3 and created_at > '2013-02-28 13:50:59')[0m
+  [1m[35mChannelAlias Load (0.1ms)[0m  SELECT name FROM `channel_aliases` WHERE `channel_aliases`.`user_id` = 3 AND `channel_aliases`.`channel_id` = 228 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `beehive_views`.* FROM `beehive_views` WHERE `beehive_views`.`id` = 203 LIMIT 1[0m
+  [1m[35mWatchChannel Load (0.1ms)[0m  SELECT id FROM `watch_channels` WHERE `watch_channels`.`channel_id` = 246 AND `watch_channels`.`user_id` = 3 LIMIT 1
+  Rendered shared/_channel_links.html.erb (1.0ms)
+  [1m[36mWatchChannel Load (0.1ms)[0m  [1mSELECT id FROM `watch_channels` WHERE `watch_channels`.`channel_id` = 239 AND `watch_channels`.`user_id` = 3 LIMIT 1[0m
+  Rendered shared/_channel_links.html.erb (0.3ms)
+  [1m[35mWatchChannel Load (0.1ms)[0m  SELECT id FROM `watch_channels` WHERE `watch_channels`.`channel_id` = 234 AND `watch_channels`.`user_id` = 3 LIMIT 1
+  Rendered shared/_channel_links.html.erb (0.3ms)
+  [1m[36mWatchChannel Load (0.1ms)[0m  [1mSELECT id FROM `watch_channels` WHERE `watch_channels`.`channel_id` = 229 AND `watch_channels`.`user_id` = 3 LIMIT 1[0m
+  Rendered shared/_channel_links.html.erb (0.3ms)
+  [1m[35mWatchChannel Load (0.1ms)[0m  SELECT id FROM `watch_channels` WHERE `watch_channels`.`channel_id` = 228 AND `watch_channels`.`user_id` = 3 LIMIT 1
+  Rendered shared/_channel_links.html.erb (0.4ms)
+  Rendered channels/_channel_names.html.erb (11.0ms)
+  Rendered shared/views/_channel_view_list.html.erb (12.4ms)
+  Rendered shared/views/_views.html.erb (13.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `beehive_views`.* FROM `beehive_views` WHERE `beehive_views`.`id` = 203 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM `beehive_views` WHERE `beehive_views`.`ancestry` = '203' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `beehive_views`.* FROM `beehive_views` WHERE `beehive_views`.`id` = 203 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM `beehive_views` WHERE `beehive_views`.`ancestry` = '203' LIMIT 1
+  Rendered shared/_breadcrumb_links.html.erb (3.0ms)
+  Rendered channels/get_channels.js.erb (18.2ms)
+Completed 200 OK in 200ms (Views: 50.3ms | ActiveRecord: 17.0ms)
+Started GET "/buzzs?channel_id=246&channel_view_type=203" for 127.0.0.1 at 2013-03-01 18:16:04 +0530
+Processing by BuzzsController#index as JS
+  Parameters: {"channel_id"=>"246", "channel_view_type"=>"203"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1[0m
+  [1m[35mChannel Load (0.1ms)[0m  SELECT `channels`.* FROM `channels` WHERE `channels`.`id` = 246 LIMIT 1
+  [1m[36mSubscription Load (0.4ms)[0m  [1mSELECT `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 246 AND `subscriptions`.`user_id` = 3 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSubscription Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM `subscriptions` WHERE (`subscriptions`.`channel_id` = BINARY 246 AND `subscriptions`.`id` != 395 AND `subscriptions`.`user_id` = 3) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  UPDATE `subscriptions` SET `last_viewed` = '2013-03-01 12:46:04', `updated_at` = '2013-03-01 12:46:04' WHERE `subscriptions`.`id` = 395
+  [1m[36m (243.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mSubscription Load (1.0ms)[0m  SELECT `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 246
+  [1m[36mSubscription Load (0.4ms)[0m  [1mSELECT last_viewed FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 246 AND `subscriptions`.`user_id` = 3 LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM `buzzs` WHERE `buzzs`.`channel_id` = 246 AND (user_id != 3 and created_at > '2013-03-01 12:46:04')
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE (channel_id = 246)[0m
+  [1m[35mBuzz Load (1.7ms)[0m  SELECT `buzzs`.* FROM `buzzs` WHERE (channel_id = 246) ORDER BY buzzs.id DESC LIMIT 10 OFFSET 0
+  [1m[36mChannel Load (0.2ms)[0m  [1mSELECT `channels`.* FROM `channels` WHERE `channels`.`id` IN (246)[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IN (3, 4) ORDER BY first_name
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE (buzzs.id = 1857 or buzzs.ancestry like '1857/%' or buzzs.ancestry = '1857')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `buzzs` WHERE (buzzs.id = 1857 or buzzs.ancestry like '1857/%' or buzzs.ancestry = '1857')
+  Rendered shared/_buzz_message.html.erb (0.4ms)
+  Rendered channels/_buzz_data.erb (6.9ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE (buzzs.id = 1853 or buzzs.ancestry like '1853/%' or buzzs.ancestry = '1853')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `buzzs` WHERE (buzzs.id = 1853 or buzzs.ancestry like '1853/%' or buzzs.ancestry = '1853')
+  Rendered shared/_buzz_message.html.erb (0.0ms)
+  Rendered channels/_buzz_data.erb (3.0ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE (buzzs.id = 1852 or buzzs.ancestry like '1852/%' or buzzs.ancestry = '1852')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `buzzs` WHERE (buzzs.id = 1852 or buzzs.ancestry like '1852/%' or buzzs.ancestry = '1852')
+  Rendered shared/_buzz_message.html.erb (0.0ms)
+  Rendered channels/_buzz_data.erb (2.9ms)
+  Rendered shared/_buzz.erb (66.7ms)
+  [1m[36mBeehiveView Load (0.1ms)[0m  [1mSELECT `beehive_views`.* FROM `beehive_views` WHERE `beehive_views`.`id` = 203 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `beehive_views`.* FROM `beehive_views` WHERE `beehive_views`.`id` = 203 LIMIT 1
+  [1m[36mBeehiveView Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `beehive_views` WHERE `beehive_views`.`ancestry` = '203' LIMIT 1[0m
+  [1m[35mChannelAlias Load (0.1ms)[0m  SELECT name,id FROM `channel_aliases` WHERE `channel_aliases`.`user_id` = 3 AND `channel_aliases`.`channel_id` = 246 LIMIT 1
+  Rendered shared/_breadcrumb_links.html.erb (2.4ms)
+  Rendered buzzs/index.js.erb (79.5ms)
+Completed 200 OK in 337ms (Views: 76.2ms | ActiveRecord: 251.9ms)
+Started GET "/admin/users" for 127.0.0.1 at 2013-03-01 18:17:29 +0530
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1[0m
+  [1m[35mSetting Load (0.1ms)[0m  SELECT `settings`.* FROM `settings` LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` ORDER BY first_name LIMIT 10 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `users` 
+  Rendered admin/users/index.html.erb within layouts/admin (12.8ms)
+  [1m[36mUserPreference Load (0.1ms)[0m  [1mSELECT `user_preferences`.* FROM `user_preferences` WHERE `user_preferences`.`user_id` = 3 LIMIT 1[0m
+  Rendered shared/_header.erb (3.0ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 28ms (Views: 18.8ms | ActiveRecord: 1.8ms)
+Started GET "/admin/users/new" for 127.0.0.1 at 2013-03-01 18:17:33 +0530
+Processing by Admin::UsersController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1
+  [1m[36mSetting Load (0.1ms)[0m  [1mSELECT `settings`.* FROM `settings` LIMIT 1[0m
+  Rendered admin/users/new.html.erb within layouts/admin (7.8ms)
+  [1m[35mUserPreference Load (0.2ms)[0m  SELECT `user_preferences`.* FROM `user_preferences` WHERE `user_preferences`.`user_id` = 3 LIMIT 1
+  Rendered shared/_header.erb (2.9ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 16ms (Views: 12.8ms | ActiveRecord: 0.4ms)
+Started POST "/admin/users" for 127.0.0.1 at 2013-03-01 18:18:26 +0530
+Processing by Admin::UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VMWvXpDf7U8AfS3mnqj4I5Mn83BnwAS55vzGdEmCPh0=", "user"=>{"display_name"=>"smtptest", "first_name"=>"smtp", "last_name"=>"test", "email"=>"smtptest@mailinator.com", "is_admin"=>"0", "is_active"=>"1", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1[0m
+  [1m[35mSetting Load (0.1ms)[0m  SELECT `settings`.* FROM `settings` LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'smtptest@mailinator.com' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`display_name` = BINARY 'smtptest' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'LezfGp6eVSUxTSNWDn6t' ORDER BY first_name LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'gH6BBxXQg63xs4kPPtjz' ORDER BY first_name LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `cug_view`, `current_sign_in_at`, `current_sign_in_ip`, `display_name`, `dormant_days`, `dozz_email`, `email`, `encrypted_password`, `first_name`, `is_active`, `is_admin`, `last_name`, `last_sign_in_at`, `last_sign_in_ip`, `remember_created_at`, `remember_token`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `updated_at`) VALUES ('LezfGp6eVSUxTSNWDn6t', '2013-03-01 12:48:26', 'gH6BBxXQg63xs4kPPtjz', NULL, '2013-03-01 12:48:26', 'pv', NULL, NULL, 'smtptest', 2, 'smtptest@mailinator.com', 'smtptest@mailinator.com', '$2a$10$8MAie8GtOq9YXMMq8rXGFeOCyaDCd2yVvhmtjcx68xdfgHp5S46K.', 'smtp', 1, 0, 'test', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2013-03-01 12:48:26')
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.0ms)
+
+Sent mail to smtptest@mailinator.com (3181ms)
+Date: Fri, 01 Mar 2013 18:18:27 +0530
+From: beehive@sumerusolutions.com
+Reply-To: beehive@sumerusolutions.com
+To: smtptest@mailinator.com
+Message-ID: <5130a39b13061_23c45973f9c22360@sumeruadmin-Vostro-460.mail>
+Subject: Beehive Invitation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome Smtptest to Beehive.</p>
+
+<p>You can activate your account using the link below:</p>
+
+<p><a href="http://124.30.122.233:3001/users/confirmation?confirmation_token=gH6BBxXQg63xs4kPPtjz">Activate my account</a></p>
+
+<p>Your login credentials are as follows:-</p>
+
+Username: smtptest@mailinator.com <br />
+Password: password
+
+<p>Demo Beehive will be up until Wednesday (06/03/2013) 8:00 PM HKT</p>
+
+<p>
+  Regards, <br />
+  Beehive Support Team.
+</p>
+  [1m[36m (88.2ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 3480ms
+
+SocketError (getaddrinfo: Name or service not known):
+  app/controllers/admin/users_controller.rb:20:in `create'
+
+
+Connecting to database specified by database.yml
+Started GET "/" for 127.0.0.1 at 2013-03-01 18:22:32 +0530
+Processing by ChannelsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1[0m
+  [1m[35mUserPreference Load (0.1ms)[0m  SELECT `user_preferences`.* FROM `user_preferences` WHERE `user_preferences`.`user_id` = 3 LIMIT 1
+  [1m[36mBeehiveView Load (0.1ms)[0m  [1mSELECT `beehive_views`.* FROM `beehive_views` WHERE (view_for='channel' and ancestry is null)[0m
+  Rendered channels/index.html.erb within layouts/dashboard (87.0ms)
+  Rendered shared/_header.erb (3.1ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 163ms (Views: 128.4ms | ActiveRecord: 4.8ms)
+Started GET "/channels/get_channels?&channel_view_type=203" for 127.0.0.1 at 2013-03-01 18:22:34 +0530
+Processing by ChannelsController#get_channels as */*
+  Parameters: {"channel_view_type"=>"203"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1
+  [1m[36mBeehiveView Load (0.1ms)[0m  [1mSELECT `beehive_views`.* FROM `beehive_views` WHERE `beehive_views`.`id` = 203 LIMIT 1[0m
+  [1m[35mBeehiveView Exists (0.1ms)[0m  SELECT 1 AS one FROM `beehive_views` WHERE `beehive_views`.`ancestry` = '203' LIMIT 1
+  [1m[36mSQL (5.5ms)[0m  [1mSELECT `channels`.`id` AS t0_r0, `channels`.`name` AS t0_r1, `channels`.`is_cug` AS t0_r2, `channels`.`user_id` AS t0_r3, `channels`.`is_active` AS t0_r4, `channels`.`created_at` AS t0_r5, `channels`.`updated_at` AS t0_r6, `channels`.`description` AS t0_r7, `channels`.`last_buzz_created_at` AS t0_r8, `channel_aliases`.`id` AS t1_r0, `channel_aliases`.`name` AS t1_r1, `channel_aliases`.`channel_id` AS t1_r2, `channel_aliases`.`user_id` AS t1_r3, `channel_aliases`.`created_at` AS t1_r4, `channel_aliases`.`updated_at` AS t1_r5, `subscriptions`.`id` AS t2_r0, `subscriptions`.`user_id` AS t2_r1, `subscriptions`.`channel_id` AS t2_r2, `subscriptions`.`created_at` AS t2_r3, `subscriptions`.`updated_at` AS t2_r4, `subscriptions`.`last_viewed` AS t2_r5, `subscriptions`.`is_core` AS t2_r6, `users`.`id` AS t3_r0, `users`.`first_name` AS t3_r1, `users`.`last_name` AS t3_r2, `users`.`is_admin` AS t3_r3, `users`.`is_active` AS t3_r4, `users`.`email` AS t3_r5, `users`.`encrypted_password` AS t3_r6, `users`.`reset_password_token` AS t3_r7, `users`.`reset_password_sent_at` AS t3_r8, `users`.`remember_created_at` AS t3_r9, `users`.`sign_in_count` AS t3_r10, `users`.`current_sign_in_at` AS t3_r11, `users`.`last_sign_in_at` AS t3_r12, `users`.`current_sign_in_ip` AS t3_r13, `users`.`last_sign_in_ip` AS t3_r14, `users`.`confirmation_token` AS t3_r15, `users`.`confirmed_at` AS t3_r16, `users`.`confirmation_sent_at` AS t3_r17, `users`.`authentication_token` AS t3_r18, `users`.`created_at` AS t3_r19, `users`.`updated_at` AS t3_r20, `users`.`display_name` AS t3_r21, `users`.`dozz_email` AS t3_r22, `users`.`remember_token` AS t3_r23, `users`.`cug_view` AS t3_r24, `users`.`dormant_days` AS t3_r25 FROM `channels` LEFT OUTER JOIN `channel_aliases` ON `channel_aliases`.`channel_id` = `channels`.`id` LEFT OUTER JOIN `subscriptions` ON `subscriptions`.`channel_id` = `channels`.`id` LEFT OUTER JOIN `users` ON `users`.`id` = `subscriptions`.`user_id` WHERE (is_cug = 0 and channels.created_at > '2012-05-05' and channels.is_active = 1 and users.id != 3) AND ((channels.name like '%%' or channel_aliases.name like '%%')) ORDER BY channels.name[0m
+  [1m[35mSubscription Load (0.1ms)[0m  SELECT last_viewed FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 246 AND `subscriptions`.`user_id` = 3 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE `buzzs`.`channel_id` = 246 AND (user_id != 3 and created_at > '2013-03-01 12:46:04')[0m
+  [1m[35mChannelAlias Load (0.1ms)[0m  SELECT name FROM `channel_aliases` WHERE `channel_aliases`.`user_id` = 3 AND `channel_aliases`.`channel_id` = 246 LIMIT 1
+  [1m[36mSubscription Load (0.5ms)[0m  [1mSELECT last_viewed FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 239 AND `subscriptions`.`user_id` = 3 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `buzzs` WHERE `buzzs`.`channel_id` = 239 AND (user_id != 3 and created_at > '2013-03-01 12:28:20')
+  [1m[36mChannelAlias Load (0.1ms)[0m  [1mSELECT name FROM `channel_aliases` WHERE `channel_aliases`.`user_id` = 3 AND `channel_aliases`.`channel_id` = 239 LIMIT 1[0m
+  [1m[35mSubscription Load (0.5ms)[0m  SELECT last_viewed FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 234 AND `subscriptions`.`user_id` = 3 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE `buzzs`.`channel_id` = 234 AND (user_id != 3 and created_at > '2013-03-01 12:31:05')[0m
+  [1m[35mChannelAlias Load (0.1ms)[0m  SELECT name FROM `channel_aliases` WHERE `channel_aliases`.`user_id` = 3 AND `channel_aliases`.`channel_id` = 234 LIMIT 1
+  [1m[36mSubscription Load (0.4ms)[0m  [1mSELECT last_viewed FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 229 AND `subscriptions`.`user_id` = 3 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `buzzs` WHERE `buzzs`.`channel_id` = 229 AND (user_id != 3 and created_at > '2013-03-01 12:27:55')
+  [1m[36mChannelAlias Load (0.1ms)[0m  [1mSELECT name FROM `channel_aliases` WHERE `channel_aliases`.`user_id` = 3 AND `channel_aliases`.`channel_id` = 229 LIMIT 1[0m
+  [1m[35mSubscription Load (0.4ms)[0m  SELECT last_viewed FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 228 AND `subscriptions`.`user_id` = 3 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE `buzzs`.`channel_id` = 228 AND (user_id != 3 and created_at > '2013-02-28 13:50:59')[0m
+  [1m[35mChannelAlias Load (0.1ms)[0m  SELECT name FROM `channel_aliases` WHERE `channel_aliases`.`user_id` = 3 AND `channel_aliases`.`channel_id` = 228 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `beehive_views`.* FROM `beehive_views` WHERE `beehive_views`.`id` = 203 LIMIT 1[0m
+  [1m[35mWatchChannel Load (0.1ms)[0m  SELECT id FROM `watch_channels` WHERE `watch_channels`.`channel_id` = 246 AND `watch_channels`.`user_id` = 3 LIMIT 1
+  Rendered shared/_channel_links.html.erb (1.1ms)
+  [1m[36mWatchChannel Load (0.1ms)[0m  [1mSELECT id FROM `watch_channels` WHERE `watch_channels`.`channel_id` = 239 AND `watch_channels`.`user_id` = 3 LIMIT 1[0m
+  Rendered shared/_channel_links.html.erb (0.3ms)
+  [1m[35mWatchChannel Load (0.1ms)[0m  SELECT id FROM `watch_channels` WHERE `watch_channels`.`channel_id` = 234 AND `watch_channels`.`user_id` = 3 LIMIT 1
+  Rendered shared/_channel_links.html.erb (0.3ms)
+  [1m[36mWatchChannel Load (0.1ms)[0m  [1mSELECT id FROM `watch_channels` WHERE `watch_channels`.`channel_id` = 229 AND `watch_channels`.`user_id` = 3 LIMIT 1[0m
+  Rendered shared/_channel_links.html.erb (0.3ms)
+  [1m[35mWatchChannel Load (0.1ms)[0m  SELECT id FROM `watch_channels` WHERE `watch_channels`.`channel_id` = 228 AND `watch_channels`.`user_id` = 3 LIMIT 1
+  Rendered shared/_channel_links.html.erb (0.3ms)
+  Rendered channels/_channel_names.html.erb (10.4ms)
+  Rendered shared/views/_channel_view_list.html.erb (11.9ms)
+  Rendered shared/views/_views.html.erb (13.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `beehive_views`.* FROM `beehive_views` WHERE `beehive_views`.`id` = 203 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM `beehive_views` WHERE `beehive_views`.`ancestry` = '203' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `beehive_views`.* FROM `beehive_views` WHERE `beehive_views`.`id` = 203 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM `beehive_views` WHERE `beehive_views`.`ancestry` = '203' LIMIT 1
+  Rendered shared/_breadcrumb_links.html.erb (2.8ms)
+  Rendered channels/get_channels.js.erb (18.7ms)
+Completed 200 OK in 186ms (Views: 53.8ms | ActiveRecord: 14.2ms)
+Started GET "/buzzs?channel_id=246&channel_view_type=203" for 127.0.0.1 at 2013-03-01 18:22:34 +0530
+Processing by BuzzsController#index as JS
+  Parameters: {"channel_id"=>"246", "channel_view_type"=>"203"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1[0m
+  [1m[35mChannel Load (0.1ms)[0m  SELECT `channels`.* FROM `channels` WHERE `channels`.`id` = 246 LIMIT 1
+  [1m[36mSubscription Load (0.4ms)[0m  [1mSELECT `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 246 AND `subscriptions`.`user_id` = 3 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSubscription Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM `subscriptions` WHERE (`subscriptions`.`channel_id` = BINARY 246 AND `subscriptions`.`id` != 395 AND `subscriptions`.`user_id` = 3) LIMIT 1[0m
+  [1m[35m (11.7ms)[0m  UPDATE `subscriptions` SET `last_viewed` = '2013-03-01 12:52:34', `updated_at` = '2013-03-01 12:52:34' WHERE `subscriptions`.`id` = 395
+  [1m[36m (92.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mSubscription Load (0.6ms)[0m  SELECT `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 246
+  [1m[36mSubscription Load (0.5ms)[0m  [1mSELECT last_viewed FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 246 AND `subscriptions`.`user_id` = 3 LIMIT 1[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM `buzzs` WHERE `buzzs`.`channel_id` = 246 AND (user_id != 3 and created_at > '2013-03-01 12:52:34')
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE (channel_id = 246)[0m
+  [1m[35mBuzz Load (0.2ms)[0m  SELECT `buzzs`.* FROM `buzzs` WHERE (channel_id = 246) ORDER BY buzzs.id DESC LIMIT 10 OFFSET 0
+  [1m[36mChannel Load (0.2ms)[0m  [1mSELECT `channels`.* FROM `channels` WHERE `channels`.`id` IN (246)[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IN (3, 4) ORDER BY first_name
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE (buzzs.id = 1857 or buzzs.ancestry like '1857/%' or buzzs.ancestry = '1857')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `buzzs` WHERE (buzzs.id = 1857 or buzzs.ancestry like '1857/%' or buzzs.ancestry = '1857')
+  Rendered shared/_buzz_message.html.erb (0.4ms)
+  Rendered channels/_buzz_data.erb (6.6ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE (buzzs.id = 1853 or buzzs.ancestry like '1853/%' or buzzs.ancestry = '1853')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `buzzs` WHERE (buzzs.id = 1853 or buzzs.ancestry like '1853/%' or buzzs.ancestry = '1853')
+  Rendered shared/_buzz_message.html.erb (0.0ms)
+  Rendered channels/_buzz_data.erb (2.7ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE (buzzs.id = 1852 or buzzs.ancestry like '1852/%' or buzzs.ancestry = '1852')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `buzzs` WHERE (buzzs.id = 1852 or buzzs.ancestry like '1852/%' or buzzs.ancestry = '1852')
+  Rendered shared/_buzz_message.html.erb (0.0ms)
+  Rendered channels/_buzz_data.erb (1.9ms)
+  Rendered shared/_buzz.erb (63.3ms)
+  [1m[36mBeehiveView Load (0.1ms)[0m  [1mSELECT `beehive_views`.* FROM `beehive_views` WHERE `beehive_views`.`id` = 203 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `beehive_views`.* FROM `beehive_views` WHERE `beehive_views`.`id` = 203 LIMIT 1
+  [1m[36mBeehiveView Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `beehive_views` WHERE `beehive_views`.`ancestry` = '203' LIMIT 1[0m
+  [1m[35mChannelAlias Load (0.1ms)[0m  SELECT name,id FROM `channel_aliases` WHERE `channel_aliases`.`user_id` = 3 AND `channel_aliases`.`channel_id` = 246 LIMIT 1
+  Rendered shared/_breadcrumb_links.html.erb (2.3ms)
+  Rendered buzzs/index.js.erb (78.1ms)
+Completed 200 OK in 199ms (Views: 79.4ms | ActiveRecord: 109.7ms)
+Started GET "/admin/users" for 127.0.0.1 at 2013-03-01 18:22:37 +0530
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1[0m
+  [1m[35mSetting Load (0.1ms)[0m  SELECT `settings`.* FROM `settings` LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` ORDER BY first_name LIMIT 10 OFFSET 0[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `users` 
+  Rendered admin/users/index.html.erb within layouts/admin (20.6ms)
+  [1m[36mUserPreference Load (0.2ms)[0m  [1mSELECT `user_preferences`.* FROM `user_preferences` WHERE `user_preferences`.`user_id` = 3 LIMIT 1[0m
+  Rendered shared/_header.erb (5.0ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 38ms (Views: 28.8ms | ActiveRecord: 2.4ms)
+Started GET "/admin/users/new" for 127.0.0.1 at 2013-03-01 18:22:41 +0530
+Processing by Admin::UsersController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1
+  [1m[36mSetting Load (0.1ms)[0m  [1mSELECT `settings`.* FROM `settings` LIMIT 1[0m
+  Rendered admin/users/new.html.erb within layouts/admin (8.6ms)
+  [1m[35mUserPreference Load (0.1ms)[0m  SELECT `user_preferences`.* FROM `user_preferences` WHERE `user_preferences`.`user_id` = 3 LIMIT 1
+  Rendered shared/_header.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 0.3ms)
+Connecting to database specified by database.yml
+Started GET "/admin/users/new" for 127.0.0.1 at 2013-03-01 18:24:41 +0530
+Processing by Admin::UsersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1[0m
+  [1m[35mSetting Load (0.0ms)[0m  SELECT `settings`.* FROM `settings` LIMIT 1
+  Rendered admin/users/new.html.erb within layouts/admin (34.6ms)
+  [1m[36mUserPreference Load (0.1ms)[0m  [1mSELECT `user_preferences`.* FROM `user_preferences` WHERE `user_preferences`.`user_id` = 3 LIMIT 1[0m
+  Rendered shared/_header.erb (48.8ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 157ms (Views: 121.1ms | ActiveRecord: 4.4ms)
+Started POST "/admin/users" for 127.0.0.1 at 2013-03-01 18:25:09 +0530
+Processing by Admin::UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VMWvXpDf7U8AfS3mnqj4I5Mn83BnwAS55vzGdEmCPh0=", "user"=>{"display_name"=>"smtptest", "first_name"=>"SMTP", "last_name"=>"test", "email"=>"smtptest@mailinator.com", "is_admin"=>"0", "is_active"=>"1", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1
+  [1m[36mSetting Load (0.1ms)[0m  [1mSELECT `settings`.* FROM `settings` LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'smtptest@mailinator.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`display_name` = BINARY 'smtptest' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'v33GTZ1pkXEJuU5mLMVX' ORDER BY first_name LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'VY9RKr9XpbzPXiQzZDAF' ORDER BY first_name LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `cug_view`, `current_sign_in_at`, `current_sign_in_ip`, `display_name`, `dormant_days`, `dozz_email`, `email`, `encrypted_password`, `first_name`, `is_active`, `is_admin`, `last_name`, `last_sign_in_at`, `last_sign_in_ip`, `remember_created_at`, `remember_token`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `updated_at`) VALUES ('v33GTZ1pkXEJuU5mLMVX', '2013-03-01 12:55:09', 'VY9RKr9XpbzPXiQzZDAF', NULL, '2013-03-01 12:55:09', 'pv', NULL, NULL, 'smtptest', 2, 'smtptest@mailinator.com', 'smtptest@mailinator.com', '$2a$10$d7VB/A2KM19m9zJHhAmktu8Qbz2YY899KbHNVtUMCR2o2sovJA.Cy', 'SMTP', 1, 0, 'test', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2013-03-01 12:55:09')[0m
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.1ms)
+
+Sent mail to smtptest@mailinator.com (40ms)
+Date: Fri, 01 Mar 2013 18:25:10 +0530
+From: beehive@sumerusolutions.com
+Reply-To: beehive@sumerusolutions.com
+To: smtptest@mailinator.com
+Message-ID: <5130a52df3844_241d535fc9662569@sumeruadmin-Vostro-460.mail>
+Subject: Beehive Invitation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome Smtptest to Beehive.</p>
+
+<p>You can activate your account using the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=VY9RKr9XpbzPXiQzZDAF">Activate my account</a></p>
+
+<p>Your login credentials are as follows:-</p>
+
+Username: smtptest@mailinator.com <br />
+Password: password
+
+<p>Demo Beehive will be up until Wednesday (06/03/2013) 8:00 PM HKT</p>
+
+<p>
+  Regards, <br />
+  Beehive Support Team.
+</p>
+  [1m[35m (62.2ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 341ms
+
+ArgumentError (wrong authentication type ssl):
+  app/controllers/admin/users_controller.rb:20:in `create'
+
+
+Connecting to database specified by database.yml
+Started GET "/admin/users/new" for 127.0.0.1 at 2013-03-01 18:25:49 +0530
+Processing by Admin::UsersController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1[0m
+  [1m[35mSetting Load (0.1ms)[0m  SELECT `settings`.* FROM `settings` LIMIT 1
+  Rendered admin/users/new.html.erb within layouts/admin (33.9ms)
+  [1m[36mUserPreference Load (0.2ms)[0m  [1mSELECT `user_preferences`.* FROM `user_preferences` WHERE `user_preferences`.`user_id` = 3 LIMIT 1[0m
+  Rendered shared/_header.erb (49.4ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 161ms (Views: 120.2ms | ActiveRecord: 5.3ms)
+Started GET "/" for 127.0.0.1 at 2013-03-01 18:25:54 +0530
+Processing by ChannelsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1
+  [1m[36mUserPreference Load (0.1ms)[0m  [1mSELECT `user_preferences`.* FROM `user_preferences` WHERE `user_preferences`.`user_id` = 3 LIMIT 1[0m
+  [1m[35mBeehiveView Load (0.1ms)[0m  SELECT `beehive_views`.* FROM `beehive_views` WHERE (view_for='channel' and ancestry is null)
+  Rendered channels/index.html.erb within layouts/dashboard (15.4ms)
+  Rendered shared/_header.erb (2.0ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 23ms (Views: 19.3ms | ActiveRecord: 1.7ms)
+Started GET "/channels/get_channels?&channel_view_type=203" for 127.0.0.1 at 2013-03-01 18:25:55 +0530
+Processing by ChannelsController#get_channels as */*
+  Parameters: {"channel_view_type"=>"203"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1[0m
+  [1m[35mBeehiveView Load (0.1ms)[0m  SELECT `beehive_views`.* FROM `beehive_views` WHERE `beehive_views`.`id` = 203 LIMIT 1
+  [1m[36mBeehiveView Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `beehive_views` WHERE `beehive_views`.`ancestry` = '203' LIMIT 1[0m
+  [1m[35mSQL (4.7ms)[0m  SELECT `channels`.`id` AS t0_r0, `channels`.`name` AS t0_r1, `channels`.`is_cug` AS t0_r2, `channels`.`user_id` AS t0_r3, `channels`.`is_active` AS t0_r4, `channels`.`created_at` AS t0_r5, `channels`.`updated_at` AS t0_r6, `channels`.`description` AS t0_r7, `channels`.`last_buzz_created_at` AS t0_r8, `channel_aliases`.`id` AS t1_r0, `channel_aliases`.`name` AS t1_r1, `channel_aliases`.`channel_id` AS t1_r2, `channel_aliases`.`user_id` AS t1_r3, `channel_aliases`.`created_at` AS t1_r4, `channel_aliases`.`updated_at` AS t1_r5, `subscriptions`.`id` AS t2_r0, `subscriptions`.`user_id` AS t2_r1, `subscriptions`.`channel_id` AS t2_r2, `subscriptions`.`created_at` AS t2_r3, `subscriptions`.`updated_at` AS t2_r4, `subscriptions`.`last_viewed` AS t2_r5, `subscriptions`.`is_core` AS t2_r6, `users`.`id` AS t3_r0, `users`.`first_name` AS t3_r1, `users`.`last_name` AS t3_r2, `users`.`is_admin` AS t3_r3, `users`.`is_active` AS t3_r4, `users`.`email` AS t3_r5, `users`.`encrypted_password` AS t3_r6, `users`.`reset_password_token` AS t3_r7, `users`.`reset_password_sent_at` AS t3_r8, `users`.`remember_created_at` AS t3_r9, `users`.`sign_in_count` AS t3_r10, `users`.`current_sign_in_at` AS t3_r11, `users`.`last_sign_in_at` AS t3_r12, `users`.`current_sign_in_ip` AS t3_r13, `users`.`last_sign_in_ip` AS t3_r14, `users`.`confirmation_token` AS t3_r15, `users`.`confirmed_at` AS t3_r16, `users`.`confirmation_sent_at` AS t3_r17, `users`.`authentication_token` AS t3_r18, `users`.`created_at` AS t3_r19, `users`.`updated_at` AS t3_r20, `users`.`display_name` AS t3_r21, `users`.`dozz_email` AS t3_r22, `users`.`remember_token` AS t3_r23, `users`.`cug_view` AS t3_r24, `users`.`dormant_days` AS t3_r25 FROM `channels` LEFT OUTER JOIN `channel_aliases` ON `channel_aliases`.`channel_id` = `channels`.`id` LEFT OUTER JOIN `subscriptions` ON `subscriptions`.`channel_id` = `channels`.`id` LEFT OUTER JOIN `users` ON `users`.`id` = `subscriptions`.`user_id` WHERE (is_cug = 0 and channels.created_at > '2012-05-05' and channels.is_active = 1 and users.id != 3) AND ((channels.name like '%%' or channel_aliases.name like '%%')) ORDER BY channels.name
+  [1m[36mSubscription Load (0.1ms)[0m  [1mSELECT last_viewed FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 246 AND `subscriptions`.`user_id` = 3 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `buzzs` WHERE `buzzs`.`channel_id` = 246 AND (user_id != 3 and created_at > '2013-03-01 12:52:34')
+  [1m[36mChannelAlias Load (0.1ms)[0m  [1mSELECT name FROM `channel_aliases` WHERE `channel_aliases`.`user_id` = 3 AND `channel_aliases`.`channel_id` = 246 LIMIT 1[0m
+  [1m[35mSubscription Load (0.5ms)[0m  SELECT last_viewed FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 239 AND `subscriptions`.`user_id` = 3 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE `buzzs`.`channel_id` = 239 AND (user_id != 3 and created_at > '2013-03-01 12:28:20')[0m
+  [1m[35mChannelAlias Load (0.1ms)[0m  SELECT name FROM `channel_aliases` WHERE `channel_aliases`.`user_id` = 3 AND `channel_aliases`.`channel_id` = 239 LIMIT 1
+  [1m[36mSubscription Load (0.4ms)[0m  [1mSELECT last_viewed FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 234 AND `subscriptions`.`user_id` = 3 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `buzzs` WHERE `buzzs`.`channel_id` = 234 AND (user_id != 3 and created_at > '2013-03-01 12:31:05')
+  [1m[36mChannelAlias Load (0.1ms)[0m  [1mSELECT name FROM `channel_aliases` WHERE `channel_aliases`.`user_id` = 3 AND `channel_aliases`.`channel_id` = 234 LIMIT 1[0m
+  [1m[35mSubscription Load (0.4ms)[0m  SELECT last_viewed FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 229 AND `subscriptions`.`user_id` = 3 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE `buzzs`.`channel_id` = 229 AND (user_id != 3 and created_at > '2013-03-01 12:27:55')[0m
+  [1m[35mChannelAlias Load (0.1ms)[0m  SELECT name FROM `channel_aliases` WHERE `channel_aliases`.`user_id` = 3 AND `channel_aliases`.`channel_id` = 229 LIMIT 1
+  [1m[36mSubscription Load (0.4ms)[0m  [1mSELECT last_viewed FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 228 AND `subscriptions`.`user_id` = 3 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `buzzs` WHERE `buzzs`.`channel_id` = 228 AND (user_id != 3 and created_at > '2013-02-28 13:50:59')
+  [1m[36mChannelAlias Load (0.1ms)[0m  [1mSELECT name FROM `channel_aliases` WHERE `channel_aliases`.`user_id` = 3 AND `channel_aliases`.`channel_id` = 228 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `beehive_views`.* FROM `beehive_views` WHERE `beehive_views`.`id` = 203 LIMIT 1
+  [1m[36mWatchChannel Load (0.1ms)[0m  [1mSELECT id FROM `watch_channels` WHERE `watch_channels`.`channel_id` = 246 AND `watch_channels`.`user_id` = 3 LIMIT 1[0m
+  Rendered shared/_channel_links.html.erb (0.9ms)
+  [1m[35mWatchChannel Load (0.1ms)[0m  SELECT id FROM `watch_channels` WHERE `watch_channels`.`channel_id` = 239 AND `watch_channels`.`user_id` = 3 LIMIT 1
+  Rendered shared/_channel_links.html.erb (0.3ms)
+  [1m[36mWatchChannel Load (0.1ms)[0m  [1mSELECT id FROM `watch_channels` WHERE `watch_channels`.`channel_id` = 234 AND `watch_channels`.`user_id` = 3 LIMIT 1[0m
+  Rendered shared/_channel_links.html.erb (0.3ms)
+  [1m[35mWatchChannel Load (0.1ms)[0m  SELECT id FROM `watch_channels` WHERE `watch_channels`.`channel_id` = 229 AND `watch_channels`.`user_id` = 3 LIMIT 1
+  Rendered shared/_channel_links.html.erb (0.3ms)
+  [1m[36mWatchChannel Load (0.1ms)[0m  [1mSELECT id FROM `watch_channels` WHERE `watch_channels`.`channel_id` = 228 AND `watch_channels`.`user_id` = 3 LIMIT 1[0m
+  Rendered shared/_channel_links.html.erb (0.3ms)
+  Rendered channels/_channel_names.html.erb (10.4ms)
+  Rendered shared/views/_channel_view_list.html.erb (11.7ms)
+  Rendered shared/views/_views.html.erb (12.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `beehive_views`.* FROM `beehive_views` WHERE `beehive_views`.`id` = 203 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM `beehive_views` WHERE `beehive_views`.`ancestry` = '203' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `beehive_views`.* FROM `beehive_views` WHERE `beehive_views`.`id` = 203 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM `beehive_views` WHERE `beehive_views`.`ancestry` = '203' LIMIT 1[0m
+  Rendered shared/_breadcrumb_links.html.erb (2.8ms)
+  Rendered channels/get_channels.js.erb (17.2ms)
+Completed 200 OK in 184ms (Views: 49.3ms | ActiveRecord: 13.4ms)
+Started GET "/buzzs?channel_id=246&channel_view_type=203" for 127.0.0.1 at 2013-03-01 18:25:56 +0530
+Processing by BuzzsController#index as JS
+  Parameters: {"channel_id"=>"246", "channel_view_type"=>"203"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1
+  [1m[36mChannel Load (0.1ms)[0m  [1mSELECT `channels`.* FROM `channels` WHERE `channels`.`id` = 246 LIMIT 1[0m
+  [1m[35mSubscription Load (0.5ms)[0m  SELECT `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 246 AND `subscriptions`.`user_id` = 3 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSubscription Exists (1.0ms)[0m  SELECT 1 AS one FROM `subscriptions` WHERE (`subscriptions`.`channel_id` = BINARY 246 AND `subscriptions`.`id` != 395 AND `subscriptions`.`user_id` = 3) LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `subscriptions` SET `last_viewed` = '2013-03-01 12:55:56', `updated_at` = '2013-03-01 12:55:56' WHERE `subscriptions`.`id` = 395[0m
+  [1m[35m (99.0ms)[0m  COMMIT
+  [1m[36mSubscription Load (0.9ms)[0m  [1mSELECT `subscriptions`.* FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 246[0m
+  [1m[35mSubscription Load (0.4ms)[0m  SELECT last_viewed FROM `subscriptions` WHERE `subscriptions`.`channel_id` = 246 AND `subscriptions`.`user_id` = 3 LIMIT 1
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE `buzzs`.`channel_id` = 246 AND (user_id != 3 and created_at > '2013-03-01 12:55:56')[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `buzzs` WHERE (channel_id = 246)
+  [1m[36mBuzz Load (0.1ms)[0m  [1mSELECT `buzzs`.* FROM `buzzs` WHERE (channel_id = 246) ORDER BY buzzs.id DESC LIMIT 10 OFFSET 0[0m
+  [1m[35mChannel Load (0.2ms)[0m  SELECT `channels`.* FROM `channels` WHERE `channels`.`id` IN (246)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (3, 4) ORDER BY first_name[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `buzzs` WHERE (buzzs.id = 1857 or buzzs.ancestry like '1857/%' or buzzs.ancestry = '1857')
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE (buzzs.id = 1857 or buzzs.ancestry like '1857/%' or buzzs.ancestry = '1857')[0m
+  Rendered shared/_buzz_message.html.erb (0.3ms)
+  Rendered channels/_buzz_data.erb (4.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `buzzs` WHERE (buzzs.id = 1853 or buzzs.ancestry like '1853/%' or buzzs.ancestry = '1853')
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE (buzzs.id = 1853 or buzzs.ancestry like '1853/%' or buzzs.ancestry = '1853')[0m
+  Rendered shared/_buzz_message.html.erb (0.0ms)
+  Rendered channels/_buzz_data.erb (2.9ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `buzzs` WHERE (buzzs.id = 1852 or buzzs.ancestry like '1852/%' or buzzs.ancestry = '1852')
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `buzzs` WHERE (buzzs.id = 1852 or buzzs.ancestry like '1852/%' or buzzs.ancestry = '1852')[0m
+  Rendered shared/_buzz_message.html.erb (0.0ms)
+  Rendered channels/_buzz_data.erb (2.1ms)
+  Rendered shared/_buzz.erb (65.6ms)
+  [1m[35mBeehiveView Load (0.2ms)[0m  SELECT `beehive_views`.* FROM `beehive_views` WHERE `beehive_views`.`id` = 203 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `beehive_views`.* FROM `beehive_views` WHERE `beehive_views`.`id` = 203 LIMIT 1[0m
+  [1m[35mBeehiveView Exists (0.2ms)[0m  SELECT 1 AS one FROM `beehive_views` WHERE `beehive_views`.`ancestry` = '203' LIMIT 1
+  [1m[36mChannelAlias Load (0.1ms)[0m  [1mSELECT name,id FROM `channel_aliases` WHERE `channel_aliases`.`user_id` = 3 AND `channel_aliases`.`channel_id` = 246 LIMIT 1[0m
+  Rendered shared/_breadcrumb_links.html.erb (3.0ms)
+  Rendered buzzs/index.js.erb (82.7ms)
+Completed 200 OK in 198ms (Views: 82.6ms | ActiveRecord: 104.8ms)
+Started GET "/admin/users" for 127.0.0.1 at 2013-03-01 18:25:58 +0530
+Processing by Admin::UsersController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1
+  [1m[36mSetting Load (0.1ms)[0m  [1mSELECT `settings`.* FROM `settings` LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` ORDER BY first_name LIMIT 10 OFFSET 0
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `users` [0m
+  Rendered admin/users/index.html.erb within layouts/admin (13.5ms)
+  [1m[35mUserPreference Load (0.1ms)[0m  SELECT `user_preferences`.* FROM `user_preferences` WHERE `user_preferences`.`user_id` = 3 LIMIT 1
+  Rendered shared/_header.erb (2.7ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 21ms (Views: 17.1ms | ActiveRecord: 1.3ms)
+Started GET "/admin/users/new" for 127.0.0.1 at 2013-03-01 18:26:01 +0530
+Processing by Admin::UsersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1[0m
+  [1m[35mSetting Load (0.1ms)[0m  SELECT `settings`.* FROM `settings` LIMIT 1
+  Rendered admin/users/new.html.erb within layouts/admin (4.8ms)
+  [1m[36mUserPreference Load (0.1ms)[0m  [1mSELECT `user_preferences`.* FROM `user_preferences` WHERE `user_preferences`.`user_id` = 3 LIMIT 1[0m
+  Rendered shared/_header.erb (2.7ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 13ms (Views: 9.6ms | ActiveRecord: 0.4ms)
+Started POST "/admin/users" for 127.0.0.1 at 2013-03-01 18:26:22 +0530
+Processing by Admin::UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VMWvXpDf7U8AfS3mnqj4I5Mn83BnwAS55vzGdEmCPh0=", "user"=>{"display_name"=>"smtptest", "first_name"=>"smtp", "last_name"=>"test", "email"=>"smtptest@mailinator.com", "is_admin"=>"0", "is_active"=>"1", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name LIMIT 1
+  [1m[36mSetting Load (0.1ms)[0m  [1mSELECT `settings`.* FROM `settings` LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'smtptest@mailinator.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`display_name` = BINARY 'smtptest' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'kp3eWqsYibPj38ph7wMy' ORDER BY first_name LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = '1PkdiLDkPhkJa2JKvo1X' ORDER BY first_name LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `cug_view`, `current_sign_in_at`, `current_sign_in_ip`, `display_name`, `dormant_days`, `dozz_email`, `email`, `encrypted_password`, `first_name`, `is_active`, `is_admin`, `last_name`, `last_sign_in_at`, `last_sign_in_ip`, `remember_created_at`, `remember_token`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `updated_at`) VALUES ('kp3eWqsYibPj38ph7wMy', '2013-03-01 12:56:22', '1PkdiLDkPhkJa2JKvo1X', NULL, '2013-03-01 12:56:22', 'pv', NULL, NULL, 'smtptest', 2, 'smtptest@mailinator.com', 'smtptest@mailinator.com', '$2a$10$ZkvRsyeXEMM23g56yqh38ukgJKq1QkGYpSxrYnaiFAeDBNQyzYZ9a', 'smtp', 1, 0, 'test', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2013-03-01 12:56:22')[0m
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.0ms)
+
+Sent mail to smtptest@mailinator.com (60517ms)
+Date: Fri, 01 Mar 2013 18:26:22 +0530
+From: beehive@sumerusolutions.com
+Reply-To: beehive@sumerusolutions.com
+To: smtptest@mailinator.com
+Message-ID: <5130a576e8833_24295959dea664cb@sumeruadmin-Vostro-460.mail>
+Subject: Beehive Invitation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome Smtptest to Beehive.</p>
+
+<p>You can activate your account using the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=1PkdiLDkPhkJa2JKvo1X">Activate my account</a></p>
+
+<p>Your login credentials are as follows:-</p>
+
+Username: smtptest@mailinator.com <br />
+Password: password
+
+<p>Demo Beehive will be up until Wednesday (06/03/2013) 8:00 PM HKT</p>
+
+<p>
+  Regards, <br />
+  Beehive Support Team.
+</p>
+  [1m[35m (76.5ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 60833ms
+
+Timeout::Error (Timeout::Error):
+  app/controllers/admin/users_controller.rb:20:in `create'
+
+

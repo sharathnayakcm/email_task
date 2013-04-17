@@ -1,0 +1,26 @@
+<% attachment_name = buzz.getting_attachment_name %>
+<% buzz_name = buzz.getting_buzz_name(current_user) %>
+<div class="buzz_post <%= buzz.user_id == current_user.id ? 'buzz_post_by_you' : 'buzz_post_by_others' %>" id="buzz_<%=  buzz.id %>">
+  <div class="left buzz_data">
+    <span class="arrow_rezz_icon_block" id='rezz_view_<%=buzz.id%>'><%= view_rezzs_toggle(buzz) if buzz.root.subtree.count > 1 %></span>
+    <span class="buzzer_name_icon">&nbsp;</span>
+    <span class ="buzzer_names"><%= buzz.user_id == current_user.id ? 'You' : buzz.full_name %></span>
+    <span class="buzzed_time"><%= time_ago_in_words(buzz.created_at).to_s + ' ago' %></span>
+    <span class="buzz_title">
+      <% if  buzz_name.blank? %>
+        <span class ="parent_buzz_name_<%=buzz.root_id%>"></span>
+      <% else %>
+        <%= link_to buzz_name.name.truncate(15), edit_buzz_name_path(buzz.id),:remote => true,:title => 'Edit Buzz Name',:class => "parent_buzz_name_#{buzz.root_id} apple_overlay_link", :rel => "#overlay_block" %>
+      <% end %>
+    </span>
+    <%= get_buzz_attachment(attachment_name, buzz.id) unless attachment_name.blank? %>
+    <span class="action_view_icons action_priority" id="action_priority_<%=buzz.id%>"><%= image_tag("beehive-newui/priority.png", :title => 'Priority') if buzz.is_priority_buzz(current_user.id).present? %></span>
+    <span class="action_view_icons action_response_expected" id="action_response_expected_<%=buzz.id%>"><%= image_tag("beehive-newui/response-expected.png", :title => "Response Expected") if buzz.is_response_expected(current_user.id).present? %></span>
+    <span class="action_view_icons action_awaiting_response" id="action_awaiting_response_<%=buzz.id%>"><%= image_tag("beehive-newui/awaiting_response.png" , :title => 'Awating for Response(s)') if buzz.is_awaiting_response(current_user.id).present? %></span>
+  </div>
+  <%= render :partial => is_tablet_device? ? "/shared/buzz_ipad_actions_cugs" : "/shared/buzz_actions", :locals => {:buzz => buzz, :last_insync_id => @last_insync_id, :buzz_name => buzz_name} %>
+  <div class="clear"></div>
+  <%= render :partial => '/shared/buzz_message', :locals => {:buzz => buzz} %>
+  <div id="rezz_<%= buzz.id %>" style="display:none" class="new_rezz"></div>
+  <div id="view_rezzs_<%= buzz.id %>" class="view_rezzs"></div>
+</div>

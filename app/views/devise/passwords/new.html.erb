@@ -1,0 +1,13 @@
+<h1>Forgot your password?</h1>
+<% msg = []
+flash.now[:error] = resource.errors.full_messages.each{|e| msg << "#{e}" unless msg.include?(e)} %>
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :onSubmit => 'return forget_password_validation();' }) do |f| %>
+  <span id="msg" style="display: none;"><%= show_flash_message %></span>
+  <ul>
+    <li class="fld"><%= f.email_field :email, :class => "txt_fld", :placeholder => 'Enter your email' %></li>
+    <div class="login_button"><%= submit_tag "Reset Password" %></div>
+  </ul>
+<%  end %>
+<span class="forgot_password_link">
+  <%= render :partial => "devise/shared/links" %>
+</span>

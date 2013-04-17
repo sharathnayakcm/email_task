@@ -1,0 +1,30 @@
+<div id="<%= cug_type %>_scrollbar" class="channels_or_cugs_list">
+  <ul>
+    <% if cugs.present? %>
+      <% view_path =  BeehiveView.get_path(cug_type).gsub('[cug_type]', "#{cug_type}") %>
+      <% cugs.each do |cug| %>
+        <li class="cug_topic_links cug_name" id="cug_topic_<%=cug[:id]%>_<%= cug_type %>">
+          <%= link_to "#{truncate(cug[:name], :length => 24)} <span class='insync_count_number insync_count_number_#{cug[:id]}'>(#{cug[:buzz_count]})</span>".html_safe, view_path.gsub('[channel_id]', "#{cug[:id]}"), :id => cug[:id], :class => "cug_topic_link", :channel_name => cug[:name], :cug_type => cug_type, :title => "#{cug[:name]}", :remote => true %>
+          <% is_fav = check_channel_is_fav(current_user, cug[:id]) %>
+          <% path = is_fav.blank? ?  favourites_path(:channel_id => cug[:id], :channel_type => 'CUG') :  favourite_path(is_fav.id, :channel_id => cug[:id], :channel_type => 'CUG') %>
+          <% if is_tablet_device? %>
+            <div class="right"><span class = 'ipad_channel_icons_link down' id ="<%=cug[:id]%>_<%=cug_type%>"></span></div>
+            <div class="clear"></div>
+            <div class="ipad_channel_icons" id="ipad_channel_icons_<%=cug[:id]%>_<%=cug_type%>">
+              <%= render :partial => 'shared/cug_links' , :locals => {:path => path, :is_fav => is_fav, :cug => cug, :cug_type => cug_type} %>
+            </div>
+          <% else %>
+            <%= render :partial => 'shared/cug_links' , :locals => {:path => path, :is_fav => is_fav, :cug => cug, :cug_type => cug_type} %>
+          <% end %>
+        </li>
+      <% end %>
+    <% else %>
+      <li class="no_cugs"><a><%= keyword.present? ? "No Matched CUG Present" : "No Out of Sync CUGs" %></a></li>
+    <% end %>
+  </ul>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    left_nav_height()
+  });
+</script>

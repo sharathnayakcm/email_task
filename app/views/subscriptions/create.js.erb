@@ -1,0 +1,10 @@
+$('#channel_subscribe').hide();
+$("#msg").html("<%= show_flash_message %>");
+notify();
+obj = ''
+if($('.cug_group_view').length > 1)
+obj = $('.cug_group_view_link.open').prev().attr("id")
+$.ajax({
+  type: 'get',
+  url: "/channels/get_channels?channel_view_type="+$('#channel_view_type :selected').val()+"&opened_block="+obj
+});

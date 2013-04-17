@@ -1,0 +1,24 @@
+$("#advance_search_filters").html("<%= j render :partial => 'advance_search_options' %>");
+$('#advance_search_link').hide();
+$('.search_fld_icon').hide();
+if($('.selected_cug_topic').length > 0){
+  $('#search_in').show();
+  $('#current_cug').val($('.selected_cug_topic a:first').attr("id"));
+ }
+$('#advance_search_options').slideDown("slow");
+$('#search_type').val('advance');
+$('#search_options').focus();
+$("#tags_scrollbar").mCustomScrollbar({
+  advanced:{
+    updateOnBrowserResize:true,
+    updateOnContentResize:true
+  }
+});
+update_scroll_by_keyword_arrows("#tags_scrollbar");
+$("#buzzedby_scrollbar").mCustomScrollbar({
+  advanced:{
+    updateOnBrowserResize:true,
+    updateOnContentResize:true
+  }
+});
+update_scroll_by_keyword_arrows("#buzzedby_scrollbar");

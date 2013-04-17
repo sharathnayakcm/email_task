@@ -1,0 +1,43 @@
+<% ids =  @rezz.subtree.collect{|r| r.id} %>
+<% if @rezz.destroy  && @rezz.buzz_members.destroy_all %>
+  $("#<%= @buzz.channel.id %>").children('span.insync_count_number').html("(<%= current_user.channel_buzz_count(@buzz.channel) %>)");
+  <% for id in ids %>
+    $("#buzz_<%= id %>").each(function(){
+    $(this).addClass('flash_msg').html("The Rezz has been deleted succesfully").fadeOut(1000);
+    });
+  <%end%>
+  <% if @rezz.id == @rezz.root_id %>
+    $("#buzz_<%= @rezz.id %>").html("The main buzz has been deleted succesfully").fadeOut(1000);
+  <%end%>
+<%end%>
+
+<% subtree = @rezz.root.subtree %>
+
+<% if subtree.count == 1  %>
+  $(".parent_<%= @rezz.root_id %>").remove();
+<% else %>
+  $(".parent_<%= @rezz.root_id %>").html('<%= subtree.count %>')
+<% end %>
+$("#rezz_view_<%= @rezz.root_id %>").html('<%= view_rezzs_toggle(@rezz.root) if @rezz.root.subtree.count > 1 %>');
+$("#rezz_view_<%= @rezz.id %>").html('<%= view_rezzs_toggle(@rezz) if @rezz.root.subtree.count > 1 %>')
+
+if($('#channel_buzz_task_page').length > 0){
+$('.channel_buzz_tasks_<%=params[:buzz_id]%>').each(function(){
+$(this).next().remove()
+$(this).remove()
+})
+
+$('.buzz_completed_tasks_<%=params[:buzz_id]%>').remove()
+$('#show_completed_tasks_link_channel').hide()
+$('#task_list_completed_channel').html('')
+<%  if get_channel_buzz_tasks(@rezz, current_user.id).completed_dozzes.present? %>
+  $('#show_completed_tasks_link_channel').show()
+<% end %>
+}
+
+<% if @buzz.channel.buzzs.empty? %>
+  if($(".right_nav li.info").is(":visible"))
+  $('#buzzes_list').html("<div class='no_buzzs_found'>Sorry, No Out Of Sync buzzes found. </div>")
+  else
+  $("#buzzes_list_<%= @buzz.channel.id %>").html("<div class='no_buzzs_found'>No Out Of Sync Buzzes found for this Channel.</div>")
+<%end%>

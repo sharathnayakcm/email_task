@@ -1,0 +1,29 @@
+<div class="content tab_wrapper" id="cug_content">
+
+  <ul class="tabs">
+    <li><a class="current" href="#">Insync Stats</a></li>
+    <li><a class="current" href="#">CUG Stats</a></li>
+  </ul>
+
+  <!-- tab "panes" -->
+  <div class="panes">
+    <div class="insync_tabs">
+      <ul class="insync_stats">
+        <% insync_cug_stats = @channel.insync_cug_stats %>
+        <% if insync_cug_stats.size > 0 %>
+          <%  insync_cug_stats.each do |sub| %>
+            <% user = sub.user %>
+            <% buzz_insync =  user.get_buzz_insyncs(@channel.id) %>
+            <li>
+              <%= user.full_name == current_user.full_name ? 'You' : user.full_name %>
+              <span><%=  buzz_insync.blank? ? "Never InSynced" : "InSynced #{time_ago_in_words(buzz_insync.updated_at).to_s + ' ago'}" %>.</span>
+            </li>
+          <% end %>
+        <% else %>
+          <li>No Insynced record found.</li>
+        <% end %>
+      </ul>
+    </div>
+    <%= render :partial => 'cugs/cug_stats' %>
+  </div>
+</div>

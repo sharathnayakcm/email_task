@@ -1,0 +1,17 @@
+<% if channels.present? %>
+  <% channels.each do |channel| %>
+    <div id="cug_topic_name_display" buzzid ="<%= channel[:id] %>">
+      <div class="group_icon"></div><%= channel[:name] %></div>
+    <div class="clear"></div>
+    <div id="buzzes_list_<%= channel[:id]%>">
+      <% channel[:is_cug] ? (buzzs, @last_insync_id = Channel.get_buzzs(channel[:id], current_user.id, params[:hide_insync_cugs], 5, 1)) : buzzs = Channel.get_channel_buzzs(channel[:id], 5, 1) %>
+      <% if buzzs && buzzs.size > 0 %>
+        <%= render :partial => "shared/buzz" ,:locals => {:buzzs => buzzs,:page => params[:page]} %>
+      <% else %>
+        <div class='no_buzzs_found'>No Buzzes found for <%= channel[:name] %>.</div>
+      <% end %>
+    </div>
+  <% end %>
+<% else %>
+  <div class='no_buzzs_found'>No <%= controller.controller_name == 'cugs' ? "Out Of Sync" : "" %> Buzzes found... </div>
+<% end %>

@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <title>Beehive</title>
+    <link type="text/css" rel="stylesheet" media="screen" href="/assets/application.css" />
+    <script type="text/javascript" src="/assets/application.js"></script>
+    
+    <link type="image/vnd.microsoft.icon" rel="shortcut icon" href="/favicon.ico" />
+  </head>
+  <body onload="notify();">
+    <div><div id="boxd" style="opacity: 0.306944; display: block;"><span class="">Signed in successfully.</span></div></div>
+    <div>
+      <span style="display: none;" id="msg"></span>
+      <div id="dashboard">
+        <div class="logo"><a href="/"><img border="0" alt="Beehive" src="/assets/dashboard_logo.png" /></a></div>
+<div class="top_links">
+  <span><a href="/users/edit">Sahana</a></span>
+  <span> | </span>
+  <span><a href="/home/dashboard">Dashboard</a></span>
+  <span> | </span>
+  <span><a rel="nofollow" data-method="delete" href="/users/sign_out">Logout</a></span>
+  <span> | </span>
+  <span><a target="_blank" href="/home/help">Help</a></span></div>
+<div class="clear"></div>
+
+        <div class="container">
+          <div class="container_top"></div>
+          <div class="container_mid">
+            <!--Tabs Starts Here-->
+            <div id="wrapper">
+<div id="navigation">
+<ul>
+  <li class=""><a href="/home">Watch</a></li>
+<li class="selected"><a href="/home/channels">Channels</a></li>
+<li class=""><a href="/home/cugs">CUGs</a></li>
+<li class=""><a href="/home/today">Today</a> </li>
+<li class=""><a href="/home/calendar">Calendar</a> </li>
+</ul>
+  <div class="current_page"> Now Screen: Channels </div>
+</div>
+  <div>
+  <form method="post" id="buzzout" enctype="multipart/form-data" action="/home/process_command" accept-charset="UTF-8"><div style="margin:0;padding:0;display:inline"><input type="hidden" value="✓" name="utf8" /></div>
+    <div class="float_left">
+      <textarea rows="20" placeholder="Type your command here ......" onkeyup="count_char('#command');check_here('#command');" name="beehive[command]" id="command" cols="40" class="buzz"></textarea>
+    </div>
+    <div class="buzzout_img">
+      <img title="Add attachment" src="/assets/attachment_big.png" onclick="check_attachment('attachfile');" alt="attachment" />
+    </div>
+    <div class="buzzout_img">
+      <img title="Buzzout" src="/assets/buzzout.png" onclick="submit_command('buzzout');" id="buzzout_img" alt="Buzzout" />
+    </div>
+    <div class="step">
+      <span id="dashboard_msg"></span>
+      <span id="attached_file"></span>
+      <input type="file" onchange="get_attachment_name(this, 'attached_file');" name="beehive[attachfile]" id="attachfile" />
+    </div>
+    <input type="hidden" name="myerror" id="myerror" />
+    <div class="clear"></div>
+</form></div>
+<div id="steps">
+<form method="post" action="" name="formElem" id="formElem">
+<fieldset class="step">
+<legend>Channels</legend>
+<div class="content ">
+<span class="head">My Channels</span>
+<br />
+<div class="list_holder">
+  <p>You haven't been subscribed to any channel yet.</p>
+</div>
+</div>
+<div class="content ">
+<span class="head">New Channels</span><span>(New Channels created in last 3 days.)</span>
+<br />
+<div class="list_holder">
+  <p>No new channels yet.</p>
+</div>
+</div>
+
+<div class="content ">
+  <span class="head"><a href="/home/other_channels">Other Channels</a></span>
+<br />
+
+</div>
+<div class="footer_note"><div class="mandatory">*</div>Number in brackets above represent the number of new buzzes for the channel.</div>
+</fieldset>
+</form>
+</div>
+</div>
+
+            <!--Tabs Ends Here-->
+            <div class="clear"></div>
+          </div>
+          <div class="container_bottom"></div>
+          <div id="footer">
+<div class="social_inner">
+<!--
+<ul>
+<li><a href="#"><img src="/assets/social/facebook.png"  alt="Facebook" border="0" /></a></li>
+<li><a href="#"><img src="/assets/social/twitter.png"  alt="Facebook" border="0" /></a></li>
+<li><a href="#"><img src="/assets/social/yahoo.png" alt="Facebook" border="0" /></a></li>
+<li><a href="#"><img src="/assets/social/blogger.png"  alt="Facebook" border="0" /></a></li>
+</ul>
+-->
+</div>
+<div class="cr_inner">© 2012 Beehive - Powered by Sumeru Software Solutions</div>
+</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  
+</body></html>

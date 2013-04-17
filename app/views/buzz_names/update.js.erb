@@ -1,0 +1,16 @@
+/* Buzz name for a buzz is edited and updated by the user */
+<% if @buzz_name.valid? %>
+  $(".close_modal").click();
+  $(".parent_buzz_name_<%= @buzz.root_id %>").each(function(){
+  $(this).html("<%= j link_to truncate(@buzz_name.name,:length => 15), edit_buzz_name_path(:id => @buzz[:id]),:remote => true, :title => 'Edit Buzz Name',:class => "parent_buzz_name_#{@buzz.root_id} apple_overlay_link" , :rel => "#overlay_block" %>");
+  });
+  $('.parent_buzz_name_view_<%= @buzz.root_id %>').hide();
+  $('#msg').html("<%= show_flash_message %>");
+  notify();
+  var clickLink = $(".apple_overlay_link").overlay({mask: '#ebecff'});
+  $(".apple_overlay_link").bind("click",function(){clickLink.load();});
+<% else %>
+  $('#error_explanation').html("<%= show_flash_message %>");
+  $('#buzz_name_name').css("border", '2px solid red');
+<% end %>
+tooltip_active();

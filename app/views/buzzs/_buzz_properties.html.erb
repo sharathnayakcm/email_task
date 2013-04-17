@@ -1,0 +1,108 @@
+<ul class="buzz_properties_holder">
+  <li>
+    <div class="head">Prioritize Buzz <span class="right" style="margin-top: 2px;"><%= check_box_tag :select_unselect_prioritize_members %></span></div>
+    <div class="content prioritize_members_for_buzz">
+      <% if @user_names.blank? %>
+        No subscribed users to this CUG. Hence Buzz cannot be Prioritized.
+      <% else %>
+        <% @user_names.each do |u| %>
+          <div class="clear">
+            <div class="left check_box_style">
+              <%= check_box_tag("prioritize_user_ids[]", u.id, nil, :onclick => "check_uncheck_check_boxes('.prioritize_members_for_buzz', '#select_unselect_prioritize_members')") %>
+            </div>
+            <div class="left limit_checkbox"><%= u.full_name %></div></div>
+        <% end %>
+      <% end %>
+    </div>
+  </li>
+
+  <li style="width: 260px">
+    <div class="head">Response Expected<span class="right" style="margin-top: 2px;"><%= check_box_tag :select_unselect_response_expected %></span></div>
+    <div class="content response_expected_for_buzz">
+      <% if @user_names.blank? %>
+        No subscribed users to this CUG. Hence Buzz cannot be Prioritized.
+      <% else %>
+        <% @user_names.each_with_index do |u, index| %>
+          <div class="clear left" style="margin-top: 4px;">
+            <div  class="left" style="margin-top: 6px;">
+              <div class="left check_box_style">
+                <%= check_box_tag("response_expected[#{index}][user_id]", u.id, nil, :onclick => "check_uncheck_check_boxes('.response_expected_for_buzz', '#select_unselect_response_expected'); get_exipry_date_buzz_properties(this);") %>
+              </div>
+              <div class="left limit_checkbox"><%= u.full_name %></div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </li>
+
+  <li>
+    <div class="head">Limit Buzz <span class="right" style="margin-top: 2px;"><%= check_box_tag :select_unselect_buzz_properties %></span></div>
+    <div class="content limit_members_for_buzz">
+      <% if @user_names && @user_names.size == 1 %>
+        Only 1 User subscribed to this CUG. Hence Buzz cannot be limited.
+      <% elsif @user_names && @user_names.size < 2 %>
+        You can limit the buzz only when there are more than one users subscribed to this CUG.
+      <% else %>
+        <% @user_names.each do |u| %>
+          <div class="clear">
+            <div class="left check_box_style">
+              <%= check_box_tag("user_ids[]", u.id, nil, :onclick => "check_uncheck_check_boxes('.limit_members_for_buzz', '#select_unselect_buzz_properties')") %>
+            </div>
+            <div class="left limit_checkbox"><%= u.full_name %></div></div>
+        <% end %>
+      <% end %>
+    </div>
+  </li>
+
+  <div class="clear"></div>
+  <li style="width:158px">
+    <div class="head"> Buzz Flags</div>
+    <div class="content buzz_flags_buzz_properties">
+      <% @flags.each_with_index do |flag,index| %>
+        <div class="left" style="margin-bottom:4px;">
+          <%= image_tag("flag_"+ flag.name.downcase + ".png", :id => "flag_pro_#{flag.id}") %>
+          <%= check_box_tag "buzz_flag[#{index}][flag_id]", flag.id,false, :class => "display_none" %>
+          <%= text_field_tag "buzz_flag[#{index}][expiry_date]","", :readonly => true, :id => "expiry_date_flag_pro_#{flag.id}", :class => "inner_txt_fld right select_date_picker" %>
+        </div>
+      <% end %>
+    </div>
+  </li>
+
+  <li class="buzz_properties_tags">
+    <div class="head">Buzz Tags</div>
+    <div class="content" id="properties_buzz_tag_id_block">
+      <%= select_tag :tag_id, options_for_select(@cug_tags), :prompt => "Select...", :id =>'properties_buzz_tag_id' %>
+    </div>
+
+    <div class="add_tag_buzz_properties flds" style="display:none;">
+      <div class="tag_create_button">
+        <span><%= text_field_tag 'tag', '', :id => "tag_name_buzz_properties", :size => 15, :maxlength => 20 %></span>
+      </div>
+      <div id="error_explanation_buzz_tag"></div>
+      <div class="create_tag_buttons popup_actions">
+        <a id="add_buzz_tag_properties_button" path ="<%= channel_tag_tags_path(:channel_id => @channel.id) %>">Save</a>
+        <a id="delete" onclick="cancel_add_buzz_tag_properties();">Cancel</a>
+      </div>
+    </div>
+    <div class="clear"></div>
+
+    <span class="buzz_tags_buzz_properties_heading">Assigned Tags:</span>
+    <div class = "buzz_tags_buzz_properties"></div>
+    <%= hidden_field_tag 'buzz_properties_tag_ids' %>
+    <div class="popup_actions left" style="margin: 0 0 5px 6px;">
+      <a onclick="$('.add_tag_buzz_properties').show();" href="javascript://">Add Tag</a>
+    </div>
+  </li>
+
+  <li>
+    <div class="head"> Buzz Name</div>
+    <div class="content flds">
+      <%= fields_for @buzz.buzz_names.build do |buzz_name| %>
+        <%= buzz_name.text_field :name, :id => 'buzz_name_buzz_properties', :maxlength=> "40", :placeholder => "Enter Buzz Name Here...", :style => 'margin-bottom: -3px; width: 93%' %>
+        <%= buzz_name.hidden_field :user_id, :value => current_user.id  %>
+      <% end %>
+    </div>
+  </li>
+
+</ul>

@@ -1,0 +1,226 @@
+<div class="content icons_explanations">
+  <table class="dozz_grid channel channel_icons">
+    <tr>
+      <th>Group</th>
+      <th>Icons</th>
+      <th>Name</th>
+      <th>Explanation</th>
+    </tr>
+
+    <tr>
+      <td rowspan="4">Top Pane Icons</td>
+      <td><span class="home"></span></td>
+      <td>Home</td>
+      <td>My Home Page</td>
+    </tr>
+
+    <tr>
+      <td><span class="buzz_icon"></span></td>
+      <td>New Buzz</td>
+      <td>Write a New Buzz</td>
+    </tr>
+
+    <tr>
+      <td><span class="profile"></span></td>
+      <td>Profile</td>
+      <td>My Profile Page</td>
+    </tr>
+
+    <tr>
+      <td><span class="logout"></span></td>
+      <td>Logout</td>
+      <td>Logout</td>
+    </tr>
+
+
+    <tr>
+      <td rowspan="4">Left Pane Icons</td>
+      <td><span class="settings"></span></td>
+      <td>Settings</td>
+      <td>Edit Channel</td>
+    </tr>
+
+    <tr>
+      <td><span class="on_star"></span></td>
+      <td>Make Favorite</td>
+      <td>Favorite Channel</td>
+    </tr>
+
+    <tr>
+      <td><span class="off_star"></span></td>
+      <td>Make Unfavorite</td>
+      <td>Favorite Channel</td>
+    </tr>
+
+    <tr>
+      <td><span class="add_channel"></span></td>
+      <td>Add Channel</td>
+      <td>Add a New Channel</td>
+    </tr>
+
+
+    <tr>
+      <td rowspan="2">Buzzout/Rezzout Icons</td>
+      <td><span><%= image_tag("attachment_big.png") %></span></td>
+      <td>Attachment</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td><span><%= image_tag("buzzout.png") %></span></td>
+      <td>Buzzout</td>
+      <td>Buzzout</td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" id="row_span_cug">Buzz Icons</td>
+      <td><span class="rezz"></span></td>
+      <td>Rezzout</td>
+      <td>View/Create Rezz</td>
+    </tr>
+
+
+    <tr>
+      <td><span class="delete"></span></td>
+      <td>Delete Buzz</td>
+      <td>Remove Buzz</td>
+    </tr>
+  </table>
+
+
+  <table class="dozz_grid channel cug_icons">
+    <tr>
+      <th>Group</th>
+      <th>Icons</th>
+      <th>Name</th>
+      <th>Explanation</th>
+    </tr>
+
+    <tr>
+      <td rowspan="4">Top Pane Icons</td>
+      <td><span class="home"></span></td>
+      <td>Home</td>
+      <td>My Home Page</td>
+    </tr>
+
+    <tr>
+      <td><span class="buzz_icon"></span></td>
+      <td>New Buzz</td>
+      <td>Write a New Buzz</td>
+    </tr>
+
+    <tr>
+      <td><span class="profile"></span></td>
+      <td>Profile</td>
+      <td>My Profile Page</td>
+    </tr>
+
+    <tr>
+      <td><span class="logout"></span></td>
+      <td>Logout</td>
+      <td>Logout</td>
+    </tr>
+
+
+    <tr>
+      <td rowspan="4">Left Pane Icons</td>
+      <td><span class="settings"></span></td>
+      <td>Settings</td>
+      <td>Edit CUG</td>
+    </tr>
+
+    <tr>
+      <td><span class="on_star"></span></td>
+      <td>Make Favorite</td>
+      <td>Favorite CUG </td>
+    </tr>
+
+    <tr>
+      <td><span class="off_star"></span></td>
+      <td>Make Unfavorite</td>
+      <td>Favorite CUG</td>
+    </tr>
+
+    <tr>
+      <td><span class="add_channel"></span></td>
+      <td>Add CUG</td>
+      <td>Add a New CUG</td>
+    </tr>
+
+
+    <tr>
+      <td rowspan="2">Buzzout/Rezzout Icons</td>
+      <td><span><%= image_tag("attachment_big.png") %></span></td>
+      <td>Attachment</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td><span><%= image_tag("buzzout.png") %></span></td>
+      <td>Buzzout</td>
+      <td>Buzzout</td>
+    </tr>
+
+
+
+    <tr>
+      <td rowspan="7" id="row_span_cug">Buzz Icons</td>
+      <td><span class="rezz"></span></td>
+      <td>Rezzout</td>
+      <td>View/Create Rezz</td>
+    </tr>
+
+
+    <tr>
+      <td><span class="delete"></span></td>
+      <td>Delete Buzz</td>
+      <td>Remove Buzz</td>
+    </tr>
+
+
+    <tr>
+      <td><span class="priority"></span></td>
+      <td>Priority Buzz</td>
+      <td>Set Priority</td>
+    </tr>
+
+    <tr>
+      <td><span class="response"></span></td>
+      <td>Response Expected Buzz</td>
+      <td>Set Response Expected</td>
+    </tr>
+
+    <tr>
+      <td><span class="limit"></span></td>
+      <td>Limit Buzz</td>
+      <td>Limit Buzz</td>
+    </tr>
+
+    <tr>
+      <td><span class="tag"></span></td>
+      <td>Tag Buzz</td>
+      <td>Add Tag</td>
+    </tr>
+
+    <tr>
+      <td><span class="flag"></span></td>
+      <td>Flag Buzz</td>
+      <td>Add Flag</td>
+    </tr>
+
+
+
+  </table>
+
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".channel_icons, .cug_icons").mCustomScrollbar({
+      advanced:{
+        updateOnBrowserResize:true,
+        updateOnContentResize:true,
+        autoExpandHorizontalScroll:false
+      }
+    })
+  });
+</script>

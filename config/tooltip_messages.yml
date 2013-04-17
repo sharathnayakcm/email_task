@@ -1,0 +1,38 @@
+home:
+  short: Home 
+  long: My Home Page
+  
+add_channel:
+  short: Add channel
+  long: Add a New Channel
+  
+add_buzz:
+  short: Write a Buzz
+  long:  Write a New Buzz
+  
+profile:
+  short: Profile
+  long: My Profile Page
+  
+channel_list:
+  short: Channel
+  long:  Channels List
+  
+cug_list:
+  short: CUG
+  long:  CUGs List
+    
+logout:
+  short: Log
+  long:  Log
+
+add_cug:
+  short: Add CUG
+  long: Add a New CUG
+
+  
+
+
+
+
+

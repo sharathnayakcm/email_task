@@ -1,0 +1,15 @@
+<% if @buzz.channel.is_subscribed?(current_user) %>
+  $("#overlay_data").hide().html("<%= j render 'new' %>").fadeIn("xfast");
+  $('#new_rezz_hide_insync_cugs_<%= @buzz.id %>').attr('value', $('.hide_show_insyn_chk_box').is(':checked'))
+  $('#overlay_data .content').css('background', '#fff');
+  $(".close_modal").show();
+  <% if @buzz.channel.channel_or_cug  == 'CUG' %>
+    add_rezz_block_scroll();
+    drap_and_drop();
+  <% else %>
+    $("#new_rezz_users_data_block").css('height', '60px');
+  <% end %>
+<%  else %>
+  $("#msg").html("<span class='err_msg'>You need to be subscribed to this channel, in order to rezz it.</span>")
+  notify();
+<%end%>

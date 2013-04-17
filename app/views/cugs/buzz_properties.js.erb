@@ -1,0 +1,13 @@
+<% if flash[:error] %>
+  $('#msg').html("<%= show_flash_message %>");
+  notify();
+<% else %>
+  $("#buzz_properties").html("<%= j render :partial => "buzzs/buzz_properties" %>");
+  $('.divider_buzz_properties').show();
+  buttons_styling();
+  init_datepicker();
+  if($('#is_tablet_device').val() == "true"){
+    $('.buzz_properties_holder li:first').next().css("width", "224px")
+    $('.buzz_properties_tags').css("width", "200px")
+  }
+<% end %>

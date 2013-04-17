@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <title>Beehive</title>
+    <%= stylesheet_link_tag  "application" %>
+    <%= javascript_include_tag "application"%>
+    <%= stylesheet_link_tag  "ipad" if is_tablet_device? %>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag %>
+    <!--[if IE]>
+    <link href="css/ie.css" rel="stylesheet" type="text/css"/>
+    <![endif]-->
+  </head>
+  <body onLoad ="notify();">
+    <div id="loader" class="loader" style="display:none;">
+      <%= image_tag("beehive-newui/ajax_loader.gif", :id => "img-loader") %>
+    </div>
+    <%= hidden_field_tag :is_tablet_device, is_tablet_device? %>
+    <div id="notify_message"><div id="boxd"></div></div>
+    <span id="msg" style="display: none;"><%= show_flash_message %></span>
+    <div id="dashboard">
+      <%= render :partial => 'shared/header' %>
+      <div class="container">
+        <div class="container_mid">
+          <%= yield %>
+          <div class="apple_overlay" id="overlay_block" style="display:none;">
+            <a class="close_modal"></a>
+            <div id="overlay_data">
+              <%= image_tag "ajax-loader.gif" , :class => 'overlay_spinner' %>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <%= render :partial => 'shared/footer' %>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </body>
+</html>

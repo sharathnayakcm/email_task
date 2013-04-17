@@ -1,0 +1,16 @@
+$('.cug_related_block').html('')
+$('.insync_buzz').html("<%= (j render :partial => "/shared/toggle_insync_buzzes") %>")
+$('.stats_filter_icons, .stats_filter_icons li.insync_buzz').show();
+<% if params[:cug_view_type] %>
+  $('.stats_filter_icons li.info, .stats_filter_icons li.filter').attr("id",'<%=@channel.id%>').attr("cug_view_type",'<%= params[:cug_view_type] %>');
+<% end %>
+$('.right_nav li').addClass('right_nav_boxes')
+$('.stats_filter_icons li.filter').addClass('active')
+$("#cug_info_data").html("<%= j render("channel_buzz_task_list") %>")
+init_datepicker()
+$('#buzzes_list').html('');
+buttons_styling();
+$('.top_links li a.buzz_icon').attr('href', '<%= new_buzz_path(:channel_id => @channel.id, :channel_or_cug => 'cug') %>')
+$("#breadcrum").html("<%= j render :partial => "shared/breadcrumb_links" %>");
+var clickLink = $(".apple_overlay_link").overlay({mask: '#ebecff'});
+$(".apple_overlay_link").bind("click",function(){clickLink.load();});

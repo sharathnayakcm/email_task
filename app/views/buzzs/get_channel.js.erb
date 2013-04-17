@@ -1,0 +1,15 @@
+$('.drop_boxes').html('<span class="placeholder">Drag & Drop Names Here...</span>')
+$('#buzz_channel_id').attr('value', '<%=  @channel.id %>');
+<%if @user_names.present?%>
+$('.channel_users_name').html('<%= j render :partial => "channel_user" ,:collection => @user_names %>');
+<%else%>
+$('.channel_users_name').html('No members present');
+<%end%>
+<% unless @user_names.blank? %>
+  $('#new_buzz_information').html('<%= j render :partial => "default_user" ,:collection => @user_names %>');
+  $('#information_user_ids').attr('value', '<%= @user_names.present? ? @user_names.map{|u| u.id}.join(",") : '' %>');
+<% end %>
+$( ".channel_users_name span" ).draggable({
+appendTo: "body",
+helper: "clone"
+});

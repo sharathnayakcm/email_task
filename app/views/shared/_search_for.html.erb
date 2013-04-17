@@ -1,0 +1,11 @@
+<ul class="insync_stats">
+  <li>Search Keyword: <span><%= params[:beehive_search][:search_keyword] %></span></li>
+  <li>Search Type: <span><%= params[:beehive_search][:search_type].capitalize %></span></li>
+  <% if params[:beehive_search][:search_type] == 'advance' %>
+    <%= "<li>CUG/ Alias name: <span>#{params[:beehive_search][:search_cug_name]}</span>".html_safe if params[:beehive_search][:search_cug_name].present? %>
+    <%= "<li>Tags: <span>#{params[:beehive_search][:tags].join(", ")}</span>".html_safe if params[:beehive_search][:tags].present? %>
+    <%= "<li>Flags: <span>#{searched_flags(params[:beehive_search][:flags])}</span>".html_safe if params[:beehive_search][:flags].present? %>
+    <%= "<li>Buzzed By: <span>#{searched_buzzed_by(params[:beehive_search][:buzzed_by])}</span>".html_safe if params[:beehive_search][:buzzed_by].present? %>
+    <%= "<li>Insync Type: <span>#{searched_insync_type(params[:beehive_search][:insync_type])}</span>".html_safe if params[:beehive_search][:insync_type].present? %>
+  <% end %>
+</ul>

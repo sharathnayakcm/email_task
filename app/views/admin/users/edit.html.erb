@@ -1,0 +1,17 @@
+<span id="msg"><%= show_flash_message %></span>
+<h2>Edit Profile</h2>
+<%= form_for(@user, :url => admin_user_path(@user), :html => { :method => :put, :onSubmit => "return user_profile_validation();"}) do |f| %>
+
+  <div class="profile_div"><%= f.label :display_name %><br />
+    <%= f.text_field :display_name %></div>
+
+  <div class="profile_div"><%= f.label :first_name %><br />
+    <%= f.text_field :first_name %></div>
+
+  <div class="profile_div"><%= f.label :last_name %><br />
+    <%= f.text_field :last_name %></div>
+
+  <div class="profile_div"><%= f.label :email %><br />
+    <%= f.text_field :email %></div>
+  <div class="profile_div"><%= f.submit "Update" %></div>
+<% end %>

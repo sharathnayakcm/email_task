@@ -1,0 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Beehive</title>
+    <%= stylesheet_link_tag  "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag %>
+  </head>
+  <body onLoad ="notify();">
+    <%= hidden_field_tag :is_tablet_device, is_tablet_device? %>
+    <div id="notify_message_devise"><div id="boxd"></div></div>
+    <%= render :partial  =>  (controller.controller_name == 'sessions' && controller.action_name == 'new') ? 'layouts/devise_login' : 'layouts/devise' %>
+  </body>
+</html>

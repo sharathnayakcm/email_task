@@ -1,0 +1,14 @@
+<% if @valid %>
+$('#msg').html("<%= show_flash_message %>");
+<% else %>
+$('#msg').html("<%= show_flash_message %>");
+<% end %>
+$('.buzzer_name_value').html('<%= current_user.full_name %>')
+$('#buzzes_list').html("<%= (j render :partial => 'edit') %>");
+  if($("#user_password").parent().attr('class') == "field_with_errors")
+  {
+    show_change_password_box();
+  }
+notify();
+buttons_styling();
+tooltip_active();

@@ -1,0 +1,21 @@
+$(".close_modal").show();
+$("#overlay_data").hide().html("<%= j render("buzz_tags/buzz_tag_list") %>").fadeIn(2000);
+buttons_styling();
+<% tags = @buzz.tags %>
+/* Used to update the title and count of the tag icon */
+$("#buzz_tag_img_<%= @buzz.id %>").attr("title", "<%= tags.size > 0 ? tags.pluck(:name).join(", ") : 'No Tag' %>");
+<% if tags.size > 0 %>
+  $("#buzz_tag_count_<%= @buzz.id %>").addClass('buzz_icons_count').html("<%= tags.size %>");
+<% else %>
+  $("#buzz_tag_count_<%= @buzz.id %>").removeClass('buzz_icons_count').html("");
+<% end %>
+
+<% if tags.blank? %>
+  $(".buzz_tags").hide( );
+<% end %>
+
+<% if @msg.present? %>
+  $('.add_tag').show();
+  $('#error_explanation').html('<%= @msg %>');
+<% end %>
+tooltip_active();

@@ -1,0 +1,42 @@
+<div id ="response_expected" class="content response_width">
+  <div id = "flag_title">
+    <span class = "heading1">Response Expected Buzz</span>
+  </div>
+  <div id="error_explanation"></div>
+  <div class="clear"></div>
+  <%= form_for @buzz , {:url=> response_expected_buzzs_path, :html => {:id=> 'response_buzz_frm',:method => 'post'}, :remote => true} do |f|%>
+    <%= hidden_field_tag "buzz_id", @buzz.id %>
+    <%= hidden_field_tag "hide_insync_cugs", '', :id => 'response_expected_hide_insync_cugs' %>
+    <table class="response popup_data" id="<%=@buzz.id%>">
+      <tr>
+        <th>
+          <span class="select">
+            <%= check_box_tag("select_all_responce_expected", nil, nil, :onclick => "checking_unchecking_priority_responce_expected(this, '#response_expected')") %>
+          </span>
+        </th>
+        <th>
+          <span class="limit_checkbox_align">Name</span>
+        </th>
+      </tr>
+      <%= f.fields_for :response_expected_buzzs do |response_buzz| %>
+        <tr class="users_data">
+          <td><span class="radio_text_align"><%=  response_buzz.check_box :user_id,{:onclick => "set_destroy_and_date_responce_expected(this); check_uncheck_check_boxes('#response_expected .users_data', '#select_all_responce_expected')",:checked=> "#{check_for_response_users(@buzz,response_buzz.object.user_id)}"}, response_buzz.object.user_id%></span></td>
+          <%= response_buzz.hidden_field :_destroy ,:id=>"destroy_#{response_buzz.object.user_id}"%>
+          <td><span class="response_checkbox"><%= response_buzz.object.user.full_name %></span></td>
+          <%= response_buzz.hidden_field :owner_id, :value => current_user.id %>
+        </tr>
+      <% end %>
+    </table>
+
+    <div class="popup_action_info">
+      <span>You can select the users here from whom you are expecting a response (rezz) for this buzz. After selecting the users, for you this buzz will be marked with "A" i.e. awaiting response and for the selected users, this buzz will be marked as "R" i.e. response expected.
+
+        </span>
+    </div>
+    <div class="clear"></div>
+    <div class="popup_actions">
+      <%= f.submit "Save", :class => 'inner_button', :disable_with => "Saving..." %>
+      <div class="action_button_top"><a onClick="$('.close_modal').click();">Cancel</a></div>
+    </div>
+  <% end %>
+</div>

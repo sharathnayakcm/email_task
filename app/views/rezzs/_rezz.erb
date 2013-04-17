@@ -1,0 +1,37 @@
+<% attachment_name = rezz.getting_attachment_name %>
+<div class="rezz_<%= rezz.id %> buzz_<%= rezz.root_id %> buzz_post <%= rezz.user_id == current_user.id ? 'buzz_post_by_you' : 'buzz_post_by_others' %>" id="buzz_<%= rezz.id %>">
+  <div class="left">
+    <span class="arrow_rezz_icon_block" id='rezz_view_<%=rezz.id%>'><%= view_rezzs_toggle(rezz) if rezz.root.subtree.count > 1 %></span>
+    <span class="buzzer_name_icon">&nbsp;</span>
+    <span class ="buzzer_names"><%= rezz.user_id == current_user.id ? 'You' : rezz.full_name %></span>
+    <span class="buzzed_time"><%= time_ago_in_words(rezz.created_at).to_s + ' ago' %></span>
+    <% is_rezz = (local_assigns.has_key? :from_rezz) ? "_rezz" : "" %>
+    <% if rezz.channel.is_cug? %>
+      <% buzz_name = rezz.getting_buzz_name(current_user) %>
+      <span class="buzz_title">
+        <%= link_to  buzz_name.blank? ? '' : buzz_name.name.truncate(15), edit_buzz_name_path(rezz.id,:rezz => "#{is_rezz}"),:remote => true,:title => 'Edit Buzz Name', :class => "parent_buzz_name_#{rezz.root_id} apple_overlay_link", :rel => "#overlay_block" %>
+      </span>
+    <% end %>
+    <%= get_buzz_attachment(attachment_name, rezz.id) unless attachment_name.blank? %>
+  </div>
+
+  <% if display_link %>
+    <ul class="buzzers">
+      <% if rezz.channel.is_cug? %>
+        <%= render :partial => is_tablet_device? ? "/shared/buzz_ipad_actions_cugs" : "/shared/buzz_actions", :locals => {:buzz => rezz, :buzz_name => buzz_name, :from_rezz => true} %>
+      <% else %>
+        <%= remove_buzz_link(rezz) %>
+        <%= create_and_view_rezz_link(rezz) %>
+      <% end %>
+    </ul>
+  <% end %>
+  <div class="clear"></div>
+  <ul class="tag_cloud">
+    <li>
+      <div id="tag_tip"></div>
+      <div class="<%= rezz.priority ? 'priority_mssg' : 'mssg' %>"><%= buzz_with_linebreak(rezz.message).html_safe %></div>
+    </li>
+  </ul>
+  <div id="rezz_<%= rezz.id %>" style="display:none" class="new_rezz buzz_pop_up"></div>
+  <div id="view_rezzs_<%= rezz.id %>" class="view_rezzs buzz_pop_up"></div>
+</div>

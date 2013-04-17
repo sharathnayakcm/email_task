@@ -1,0 +1,2 @@
+module ResponseExpectedBuzzsHelper
+end

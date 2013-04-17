@@ -1,0 +1,23 @@
+<div class = "content" id = "add_buzz_name">
+  <%= form_for(@buzz_name, :remote => true, :html => {:class => ""}) do |f| %>
+    <ul class = "buzz_name_field flds">
+      <li><span class = "buzz_title">Enter Buzz Name:</span></li>
+      <li><span><%= f.text_field :name, :maxlength=> "30" %></span></li>
+      <li><span id = "error_explanation"></span></li>
+      <%= hidden_field_tag 'buzz_id', @buzz.id  %>
+      <div class = "clear"></div>
+      <li>
+        <div class="popup_actions">
+          <%= f.submit "Save", :class => 'inner_button buzz_name_save',:disable_with => "Saving..." %>
+          <% unless @buzz_name.new_record? %>
+            <%= link_to"Delete", buzz_name_path(@buzz_name, :buzz_id => @buzz.id), :method => :delete, :remote => true %>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  <% end %>
+
+  <div class="buzz_name_info">
+    You can set the name (similar to "Subject" in emails) for a particular buzz. The buzz name is set specific to the logged in user only. Thus, every user who is having access to the buzz can set their own buzz name for a particular buzz.
+  </div>
+</div>

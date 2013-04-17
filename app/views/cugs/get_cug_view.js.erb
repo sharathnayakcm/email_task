@@ -1,0 +1,37 @@
+$('.cug_related_block').html('');
+$('#search_in').hide();
+$(".stats_filter_icons").hide();
+$('#buzz_channel_name').attr("value", "").attr('placeholder', 'Type CUG name here...');
+$('#buzz_channel_id').attr("value", "");
+
+<% if params[:hide_insync_cugs].blank? %>
+  $('#hide_insync_cugs').attr('checked',false)
+<% end %>
+
+$('#loading_insync_cugs').html("&nbsp;Show Insync CUGs");
+
+$("#cug_view_block").html("<%= j render :partial => "shared/views/views", :collection => @channels %>");
+$('#hide_insync_cugs').attr("cug_view_type",'<%=params[:cug_view_type]%>');
+
+<% if !params[:opened_block].blank? %>
+  toggle_effect_channel('<%=params[:opened_block]%>');
+<% end %>
+<% if  @beehive_view.ancestry? %>
+  toggle_effect_channel('cug_block_<%=@beehive_view.id%>');
+<% end %>
+
+$("#breadcrum").html("<%= j render :partial => "shared/breadcrumb_links" %>");
+$('.top_links li a.buzz_icon').attr('href', '<%= new_buzz_path(:channel_or_cug => 'cug')%>');
+
+<% if params[:group_view] && params[:group_view] == "true" %>
+  $("#buzzes_list").html("<%= j render :partial => "shared/channels" ,:locals => {:channels => (@selected_beehive_view_cugs.blank? ? @channels.first[:channels] : @selected_beehive_view_cugs[:channels])} %>");
+  tooltip_active();
+  activating_home_link();
+  $(".apple_overlay_link").overlay({mask: '#ebecff'});
+<% else %>
+  get_first_cug_opened_block()
+<% end %>
+
+<% if @beehive_view.show_insync? && params[:hide_insync_cugs].blank? %>
+  $('#hide_insync_cugs').attr("checked", true);
+<% end %>

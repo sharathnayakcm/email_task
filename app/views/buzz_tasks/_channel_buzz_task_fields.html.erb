@@ -1,0 +1,11 @@
+<tr id="channel_buzz_task_<%= f.object.id %>" class="channel_buzz_tasks_<%= f.object.buzz_id %>">
+  <td><%= f.text_field :name  %></td>
+  <td> <%= f.text_field :due_date, :value => f.object.due_date.blank? ? '' : f.object.due_date.strftime("%d %b %Y"),:class=> "inner_txt_fld_bz_task_date buzz_task_due_date", :autocomplete =>"OFF"%></td>
+  <td class="jump_button"><%= f.select("priority", BuzzTask::PRIORITY, {}, :class => 'field_priority') %></td>
+  <td><div class="dozz_delete left"><%= link_to '&nbsp;'.html_safe, buzz_task_path(f.object.id, :buzz_task_id => f.object.id, :channel_id => @channel.id, :is_channel => true, :buzz_id => f.object.buzz_id), :title=>"Delete Buzz",:remote => true, :method => :delete, :confirm => 'Are you sure you want to delete the Dozz?' %></div>
+    <div class="view_dozz_icon"><%= link_to '&nbsp;'.html_safe, buzz_path(f.object.buzz_id, :channel_id => @channel.id),:remote => true, :id => "view_buzz_link_#{f.object.id}", :class => 'view_buzz_links',:title=>"View Buzz", :buzztaskid => f.object.id%></div>
+    <div class="hide_dozz_icon" style = 'display:none'><%= link_to '&nbsp'.html_safe,'javascript:void(0)', :id => "hide_buzz_link_#{f.object.id}", :class => 'hide_buzz_links',:title=>"Hide Buzz" , :buzztaskid => f.object.id%></div>
+  </td>
+  <td class="mark_completed"><%= f.check_box :status, :onclick => "mark_as_completed(this,'#{@channel.id}',true,'#{f.object.buzz_id}');"%> </td>
+  <%= f.hidden_field :user_id, :value => current_user.id%>
+</tr>

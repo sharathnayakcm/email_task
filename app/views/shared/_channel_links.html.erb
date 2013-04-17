@@ -1,0 +1,4 @@
+<span class ="fav_icon_<%= channel[:id] %>">
+  <%= link_to  "&nbsp".html_safe, path, :remote => true, :class => "channel_fav_icon #{is_fav.blank? ? 'offstar' : 'onstar'}", :title => 'Favorite Channel', :method => "#{is_fav.blank? ? 'post' : 'delete'}" %>
+</span>
+<%= link_to '&nbsp;'.html_safe, edit_channel_path(channel[:id], :channel_view_type=> params[:channel_view_type]), :remote => true, :title => 'Edit Channel', :class => 'channel_edit_link right' %>

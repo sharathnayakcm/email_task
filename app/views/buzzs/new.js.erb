@@ -1,0 +1,21 @@
+$("#overlay_data").hide().html("<%= (j render :partial => "/shared/add_buzz") %>").fadeIn("xfast");
+<% if @channel.blank? %>
+  <% if params[:channel_or_cug] == 'cug' %>
+    $('#buzz_channel_name').attr('placeholder', 'Type CUG name here...');
+  <% else %>
+    $('#buzz_channel_name').attr('placeholder', 'Type Channel name here...');
+  <% end %>
+<% end %>
+if($('.left_nav li a.channel').hasClass('active')){
+  $('#add_buzz_image_hld').addClass('channel_icon_hld');
+  $("#new_buzz_users_data_block").css('height', '60px');
+}
+else{
+  $('#add_buzz_image_hld').addClass('cug_icon_hld');
+  add_buzz_block_scroll();
+  drap_and_drop();
+}
+buttons_styling();
+autocomplete_buzz_channel_name();
+$('#overlay_data .content').css('background', '#fff');
+$(".close_modal").show();

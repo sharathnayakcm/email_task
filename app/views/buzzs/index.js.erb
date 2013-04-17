@@ -1,0 +1,52 @@
+<% if @channel.is_cug %>
+  $('.insync_buzz').html("<%= (j render :partial => "/shared/toggle_insync_buzzes") %>")
+  $('.stats_filter_icons, .stats_filter_icons li.insync_buzz').show();
+  $('.stats_filter_icons li.info, .stats_filter_icons li.filter').attr("id",'<%=@channel.id%>').attr("cug_view_type",'<%= params[:cug_view_type] %>');
+  $('.cug_topic_links').removeClass('selected_cug_topic')
+  $('#cug_topic_<%= @channel.id %>_<%= params[:cug_view_type].to_i %>').addClass('selected_cug_topic')
+  $("#buzz_properties").html('');
+  buttons_styling();
+  if($('.channel_filter_checks input[type=checkbox]:checked').size() > 0){
+    if($("#awaiting_for_response_filter").is(':checked')){
+      $('#awaiting_for_response_filter_block').css('display', 'block');
+    }
+    if($("#response_expected_filter").is(':checked')){
+      $('#response_expected_filter_block').css('display', 'block');
+    }
+  }
+  if($('.selected_cug_topic').length > 0){
+      $('#search_in').show();
+      $('#current_cug').val('<%=@channel.id%>');
+    }
+<% else %>
+  <% if !@channel.is_admin?(current_user) && !@channel.is_subscribed?(current_user) %>
+    $('#channel_subscribe').html("<%= (j render :partial => "/channels/channel_subscribe") %>").show();
+  <% else %>
+    $('#channel_subscribe').hide();
+  <% end %>
+  $('.channel_topic_links').removeClass('selected_channel_topic')
+  $('#channel_topic_<%= @channel.id %>').addClass('selected_channel_topic')
+  $('.channel_stats_icon').show();
+  $('.channel_stats_icon li.info').attr("id",'<%=@channel.id%>').parent().show()
+  $(".channel_stats_icon .info").show();
+  $("#channel_buzz_count_<%= @channel.id %>").html("(<%= current_user.channel_buzz_count(@channel) %>)");
+<% end %>
+$('.top_links li a.buzz_icon').attr('href', '<%= new_buzz_path(:channel_id => @channel.id, :channel_or_cug => params[:channel_view_type] ? 'channel' : 'cug') %>')
+$('.right_nav li').addClass('right_nav_boxes')
+<% if params[:page].blank? %>
+  $('#buzzes_list').html("<%= @buzzs.size == 0 ? "<div class='no_buzzs_found'>Sorry, no buzzes found. </div>".html_safe : (j render :partial => 'shared/buzz',:locals => {:buzzs => @buzzs}) %>")
+<% else %>
+  $('#buzzes_list').append("<%= (j render :partial => 'shared/buzz',:locals => {:buzzs => @buzzs}) %>")
+<% end %>
+
+<% if @buzzs.next_page %>
+  $('.pagination').html('<%= j will_paginate(@buzzs) %>').hide()
+<% else %>
+  $('.pagination').html('');
+<% end %>
+
+$("#breadcrum").html("<%= j render :partial => "shared/breadcrumb_links" %>");
+var clickLink = $(".apple_overlay_link").overlay({mask: '#ebecff'});
+$(".apple_overlay_link").bind("click",function(){clickLink.load();});
+activating_home_link();
+tooltip_active();

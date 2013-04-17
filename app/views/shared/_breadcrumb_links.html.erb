@@ -1,0 +1,22 @@
+<% if !params[:cug_view_type].blank? || !params[:channel_view_type].blank? %>
+
+  <% path, group_type, params_value = params[:cug_view_type].blank? ? [get_channels_channels_path(:channel_view_type => params[:channel_view_type]), 'Channel', params[:channel_view_type]] : [get_cug_view_cugs_path(:cug_view_type => params[:cug_view_type]), 'CUG', params[:cug_view_type]] %>
+
+  <% beehive_view = BeehiveView.get_view_id(params_value.to_i) %>
+  <li><%= link_to "#{group_type} >" , path, :remote => true %></li>
+
+  <%#*When ever you select a channel%>
+  <% parent = beehive_view.parent %>
+  <% if parent.present? %>
+    <li><%= link_to "#{BeehiveView.get_name(parent.id)} > ", 'javascript: void(0);', :onClick=>"breadcrumb_direct_view('parent', #{ parent.id});" %> </li>
+  <% end %>
+
+  <li><%= link_to_if((@channel || beehive_view.has_children?), "#{BeehiveView.get_name(params_value)}", 'javascript: void(0);', :onClick => "breadcrumb_direct_view('child', #{ beehive_view.id});") %></li>
+
+  <% if beehive_view.has_children? %>
+    <li id="cug_type"> > <%=  beehive_view.children.first.view_name %></li>
+  <% end %>
+
+<% end %>
+
+<li id="cug_name"><%= " > #{truncate(get_cug_alias_name(current_user.id, @channel.id) || @channel.name, :length => is_tablet_device? ? 17 : 25)}" if @channel %></li>

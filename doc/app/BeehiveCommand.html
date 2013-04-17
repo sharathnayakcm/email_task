@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>module BeehiveCommand - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/beehive_command.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-add_alias_to_channel">#add_alias_to_channel</a>
+    
+    <li><a href="#method-i-api_command_message">#api_command_message</a>
+    
+    <li><a href="#method-i-chk_format">#chk_format</a>
+    
+    <li><a href="#method-i-is_here_command-3F">#is_here_command?</a>
+    
+    <li><a href="#method-i-is_here_command_for">#is_here_command_for</a>
+    
+    <li><a href="#method-i-process_alias_add">#process_alias_add</a>
+    
+    <li><a href="#method-i-process_buzzout">#process_buzzout</a>
+    
+    <li><a href="#method-i-process_channel">#process_channel</a>
+    
+    <li><a href="#method-i-process_channels_add">#process_channels_add</a>
+    
+    <li><a href="#method-i-process_command_task">#process_command_task</a>
+    
+    <li><a href="#method-i-process_command_values">#process_command_values</a>
+    
+    <li><a href="#method-i-process_cugs_add">#process_cugs_add</a>
+    
+    <li><a href="#method-i-process_find">#process_find</a>
+    
+    <li><a href="#method-i-process_here_command">#process_here_command</a>
+    
+    <li><a href="#method-i-process_insync">#process_insync</a>
+    
+    <li><a href="#method-i-process_merge">#process_merge</a>
+    
+    <li><a href="#method-i-process_remove_channel">#process_remove_channel</a>
+    
+    <li><a href="#method-i-process_subscription">#process_subscription</a>
+    
+    <li><a href="#method-i-process_tag">#process_tag</a>
+    
+    <li><a href="#method-i-process_unsubscription">#process_unsubscription</a>
+    
+    <li><a href="#method-i-process_watch">#process_watch</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Api.html">Api</a>
+  
+    <li><a href="./Api/BaseController.html">Api::BaseController</a>
+  
+    <li><a href="./Api/BuzzesController.html">Api::BuzzesController</a>
+  
+    <li><a href="./Api/ChannelsController.html">Api::ChannelsController</a>
+  
+    <li><a href="./Api/CommandsController.html">Api::CommandsController</a>
+  
+    <li><a href="./Api/SessionsController.html">Api::SessionsController</a>
+  
+    <li><a href="./FileSizeValidator.html">FileSizeValidator</a>
+  
+    <li><a href="./FileSizeValidator/Helper.html">FileSizeValidator::Helper</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./AttachmentUploader.html">AttachmentUploader</a>
+  
+    <li><a href="./BeehiveCommand.html">BeehiveCommand</a>
+  
+    <li><a href="./Buzz.html">Buzz</a>
+  
+    <li><a href="./BuzzInsync.html">BuzzInsync</a>
+  
+    <li><a href="./BuzzMember.html">BuzzMember</a>
+  
+    <li><a href="./Channel.html">Channel</a>
+  
+    <li><a href="./ChannelAlias.html">ChannelAlias</a>
+  
+    <li><a href="./ChannelAssociation.html">ChannelAssociation</a>
+  
+    <li><a href="./HomeController.html">HomeController</a>
+  
+    <li><a href="./HomeHelper.html">HomeHelper</a>
+  
+    <li><a href="./MailmanLogger.html">MailmanLogger</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./PersonController.html">PersonController</a>
+  
+    <li><a href="./PersonHelper.html">PersonHelper</a>
+  
+    <li><a href="./RegistrationsController.html">RegistrationsController</a>
+  
+    <li><a href="./RezzsController.html">RezzsController</a>
+  
+    <li><a href="./RezzsHelper.html">RezzsHelper</a>
+  
+    <li><a href="./Setting.html">Setting</a>
+  
+    <li><a href="./SettingsHelper.html">SettingsHelper</a>
+  
+    <li><a href="./Subscription.html">Subscription</a>
+  
+    <li><a href="./Tag.html">Tag</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UserHelper.html">UserHelper</a>
+  
+    <li><a href="./UserMailer.html">UserMailer</a>
+  
+    <li><a href="./UserPreference.html">UserPreference</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./WatchChannel.html">WatchChannel</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module BeehiveCommand</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="BUZZ_TO">BUZZ_TO
+        
+        <dd class="description">
+        
+      
+        <dt id="COMMAND_LEVEL_1">COMMAND_LEVEL_1
+        
+        <dd class="description">
+        
+      
+        <dt id="COMMAND_LEVEL_2">COMMAND_LEVEL_2
+        
+        <dd class="description">
+        
+      
+        <dt id="GROUP_TYPE">GROUP_TYPE
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-add_alias_to_channel" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_alias_to_channel</span><span
+            class="method-args">(channel_alias, channel, channel_type)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_alias_to_channel-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 231</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_alias_to_channel</span>(<span class="ruby-identifier">channel_alias</span>, <span class="ruby-identifier">channel</span>, <span class="ruby-identifier">channel_type</span>)
+  <span class="ruby-identifier">is_cug</span> = (<span class="ruby-identifier">channel_type</span> <span class="ruby-operator">==</span> <span class="ruby-string">'cug'</span>)
+  <span class="ruby-constant">ChannelAlias</span>.<span class="ruby-identifier">add_alias</span>(<span class="ruby-identifier">channel_alias</span>, <span class="ruby-identifier">channel</span>, <span class="ruby-identifier">is_cug</span>, <span class="ruby-identifier">current_user</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- add_alias_to_channel-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- add_alias_to_channel-method -->
+
+    
+      <div id="method-i-api_command_message" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">api_command_message</span><span
+            class="method-args">(msg)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="api_command_message-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 336</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">api_command_message</span>(<span class="ruby-identifier">msg</span>)
+  <span class="ruby-identifier">message</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">message</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">blank?</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+    <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">message</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">m</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;$&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">1</span>,<span class="ruby-identifier">m</span>.<span class="ruby-identifier">length</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">m</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot; -&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">message</span> = <span class="ruby-identifier">message</span>[<span class="ruby-value">0</span>, <span class="ruby-identifier">message</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">message</span> = <span class="ruby-identifier">msg</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;$&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">msg</span>[<span class="ruby-value">1</span>,<span class="ruby-identifier">msg</span>.<span class="ruby-identifier">length</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">msg</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">message</span>.<span class="ruby-identifier">html_safe</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- api_command_message-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- api_command_message-method -->
+
+    
+      <div id="method-i-chk_format" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">chk_format</span><span
+            class="method-args">(command_value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="chk_format-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">chk_format</span>(<span class="ruby-identifier">command_value</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">COMMAND_LEVEL_1</span>.<span class="ruby-identifier">value?</span>(<span class="ruby-identifier">command_value</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>].<span class="ruby-identifier">downcase</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">COMMAND_LEVEL_2</span>.<span class="ruby-identifier">value?</span>(<span class="ruby-identifier">command_value</span>[<span class="ruby-value">1</span>,<span class="ruby-value">1</span>].<span class="ruby-identifier">downcase</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-constant">BUZZ_TO</span>.<span class="ruby-identifier">value?</span>(<span class="ruby-identifier">command_value</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>].<span class="ruby-identifier">downcase</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- chk_format-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- chk_format-method -->
+
+    
+      <div id="method-i-is_here_command-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_here_command?</span><span
+            class="method-args">(command)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_here_command-3F-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_here_command?</span>(<span class="ruby-identifier">command</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">command</span>.<span class="ruby-identifier">strip</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">flag</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">command</span> = <span class="ruby-identifier">command</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">' '</span>)
+  <span class="ruby-identifier">apply_to</span> = <span class="ruby-identifier">command</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>,<span class="ruby-value">1</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'#'</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'@'</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">command</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>,<span class="ruby-identifier">command</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">length</span>].<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-string">'here'</span>
+      <span class="ruby-identifier">flag</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">flag</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- is_here_command-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- is_here_command-3F-method -->
+
+    
+      <div id="method-i-is_here_command_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_here_command_for</span><span
+            class="method-args">(command)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_here_command_for-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_here_command_for</span>(<span class="ruby-identifier">command</span>)
+  <span class="ruby-identifier">command</span> = <span class="ruby-identifier">command</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">' '</span>)
+  <span class="ruby-identifier">apply_to</span> = <span class="ruby-identifier">command</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>,<span class="ruby-value">1</span>]
+  <span class="ruby-identifier">channel_type</span> = (<span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'#'</span> <span class="ruby-operator">?</span> <span class="ruby-string">'channel'</span> <span class="ruby-operator">:</span> <span class="ruby-string">'cug'</span>)
+  <span class="ruby-identifier">command_here</span> = <span class="ruby-identifier">command</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>,<span class="ruby-identifier">command</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">length</span>]
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">channel_type</span>, <span class="ruby-identifier">command_here</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- is_here_command_for-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- is_here_command_for-method -->
+
+    
+      <div id="method-i-process_alias_add" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_alias_add</span><span
+            class="method-args">(process_values)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_alias_add-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 217</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_alias_add</span>(<span class="ruby-identifier">process_values</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;$Invalid command&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+
+  <span class="ruby-identifier">channel_alias</span> = <span class="ruby-identifier">process_values</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-identifier">group_symbol</span> = <span class="ruby-identifier">process_values</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>,<span class="ruby-value">1</span>]
+  <span class="ruby-identifier">channel</span> = <span class="ruby-identifier">process_values</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">slice!</span>(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">process_values</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">length</span>).<span class="ruby-identifier">rstrip</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">GROUP_TYPE</span>.<span class="ruby-identifier">value?</span>(<span class="ruby-identifier">group_symbol</span>)
+    <span class="ruby-identifier">group_type</span> = <span class="ruby-constant">GROUP_TYPE</span>.<span class="ruby-identifier">key</span>(<span class="ruby-identifier">group_symbol</span>)
+    <span class="ruby-identifier">add_alias_to_channel</span>(<span class="ruby-identifier">channel_alias</span>, <span class="ruby-identifier">channel</span>, <span class="ruby-identifier">group_type</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-string">&quot;$Invalid command&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- process_alias_add-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- process_alias_add-method -->
+
+    
+      <div id="method-i-process_buzzout" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_buzzout</span><span
+            class="method-args">(apply_to, process_values, attachment = nil,buzz_id = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_buzzout-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_buzzout</span>(<span class="ruby-identifier">apply_to</span>, <span class="ruby-identifier">process_values</span>, <span class="ruby-identifier">attachment</span> = <span class="ruby-keyword">nil</span>,<span class="ruby-identifier">buzz_id</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">channel_id</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">is_cug</span> = (<span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'cug'</span>)
+  <span class="ruby-identifier">channel_name</span> = <span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-identifier">buzz_msg</span> = <span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">' '</span>).<span class="ruby-identifier">rstrip</span>
+  <span class="ruby-identifier">priority</span> = <span class="ruby-identifier">buzz_msg</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;!&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">buzz_msg</span> = <span class="ruby-identifier">priority</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">buzz_msg</span>[<span class="ruby-value">1</span>,<span class="ruby-identifier">buzz_msg</span>.<span class="ruby-identifier">length</span>].<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;&lt;br/&gt;&quot;</span>,<span class="ruby-string">&quot;\n&quot;</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">buzz_msg</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;&lt;br/&gt;&quot;</span>,<span class="ruby-string">&quot;\n&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'channel'</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'cug'</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'alias'</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">buzz_id</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+      <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">channel_id</span>, <span class="ruby-identifier">success_status</span> = <span class="ruby-constant">Buzz</span>.<span class="ruby-identifier">channel_rezzout</span>(<span class="ruby-identifier">channel_name</span>, <span class="ruby-identifier">is_cug</span>, <span class="ruby-identifier">buzz_msg</span>, <span class="ruby-identifier">priority</span>, <span class="ruby-identifier">current_user</span>, <span class="ruby-identifier">apply_to</span>, <span class="ruby-identifier">attachment</span>, <span class="ruby-identifier">buzz_id</span>)         
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">channel_id</span>, <span class="ruby-identifier">success_status</span> = <span class="ruby-constant">Buzz</span>.<span class="ruby-identifier">channel_buzzout</span>(<span class="ruby-identifier">channel_name</span>, <span class="ruby-identifier">is_cug</span>, <span class="ruby-identifier">buzz_msg</span>, <span class="ruby-identifier">priority</span>, <span class="ruby-identifier">current_user</span>, <span class="ruby-identifier">apply_to</span>, <span class="ruby-identifier">attachment</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  {<span class="ruby-value">:msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">msg</span>, <span class="ruby-value">:channel_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">channel_id</span>, <span class="ruby-value">:success_status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">success_status</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- process_buzzout-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- process_buzzout-method -->
+
+    
+      <div id="method-i-process_channel" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_channel</span><span
+            class="method-args">(apply_to,process_values)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_channel-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_channel</span>(<span class="ruby-identifier">apply_to</span>,<span class="ruby-identifier">process_values</span>)
+  <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'channel'</span>
+    <span class="ruby-identifier">is_cug</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">success_status</span> = <span class="ruby-identifier">process_channels_add</span>(<span class="ruby-identifier">process_values</span>, <span class="ruby-identifier">is_cug</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'cug'</span>
+    <span class="ruby-identifier">is_cug</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">success_status</span> = <span class="ruby-identifier">process_channels_add</span>(<span class="ruby-identifier">process_values</span>, <span class="ruby-identifier">is_cug</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'alias'</span>
+    <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">success_status</span> = <span class="ruby-identifier">process_alias_add</span>(<span class="ruby-identifier">process_values</span>)
+  <span class="ruby-keyword">end</span>
+  {<span class="ruby-value">:msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">msg</span>, <span class="ruby-value">:success_status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">success_status</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- process_channel-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- process_channel-method -->
+
+    
+      <div id="method-i-process_channels_add" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_channels_add</span><span
+            class="method-args">(channels, is_cug)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_channels_add-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 209</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_channels_add</span>(<span class="ruby-identifier">channels</span>, <span class="ruby-identifier">is_cug</span>)
+  <span class="ruby-constant">Channel</span>.<span class="ruby-identifier">add_channels</span>(<span class="ruby-identifier">channels</span>, <span class="ruby-identifier">current_user</span>, <span class="ruby-identifier">is_cug</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- process_channels_add-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- process_channels_add-method -->
+
+    
+      <div id="method-i-process_command_task" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_command_task</span><span
+            class="method-args">(command_value, attachment = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_command_task-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_command_task</span>(<span class="ruby-identifier">command_value</span>, <span class="ruby-identifier">attachment</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">direct_buzz_out</span> = <span class="ruby-constant">BUZZ_TO</span>.<span class="ruby-identifier">value?</span>(<span class="ruby-identifier">command_value</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>].<span class="ruby-identifier">downcase</span>) <span class="ruby-operator">?</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">direct_buzz_out</span>
+    <span class="ruby-identifier">task</span> = <span class="ruby-string">&quot;buzzout&quot;</span>
+    <span class="ruby-identifier">apply_to</span> = <span class="ruby-constant">BUZZ_TO</span>.<span class="ruby-identifier">key</span>(<span class="ruby-identifier">command_value</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>].<span class="ruby-identifier">downcase</span>)
+    <span class="ruby-identifier">command_value</span> = <span class="ruby-identifier">command_value</span>.<span class="ruby-identifier">slice!</span>(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">command_value</span>.<span class="ruby-identifier">length</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">task</span> = <span class="ruby-constant">COMMAND_LEVEL_1</span>.<span class="ruby-identifier">key</span>(<span class="ruby-identifier">command_value</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>].<span class="ruby-identifier">downcase</span>)
+    <span class="ruby-identifier">apply_to</span> = <span class="ruby-constant">COMMAND_LEVEL_2</span>.<span class="ruby-identifier">key</span>(<span class="ruby-identifier">command_value</span>[<span class="ruby-value">1</span>,<span class="ruby-value">1</span>].<span class="ruby-identifier">downcase</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">task</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;rezz_buzzout&quot;</span>
+      <span class="ruby-identifier">regexp</span> = <span class="ruby-identifier">command_value</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">%r^r@([^ ]*) (\d+) (.*)$/</span>)
+      <span class="ruby-identifier">buzz_id</span> = <span class="ruby-identifier">regexp</span>[<span class="ruby-value">2</span>]
+      <span class="ruby-identifier">command_value</span> = <span class="ruby-identifier">regexp</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">+</span> <span class="ruby-string">&quot; &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">regexp</span>[<span class="ruby-value">3</span>]
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">command_value</span> = <span class="ruby-identifier">command_value</span>.<span class="ruby-identifier">slice!</span>(<span class="ruby-value">2</span><span class="ruby-operator">..</span><span class="ruby-identifier">command_value</span>.<span class="ruby-identifier">length</span>)
+    <span class="ruby-keyword">end</span>    
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># if command is for buzzout then we will replace the newline(&quot;\n&quot;) with &quot;&lt;br/&gt;&quot; so that it will display as line break in view</span>
+  <span class="ruby-comment"># but the logic is to replace &quot;&lt;br/&gt;&quot; with new line while saving into the db. So, that it would not effect in mobile version for now.</span>
+  <span class="ruby-identifier">process_values</span> = (<span class="ruby-identifier">task</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;buzzout&quot;</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">command_value</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;\n&quot;</span>,<span class="ruby-string">&quot;&lt;br/&gt;&quot;</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">' '</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">command_value</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">' '</span>)
+  <span class="ruby-identifier">process_command_values</span>(<span class="ruby-identifier">task</span>, <span class="ruby-identifier">apply_to</span>, <span class="ruby-identifier">process_values</span>, <span class="ruby-identifier">attachment</span>,<span class="ruby-identifier">buzz_id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- process_command_task-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- process_command_task-method -->
+
+    
+      <div id="method-i-process_command_values" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_command_values</span><span
+            class="method-args">(task, apply_to, process_values=nil, attachment = nil,buzz_id = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_command_values-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_command_values</span>(<span class="ruby-identifier">task</span>, <span class="ruby-identifier">apply_to</span>, <span class="ruby-identifier">process_values</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">attachment</span> = <span class="ruby-keyword">nil</span>,<span class="ruby-identifier">buzz_id</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">task</span><span class="ruby-operator">==</span><span class="ruby-string">'add_channel_1'</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">task</span><span class="ruby-operator">==</span><span class="ruby-string">'add_channel_2'</span>
+    {<span class="ruby-value">:show_data</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:task</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'add_channel'</span>, <span class="ruby-value">:process_msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">process_channel</span>(<span class="ruby-identifier">apply_to</span>,<span class="ruby-identifier">process_values</span>), <span class="ruby-value">:apply_to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">apply_to</span>}
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">task</span><span class="ruby-operator">==</span><span class="ruby-string">'destruction_1'</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">task</span><span class="ruby-operator">==</span><span class="ruby-string">'destruction_2'</span>
+    {<span class="ruby-value">:show_data</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:task</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'remove_channel'</span>, <span class="ruby-value">:process_msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">process_remove_channel</span>(<span class="ruby-identifier">apply_to</span>,<span class="ruby-identifier">process_values</span>), <span class="ruby-value">:apply_to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">apply_to</span>}
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">task</span><span class="ruby-operator">==</span><span class="ruby-string">'tag_1'</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">task</span><span class="ruby-operator">==</span><span class="ruby-string">'tag_2'</span>
+    {<span class="ruby-value">:show_data</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:task</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'tag'</span>, <span class="ruby-value">:process_msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">process_tag</span>(<span class="ruby-identifier">apply_to</span>,<span class="ruby-identifier">process_values</span>), <span class="ruby-value">:apply_to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">apply_to</span>}
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">task</span><span class="ruby-operator">==</span><span class="ruby-string">'subscription_1'</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">task</span><span class="ruby-operator">==</span><span class="ruby-string">'subscription_2'</span>
+    {<span class="ruby-value">:show_data</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:task</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'subscription'</span>, <span class="ruby-value">:process_msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">process_subscription</span>(<span class="ruby-identifier">apply_to</span>,<span class="ruby-identifier">process_values</span>), <span class="ruby-value">:apply_to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">apply_to</span>}
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">task</span><span class="ruby-operator">==</span><span class="ruby-string">'unsubscription_1'</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">task</span><span class="ruby-operator">==</span><span class="ruby-string">'unsubscription_2'</span>
+    {<span class="ruby-value">:show_data</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:task</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'unsubscription'</span>, <span class="ruby-value">:process_msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">process_unsubscription</span>(<span class="ruby-identifier">apply_to</span>,<span class="ruby-identifier">process_values</span>), <span class="ruby-value">:apply_to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">apply_to</span>}
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">task</span> <span class="ruby-operator">==</span> <span class="ruby-string">'buzzout'</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">task</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;rezz_buzzout&quot;</span>
+    {<span class="ruby-value">:show_data</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:task</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">task</span>, <span class="ruby-value">:process_msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">process_buzzout</span>(<span class="ruby-identifier">apply_to</span>, <span class="ruby-identifier">process_values</span>, <span class="ruby-identifier">attachment</span>,<span class="ruby-identifier">buzz_id</span>), <span class="ruby-value">:apply_to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">apply_to</span>}
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">task</span><span class="ruby-operator">==</span><span class="ruby-string">'find'</span>
+    {<span class="ruby-value">:show_data</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">:task</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">task</span>, <span class="ruby-value">:apply_to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">apply_to</span>, <span class="ruby-value">:process_values</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">process_values</span>}
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">task</span><span class="ruby-operator">==</span><span class="ruby-string">'watch'</span>
+    {<span class="ruby-value">:show_data</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:task</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">task</span>, <span class="ruby-value">:process_msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">process_watch</span>(<span class="ruby-identifier">apply_to</span>,<span class="ruby-identifier">process_values</span>), <span class="ruby-value">:apply_to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">apply_to</span>}
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">task</span><span class="ruby-operator">==</span><span class="ruby-string">'merge'</span>
+    {<span class="ruby-value">:show_data</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:task</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">task</span>, <span class="ruby-value">:process_msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">process_merge</span>(<span class="ruby-identifier">apply_to</span>,<span class="ruby-identifier">process_values</span>), <span class="ruby-value">:apply_to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">apply_to</span>}
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- process_command_values-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- process_command_values-method -->
+
+    
+      <div id="method-i-process_cugs_add" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_cugs_add</span><span
+            class="method-args">(channels)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_cugs_add-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 213</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_cugs_add</span>(<span class="ruby-identifier">channels</span>)
+  <span class="ruby-constant">Channel</span>.<span class="ruby-identifier">add_cugs</span>(<span class="ruby-identifier">channels</span>, <span class="ruby-identifier">current_user</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- process_cugs_add-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- process_cugs_add-method -->
+
+    
+      <div id="method-i-process_find" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_find</span><span
+            class="method-args">(apply_to,process_values)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_find-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 249</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_find</span>(<span class="ruby-identifier">apply_to</span>,<span class="ruby-identifier">process_values</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'channel'</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'cug'</span>
+      <span class="ruby-identifier">is_cug</span> = (<span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'cug'</span>)
+      <span class="ruby-identifier">search_text</span> = <span class="ruby-operator">!</span><span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">' '</span>) <span class="ruby-operator">:</span> []
+      {<span class="ruby-value">:search_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'all_channel_search'</span>, <span class="ruby-value">:search_data</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Channel</span>.<span class="ruby-identifier">all_channels_search</span>(<span class="ruby-identifier">search_text</span>, <span class="ruby-identifier">is_cug</span>, <span class="ruby-identifier">current_user</span>)}
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'buzz'</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">COMMAND_LEVEL_2</span>.<span class="ruby-identifier">value?</span>(<span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">last</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>])
+        <span class="ruby-identifier">command_last_option</span> = <span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">pop</span>
+        <span class="ruby-identifier">is_cug</span> = (<span class="ruby-constant">COMMAND_LEVEL_2</span>.<span class="ruby-identifier">key</span>(<span class="ruby-identifier">command_last_option</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>]) <span class="ruby-operator">==</span> <span class="ruby-string">'cug'</span>)
+        <span class="ruby-identifier">is_alias</span> = (<span class="ruby-constant">COMMAND_LEVEL_2</span>.<span class="ruby-identifier">key</span>(<span class="ruby-identifier">command_last_option</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>]) <span class="ruby-operator">==</span> <span class="ruby-string">'alias'</span>)
+        <span class="ruby-identifier">search_channel_name</span> = <span class="ruby-identifier">command_last_option</span>[<span class="ruby-value">1</span>,<span class="ruby-identifier">command_last_option</span>.<span class="ruby-identifier">length</span>]
+        <span class="ruby-identifier">search_text</span> = <span class="ruby-operator">!</span><span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">' '</span>) <span class="ruby-operator">:</span> []
+        {<span class="ruby-value">:search_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'channel_search'</span>, <span class="ruby-value">:search_data</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Channel</span>.<span class="ruby-identifier">buzz_channels_search</span>(<span class="ruby-identifier">search_text</span>, <span class="ruby-identifier">is_cug</span>, <span class="ruby-identifier">is_alias</span>, <span class="ruby-identifier">search_channel_name</span>, <span class="ruby-identifier">current_user</span>)}
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">search_text</span> = <span class="ruby-operator">!</span><span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">' '</span>) <span class="ruby-operator">:</span> []
+        {<span class="ruby-value">:search_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'channel_search'</span>, <span class="ruby-value">:search_data</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Channel</span>.<span class="ruby-identifier">buzz_channels_cugs_search</span>(<span class="ruby-identifier">search_text</span>, <span class="ruby-identifier">current_user</span>)}
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    {<span class="ruby-value">:search_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'channel_search'</span>, <span class="ruby-value">:search_data</span> =<span class="ruby-operator">&gt;</span> []}
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- process_find-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- process_find-method -->
+
+    
+      <div id="method-i-process_here_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_here_command</span><span
+            class="method-args">(command, attachment, channel = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_here_command-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_here_command</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">attachment</span>, <span class="ruby-identifier">channel</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">channel_type</span>, <span class="ruby-identifier">command_here</span> = <span class="ruby-identifier">is_here_command_for</span>(<span class="ruby-identifier">command</span>)
+  <span class="ruby-identifier">is_cug</span> = (<span class="ruby-identifier">channel_type</span> <span class="ruby-operator">==</span> <span class="ruby-string">'cug'</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">channel</span>.<span class="ruby-identifier">nil?</span>
+    {<span class="ruby-value">:show_data</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:task</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'invalid_here'</span>, <span class="ruby-value">:process_msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;$'#{command_here}' can be used only when you are in #{is_cug ? 'CUG' : 'Channel'} listing page&quot;</span>}
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">channel</span>.<span class="ruby-identifier">is_cug</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">is_cug</span>
+    <span class="ruby-identifier">command</span> = <span class="ruby-identifier">command</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;\n&quot;</span>,<span class="ruby-string">&quot;&lt;br/&gt;&quot;</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">' '</span>)
+    <span class="ruby-identifier">command</span>[<span class="ruby-value">0</span>] = <span class="ruby-identifier">command</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">command</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>,<span class="ruby-identifier">command</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">length</span>],<span class="ruby-identifier">channel</span>.<span class="ruby-identifier">name</span>)
+    <span class="ruby-identifier">command</span> = <span class="ruby-identifier">command</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">' '</span>).<span class="ruby-identifier">rstrip</span>
+    <span class="ruby-identifier">process_command_task</span>(<span class="ruby-identifier">command</span>,<span class="ruby-identifier">attachment</span>)
+  <span class="ruby-keyword">else</span>
+    {<span class="ruby-value">:show_data</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:task</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'invalid_here'</span>, <span class="ruby-value">:process_msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;$'#{command_here}' can be used only when you are in  #{is_cug ? 'CUG' : 'Channel'} listing page.&quot;</span>}
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- process_here_command-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- process_here_command-method -->
+
+    
+      <div id="method-i-process_insync" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_insync</span><span
+            class="method-args">(apply_to,process_values)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_insync-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 273</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_insync</span>(<span class="ruby-identifier">apply_to</span>,<span class="ruby-identifier">process_values</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'insync'</span>
+      <span class="ruby-identifier">process_values</span> = <span class="ruby-operator">!</span><span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">' '</span>) <span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>
+      <span class="ruby-identifier">is_cug</span> = (<span class="ruby-constant">COMMAND_LEVEL_2</span>.<span class="ruby-identifier">key</span>(<span class="ruby-identifier">process_values</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>]) <span class="ruby-operator">==</span> <span class="ruby-string">'cug'</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">is_cug</span>
+        <span class="ruby-identifier">channel_name</span> = <span class="ruby-identifier">process_values</span>[<span class="ruby-value">1</span>,<span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">length</span>]
+        <span class="ruby-identifier">channel</span> = <span class="ruby-constant">Channel</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;name = ? and is_cug = ? and user_id = ? and channels.is_active = ?&quot;</span>, <span class="ruby-identifier">channel_name</span>, <span class="ruby-identifier">is_cug</span>, <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>, <span class="ruby-keyword">true</span>).<span class="ruby-identifier">first</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">channel</span>.<span class="ruby-identifier">nil?</span>
+          {<span class="ruby-value">:search_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'insync_search'</span>, <span class="ruby-value">:search_data</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">channel</span>.<span class="ruby-identifier">insync_search</span>, <span class="ruby-value">:search_message</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'Command successful.'</span>}
+        <span class="ruby-keyword">else</span>
+          {<span class="ruby-value">:search_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'insync_search'</span>, <span class="ruby-value">:search_data</span> =<span class="ruby-operator">&gt;</span> [], <span class="ruby-value">:search_message</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;$This CUG doesn't exists or is inactive or you are not the owner of this channel&quot;</span>}
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        {<span class="ruby-value">:search_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'insync_search'</span>, <span class="ruby-value">:search_data</span> =<span class="ruby-operator">&gt;</span> [], <span class="ruby-value">:search_message</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'$Invalid command.'</span>}
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    {<span class="ruby-value">:search_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'channel_search'</span>, <span class="ruby-value">:search_data</span> =<span class="ruby-operator">&gt;</span> [], <span class="ruby-value">:search_message</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'$Invalid command.'</span>}
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- process_insync-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- process_insync-method -->
+
+    
+      <div id="method-i-process_merge" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_merge</span><span
+            class="method-args">(apply_to,process_values)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_merge-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 308</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_merge</span>(<span class="ruby-identifier">apply_to</span>,<span class="ruby-identifier">process_values</span>)
+  <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">cug_name</span> = <span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-identifier">channel_name</span> = <span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">apply_to</span> <span class="ruby-operator">!=</span> <span class="ruby-string">'cug'</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">cug_name</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">channel_name</span>.<span class="ruby-identifier">blank?</span>
+    [<span class="ruby-string">&quot;$Invalid Command&quot;</span>]
+    <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">success_status</span> = <span class="ruby-constant">ChannelAssociation</span>.<span class="ruby-identifier">merge_channels</span>(<span class="ruby-identifier">cug_name</span>, <span class="ruby-identifier">channel_name</span>, <span class="ruby-identifier">current_user</span>)
+  <span class="ruby-keyword">end</span>
+  {<span class="ruby-value">:msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">msg</span>, <span class="ruby-value">:success_status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">success_status</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- process_merge-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- process_merge-method -->
+
+    
+      <div id="method-i-process_remove_channel" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_remove_channel</span><span
+            class="method-args">(apply_to,process_values)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_remove_channel-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 322</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_remove_channel</span>(<span class="ruby-identifier">apply_to</span>,<span class="ruby-identifier">process_values</span>)
+  <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">is_cug</span> = (<span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'cug'</span>)
+  <span class="ruby-identifier">channel_name</span> = <span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">channel_name</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">success_status</span> = <span class="ruby-constant">Channel</span>.<span class="ruby-identifier">remove_channel</span>(<span class="ruby-identifier">apply_to</span>,<span class="ruby-identifier">channel_name</span>,<span class="ruby-identifier">is_cug</span>,<span class="ruby-identifier">current_user</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;$Please provide channel/cug name or channel alias&quot;</span>
+    <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+  {<span class="ruby-value">:msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">msg</span>, <span class="ruby-value">:success_status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">success_status</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- process_remove_channel-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- process_remove_channel-method -->
+
+    
+      <div id="method-i-process_subscription" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_subscription</span><span
+            class="method-args">(apply_to,process_values)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_subscription-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_subscription</span>(<span class="ruby-identifier">apply_to</span>,<span class="ruby-identifier">process_values</span>)
+  <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">channel_id</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">is_cug</span> = (<span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'cug'</span>)
+  <span class="ruby-identifier">channel_name</span> = <span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-identifier">channel</span> = <span class="ruby-constant">Channel</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;name = ? and is_cug = ? and is_active = ?&quot;</span>, <span class="ruby-identifier">channel_name</span>, <span class="ruby-identifier">is_cug</span>, <span class="ruby-keyword">true</span>).<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">channel</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">channel_id</span> = <span class="ruby-identifier">channel</span>.<span class="ruby-identifier">id</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">success_status</span> = (<span class="ruby-identifier">channel</span>.<span class="ruby-identifier">user_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">Subscription</span>.<span class="ruby-identifier">subscribe_users</span>(<span class="ruby-identifier">channel</span>, <span class="ruby-identifier">process_values</span>) <span class="ruby-operator">:</span> <span class="ruby-string">&quot;$You must be the admin/ owner of this channel to add users&quot;</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">is_cug</span>
+      <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">success_status</span> = <span class="ruby-constant">Subscription</span>.<span class="ruby-identifier">subscribe_me</span>(<span class="ruby-identifier">channel</span>, <span class="ruby-identifier">current_user</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">is_cug</span>
+      <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;$Only admin/ moderator of a CUG can subscribe the user. You can't subscribe yourself to a CUG&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;$#{is_cug ? 'CUG' : 'Channel'} doesn't exist or is inactive&quot;</span>
+    <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+  {<span class="ruby-value">:msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">msg</span>, <span class="ruby-value">:channel_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">channel_id</span>, <span class="ruby-value">:success_status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">success_status</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- process_subscription-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- process_subscription-method -->
+
+    
+      <div id="method-i-process_tag" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_tag</span><span
+            class="method-args">(apply_to, process_values)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_tag-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 236</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_tag</span>(<span class="ruby-identifier">apply_to</span>, <span class="ruby-identifier">process_values</span>)
+  <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">channel_name</span> = <span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'channel'</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'alias'</span>
+    <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">success_status</span>  = <span class="ruby-constant">Tag</span>.<span class="ruby-identifier">add_tag</span>(<span class="ruby-identifier">apply_to</span>, <span class="ruby-identifier">channel_name</span>, <span class="ruby-identifier">process_values</span>, <span class="ruby-identifier">current_user</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;$Invalid command&quot;</span>
+    <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+  {<span class="ruby-value">:msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">msg</span>, <span class="ruby-value">:success_status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">success_status</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- process_tag-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- process_tag-method -->
+
+    
+      <div id="method-i-process_unsubscription" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_unsubscription</span><span
+            class="method-args">(apply_to,process_values)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_unsubscription-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 187</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_unsubscription</span>(<span class="ruby-identifier">apply_to</span>,<span class="ruby-identifier">process_values</span>)
+  <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">is_cug</span> = (<span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'cug'</span>)
+  <span class="ruby-identifier">channel_name</span> = <span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'alias'</span>
+    <span class="ruby-identifier">channel</span> = <span class="ruby-constant">Channel</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:channel_aliases</span>).<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;channel_aliases.name = ? and channels.is_active = ?&quot;</span>, <span class="ruby-identifier">channel_name</span>, <span class="ruby-keyword">true</span>).<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">channel</span> = <span class="ruby-constant">Channel</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;name = ? and is_cug = ? and is_active = ?&quot;</span>, <span class="ruby-identifier">channel_name</span>, <span class="ruby-identifier">is_cug</span>, <span class="ruby-keyword">true</span>).<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">channel</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">success_status</span> =  <span class="ruby-identifier">channel</span>.<span class="ruby-identifier">user_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Subscription</span>.<span class="ruby-identifier">unsubscribe_users</span>(<span class="ruby-identifier">channel</span>, <span class="ruby-identifier">process_values</span>) <span class="ruby-operator">:</span> <span class="ruby-node">&quot;$You must be the admin/ owner of this #{is_cug ? 'CUG' : 'Channel'} to unsubscribe users&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;$Please provide emails to unsubscribe&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;$#{is_cug ? 'CUG' : 'Channel'} doesn't exist or is inactive or you are not the moderator of #{is_cug ? 'CUG' : 'Channel'}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  {<span class="ruby-value">:msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">msg</span>, <span class="ruby-value">:success_status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">success_status</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- process_unsubscription-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- process_unsubscription-method -->
+
+    
+      <div id="method-i-process_watch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_watch</span><span
+            class="method-args">(apply_to,process_values)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_watch-source">
+            <pre><span class="ruby-comment"># File lib/beehive_command.rb, line 295</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_watch</span>(<span class="ruby-identifier">apply_to</span>,<span class="ruby-identifier">process_values</span>)
+  <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">success_status</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">is_cug</span> = (<span class="ruby-identifier">apply_to</span> <span class="ruby-operator">==</span> <span class="ruby-string">'cug'</span>)
+  <span class="ruby-identifier">channel_name</span> = <span class="ruby-identifier">process_values</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">channel_name</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">success_status</span> = <span class="ruby-constant">WatchChannel</span>.<span class="ruby-identifier">add_fav</span>(<span class="ruby-identifier">apply_to</span>, <span class="ruby-identifier">channel_name</span>, <span class="ruby-identifier">is_cug</span>, <span class="ruby-identifier">current_user</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;$Please provide channel/cug name or channel alias&quot;</span>
+  <span class="ruby-keyword">end</span>
+  {<span class="ruby-value">:msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">msg</span>, <span class="ruby-value">:success_status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">success_status</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- process_watch-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- process_watch-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

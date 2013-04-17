@@ -1,0 +1,51 @@
+<div id ="priority_buzz" class="content">
+  <div id = "flag_title">
+    <span class = "heading1">Priority Buzz</span>
+  </div>
+  <div id="error_explanation"></div>
+  <div class="clear"></div>
+
+  <%= form_for @buzz , {:url=> priority_buzzs_path, :html=> {:id=> 'priorty_buzz_frm',:method => 'post'}, :remote => true} do |f|%>
+    <%= hidden_field_tag "buzz_id", @buzz.id %>
+    <%= hidden_field_tag "hide_insync_cugs", '', :id => 'priority_hide_insync_cugs' %>
+      <table class="priority_table popup_data" id="<%= @buzz.id %>">
+        <tr>
+          <th>
+            <span class="select">
+              <%= check_box_tag("select_all_priority", nil, nil, :onclick => "checking_unchecking_priority_responce_expected(this, '#priority_buzz')" ) %>
+            </span>
+          </th>
+          <th><span class="limit_checkbox_align">Name</span></th>
+        </tr>
+        <%= f.fields_for :priority_buzzs do |priority_buzz| %>
+          <% buzz_insynced = @buzz.is_user_insync?(priority_buzz.object.user.id)%>
+          <tr class="users_data">
+            <td>
+              <span class="radio_text_align"><%= priority_buzz.check_box :user_id,{:disabled => buzz_insynced, :onclick => "set_destroy_priority(this); check_uncheck_check_boxes('#priority_buzz .users_data', '#select_all_priority');",:checked=> "#{check_for_priority_buzz_users(@buzz,priority_buzz.object.user_id)}"}, priority_buzz.object.user_id%></span>
+            </td>
+            <%= priority_buzz.hidden_field :_destroy ,:id=>"destroy_#{priority_buzz.object.user_id}"%>
+            <td><span class="response_checkbox">
+                <%= priority_buzz.object.user.full_name %></span>
+            </td>
+            <%if buzz_insynced%>
+              <td><span>Insync </span> </td>
+            <%else%>
+              <td><span>Out of sync </span> </td>
+            <%end%>
+
+            <%= priority_buzz.hidden_field :owner_id, :value => current_user.id %>
+          </tr>
+        <% end %>
+      </table>
+
+    <div class="popup_action_info">
+      <span>You can select the users here to set the current buzz as "Priority" for them. The buzz will be marked as "P" for you as well as for the selected users, to denote that this is a priority buzz.
+      </span>
+    </div>
+  <div class="clear"></div>
+    <div class="popup_actions">
+      <%= f.submit "Save", :class => 'inner_button', :disable_with => "Saving..." %>
+      <div class="action_button_top"><a onClick="$('.close_modal').click();">Cancel</a></div>
+    </div>
+  <% end %>
+</div>

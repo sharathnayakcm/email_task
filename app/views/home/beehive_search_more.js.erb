@@ -1,0 +1,5 @@
+$("#more_buzzs_<%=params[:channel_id]%>_<%=@search_data[0][:buzzs].current_page.to_i - 1 %>").hide();
+$("#buzzes_list_<%=params[:channel_id]%>").append("<%= j render :partial => 'shared/beehive_search_buzz_data', :locals => {:c => @search_data[0]}  %>")
+var clickLink = $(".apple_overlay_link").overlay({mask: '#ebecff'});
+$(".apple_overlay_link").bind("click",function(){clickLink.load();});
+tooltip_active();

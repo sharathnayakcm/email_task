@@ -1,0 +1,11 @@
+<% if params[:is_channel] %>
+  type = 'channel'
+<% else %>
+  type = 'buzz'
+<% end %>
+$('#processing_'+type).hide()
+<% if params[:is_channel] %>
+  $("#task_list_completed_"+type).after("<%= j render("buzz_completed_tasks_list") %>");
+<% else %>
+  $("#task_list_completed_channel").before("<%= j render("buzz_completed_tasks_list") %>");
+<% end %>

@@ -1,0 +1,9 @@
+<fieldset class="step content group_view" >
+  <% buzzs.each do |buzz| %>
+    <%= render :partial => "#{buzz.channel.is_cug ? 'cugs/buzz_data' : 'channels/buzz_data'}" , :locals=> {:buzz => buzz}  %>
+  <% end %>
+
+  <% if buzzs && buzzs.next_page && (params[:group_view] == "true")%>
+    <%= render :partial => 'home/more_buzzs', :locals => {:buzzs => buzzs} %>
+  <% end %>
+</fieldset>

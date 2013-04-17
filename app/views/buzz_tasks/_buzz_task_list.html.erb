@@ -1,0 +1,34 @@
+<div class="content">
+  <div id="dozz_error_msg"></div>
+  <%= form_for @buzz, :url => buzz_task_path(@buzz), :remote => true, :html => {:class => 'edit_buzz_task_form', :id => @buzz.id} do |f| %>
+    <%= hidden_field_tag :buzz_id, @buzz.id %>
+    <table class="dozz_grid" cellpadding="0" cellspacing="0">
+      <tr id="adding_dozz_block">
+        <th>Dozz</th>
+        <th>Date</th>
+        <th>Priority</th>
+        <th>Actions</th>
+        <th>Mark Complete</th>
+      </tr>
+      <tr id="task_list_completed_channel"></tr>
+      <div class="buzz_task_list_table">
+        <%= f.fields_for :buzz_tasks,@buzz_tasks do |builder| %>
+          <%= render "buzz_task_fields", :f => builder %>
+        <% end %>
+
+      <%= hidden_field_tag :channel_id, @buzz.channel.id %>
+      </div>
+      <tr id="add_dozz_rows"></tr>
+    </table>
+    <div id="check_empty_dozzes">
+      <%= render :partial => 'empty_dozzes', :locals => {:buzz_tasks => @buzz_tasks, :buzz_tasks_completed => @buzz_tasks.completed_dozzes} %>
+    </div>
+    <div id="buzz_tasks_actions" class="popup_actions">
+      <%= f.submit "Save", :class => 'inner_button', :id => 'buzz_task_submit_button',:disable_with => "Saving..." %>
+      <%= link_to_add_fields "Add new", f, :buzz_tasks %>
+      <% disply_show_dozzes_link = @buzz_tasks.completed_dozzes.blank? ? 'none' : 'show' %>
+      <%= link_to "Show completed dozzes", buzz_tasks_completed_buzz_tasks_path(:buzz_id => @buzz.id,:task_id => (@buzz_tasks.blank? ? 0 : @buzz_tasks.first.id),:all => true), :remote => true, :id => 'show_completed_tasks_link_buzz',:class=>'buzz_tasks_show_completed_links', :style => "display:#{disply_show_dozzes_link}" %>
+  <%#= link_to "Hide completed dozzes", buzz_tasks_completed_buzz_tasks_path(:id => @buzz.id,:task_id => (@buzz_tasks.blank? ? 0 : @buzz_tasks.first.id),:all => false), :remote => true, :id => 'hide_completed_tasks_link_buzz',:class=>'buzz_tasks_show_completed_links', :style => "display:" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,35 @@
+<div class = "content flags" id = "add_flag_<%= @buzz.id %>">
+  <div id = "flag_title">
+    <span class = "heading1">Select Buzz Flag </span>
+  </div>
+  <%= form_for(:buzz_flag, :remote => true) do |f| %>
+    <div id ="flag_expiredate">
+      <span class = "heading1">Flag</span>
+      <span class = "heading1 expiry_date">Expiry date</span>
+    </div>
+    <ul id="flag_<%= @buzz.id %>" class = "buzz_flags popup_data">
+      <% @flags.each_with_index do |flag,index| %>
+        <li>
+          <div>
+            <% check_buzz_flag_checked = @buzz.buzz_flag_checked(flag, current_user) %>
+            <%= image_tag("flag_"+ flag.name.downcase + ".png", :id => "flag_#{@buzz.id}_#{flag.id}",:class => "#{check_buzz_flag_checked.blank? ? '': 'selected_flag'}") %>
+            <%= check_box_tag "buzz_flag[#{index}][flag_id]", flag.id, check_buzz_flag_checked.blank? ? false : true, :class => "display_none" %>
+            <%= hidden_field_tag  "buzz_flag[#{index}][user_id]", current_user.id %>
+            <%= hidden_field_tag  "buzz_flag[#{index}][buzz_id]", @buzz.id %>
+            <%= text_field_tag "buzz_flag[#{index}][expiry_date]", check_buzz_flag_checked.blank? ? '' : "#{check_buzz_flag_checked.expiry_date.strftime("%d-%m-%Y") if check_buzz_flag_checked.expiry_date.present?}", :readonly => true, :id => "expiry_date_flag_#{@buzz.id}_#{flag.id}", :class => "inner_txt_fld float_left select_date_picker" %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="popup_action_info">
+      <span>You can set a Flag for a particular buzz. The flag category can be Red, Green, Blue, Amber and Yellow. There is an expiry date associated with each flag. If this date is not set, then the flag is set as "Never Expires". We can set multiple flags against one buzz. The buzzed can be filtered based on the flag color(s). The flag is user specific.
+      </span>
+    </div>
+  <div class="clear"></div>
+    <div class = "left popup_actions" id = "buzz_flag_lists_save">
+      <%= hidden_field_tag  "buzz_id", @buzz.id %>
+      <%= f.submit "Save Flag", :class => "inner_button" ,:disable_with => "Saving..." %>
+    </div>
+  <% end %>
+</div>

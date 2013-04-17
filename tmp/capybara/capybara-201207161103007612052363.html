@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <title>Beehive</title>
+    <link type="text/css" rel="stylesheet" media="screen" href="/assets/application.css" />
+    <script type="text/javascript" src="/assets/application.js"></script>
+    
+    <link type="image/vnd.microsoft.icon" rel="shortcut icon" href="/favicon.ico" />
+  </head>
+  <body onload="notify();">
+    <div id="notify_message"><div id="boxd"></div></div>
+    <div>
+      <span style="display: none;" id="msg"></span>
+      <div id="dashboard">
+        <div class="logo"><a href="/"><img border="0" alt="Beehive" src="/assets/dashboard_logo.png" /></a></div>
+<div class="top_links">
+  <span><a href="/users/edit">Sahana</a></span>
+  <span> | </span>
+  <span><a href="/home/dashboard">Dashboard</a></span>
+  <span> | </span>
+  <span><a rel="nofollow" data-method="delete" href="/users/sign_out">Logout</a></span>
+  <span> | </span>
+  <span><a target="_blank" href="/home/help">Help</a></span></div>
+<div class="clear"></div>
+
+        <div class="container">
+          <div class="container_top"></div>
+          <div class="container_mid">
+            <!--Tabs Starts Here-->
+            <div id="wrapper">
+  <div id="navigation">
+    <ul>
+      <li class=""><a href="/home">Watch</a></li>
+<li class="selected"><a href="/home/channels">Channels</a></li>
+<li class=""><a href="/home/cugs">CUGs</a></li>
+<li class=""><a href="/home/today">Today</a> </li>
+<li class=""><a href="/home/calendar">Calendar</a> </li>
+    </ul>
+    <div class="current_page"> Now Screen:  Channel "chan1"</div>
+  </div>
+  <div>
+  <form method="post" id="buzzout" enctype="multipart/form-data" action="/home/process_command" accept-charset="UTF-8"><div style="margin:0;padding:0;display:inline"><input type="hidden" value="✓" name="utf8" /></div>
+    <div class="float_left">
+      <textarea rows="20" placeholder="Type your command here ......" onkeyup="count_char('#command');check_here('#command');" name="beehive[command]" id="command" cols="40" class="buzz"></textarea>
+    </div>
+
+    <div class="buzzout_img">
+      <span class="file-wrapper">
+        <input type="file" onchange="get_attachment_name(this, 'attached_file');" onclick="return check_attachment();" name="beehive[attachfile]" id="attachfile" />
+        <img title="Add attachment" src="/assets/attachment_big.png" id="attach_img" alt="attachment" />
+      </span>
+    </div>
+
+    <div class="buzzout_img">
+      <input type="image" title="Buzzout" src="/assets/buzzout.png" onclick="return submit_command('buzzout');" id="buzzout_img" alt="Buzzout" />
+    </div>
+    <div class="step">
+      <span id="dashboard_msg"></span>
+      <span id="attached_file"></span>
+        <input type="hidden" value="1" name="beehive[channel_id]" id="beehive_channel_id" />
+    </div>
+    <input type="hidden" name="myerror" id="myerror" />
+    <div class="clear"></div>
+</form></div>
+  <div id="steps">
+    <div id="formElem">
+      <fieldset class="step">
+          <legend>
+            Channel "chan1"
+            <div class="inner_button right"><a href="/home/dashboard?cug_dashboard=true">Back to Dashboard</a></div>
+          </legend>
+          <div id="channel_info" class="content left"><div>
+  <span class="top_channel_info_link">Buzzers: <a href="/home/1/buzzers">0</a>;</span>
+
+    <span class="top_channel_info_link" id="buzz_rate_1"><a href="/home/1/buzzes?buzz_rate=1">24</a> hrs buzz rate: 2;</span>
+    <span class="top_channel_info_link" id="buzz_rate_2"><a href="/home/1/buzzes?buzz_rate=2">72</a> hrs buzz rate: 2;</span>
+    <span class="top_channel_info_link">
+      All;
+    </span>
+  <span class="top_channel_info_link">
+    Active buzzers: <b><a>2</a>;</b>
+  </span>
+
+  <span class="top_channel_info_link">
+    Moderator:<b> <a>You</a></b>
+  </span>
+
+
+  <span id="watch_div" class="channel_option_img">
+      <a data-remote="true" href="/home/add_to_watch?channel_id=1&amp;update_div=watch_div"><img border="0" title="Add to watch list" src="/assets/CUG-to-watch.png" alt="Add to watch list" /></a>
+  </span>
+
+  <span id="sub_unsub_div" class="channel_option_img">
+  </span>
+</div>
+<div class="clear"></div>
+<div>
+</div></div>
+          <div class="clear"></div>
+          <div id="buzzes_list">
+                <div id="buzz_5" class="content today_insync ">
+    <span>By <a href="#">You</a></span>
+    <span>less than a minute ago</span>
+    <span class="parent_buzz_name_5 buzz_title" id="buzz_name_view_5"></span>
+    <span></span>
+    <ul class="buzz_actions">
+  
+  
+  
+  
+  
+  <li id="view_5"><a href="/rezzs/view_all?buzz_id=5&amp;hide=false" data-remote="true"><img title="Create Rezz" src="/assets/view_rezz.png" alt="View_rezz" /></a></li>
+  
+  <li><a href="/rezzs/5?buzz_id=5" data-remote="true" data-method="delete" data-confirm="Are you sure you want to remove this buzz?"><img title="Remove Buzz" src="/assets/buzz_remove.png" alt="Buzz_remove" /></a></li>
+</ul>
+<div style="position:absolute; z-index: 10; right: 10px;" class="limit_buzzs" id="update_limit_buzz_5"></div>
+<div class="buzz_tag_list buzz_pop_up" id="tag_list_5"></div>
+<div class="buzz_task_list buzz_pop_up" id="task_list_5"></div>
+<div class="buzz_flag_list buzz_pop_up" id="flag_list_5"></div>
+<div class="add_buzz_name buzz_pop_up" id="buzz_name_5"></div>
+
+<div style="display:none" class="buzz_over_flag" id="flags_5">
+    No flag
+</div>
+
+
+
+<br />
+    <ul class="tag_cloud">
+      <li>
+        <div id="tag_tip"><img width="12" height="9" src="/assets/tag_cloud_tip.png" /></div>
+        <div class="mssg">this is  buzz5</div>
+      </li>
+    </ul>
+    <div class="new_rezz" style="display:none" id="rezz_5"></div>
+    <div class="view_rezzs" id="view_rezzs_5"></div>
+  </div>
+<div id="no_insync" class="today_cug display_none"><p>You are Insync with all the buzzes</p></div>
+  <div id="buzz_1" class="content today_insync ">
+    <span>By <a href="#">Suki</a></span>
+    <span>less than a minute ago</span>
+    <span class="parent_buzz_name_1 buzz_title" id="buzz_name_view_1"></span>
+    <span></span>
+    <ul class="buzz_actions">
+  
+  
+  
+  
+  
+  <li id="view_1"><a href="/rezzs/view_all?buzz_id=1&amp;hide=false" data-remote="true"><img title="Create Rezz" src="/assets/view_rezz.png" alt="View_rezz" /></a></li>
+  
+  <li><a href="/rezzs/1?buzz_id=1" data-remote="true" data-method="delete" data-confirm="Are you sure you want to remove this buzz?"><img title="Remove Buzz" src="/assets/buzz_remove.png" alt="Buzz_remove" /></a></li>
+</ul>
+<div style="position:absolute; z-index: 10; right: 10px;" class="limit_buzzs" id="update_limit_buzz_1"></div>
+<div class="buzz_tag_list buzz_pop_up" id="tag_list_1"></div>
+<div class="buzz_task_list buzz_pop_up" id="task_list_1"></div>
+<div class="buzz_flag_list buzz_pop_up" id="flag_list_1"></div>
+<div class="add_buzz_name buzz_pop_up" id="buzz_name_1"></div>
+
+<div style="display:none" class="buzz_over_flag" id="flags_1">
+    No flag
+</div>
+
+
+
+<br />
+    <ul class="tag_cloud">
+      <li>
+        <div id="tag_tip"><img width="12" height="9" src="/assets/tag_cloud_tip.png" /></div>
+        <div class="mssg">this is  buzz1</div>
+      </li>
+    </ul>
+    <div class="new_rezz" style="display:none" id="rezz_1"></div>
+    <div class="view_rezzs" id="view_rezzs_1"></div>
+  </div>
+<div id="no_insync" class="today_cug display_none"><p>You are Insync with all the buzzes</p></div>
+
+          </div>
+          <div id="no_insync" class="today_cug display_none"><p>You are Insync with all the buzzes</p></div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+            <!--Tabs Ends Here-->
+            <div class="clear"></div>
+          </div>
+          <div class="container_bottom"></div>
+          <div id="footer">
+<div class="social_inner">
+<!--
+<ul>
+<li><a href="#"><img src="/assets/social/facebook.png"  alt="Facebook" border="0" /></a></li>
+<li><a href="#"><img src="/assets/social/twitter.png"  alt="Facebook" border="0" /></a></li>
+<li><a href="#"><img src="/assets/social/yahoo.png" alt="Facebook" border="0" /></a></li>
+<li><a href="#"><img src="/assets/social/blogger.png"  alt="Facebook" border="0" /></a></li>
+</ul>
+-->
+</div>
+<div class="cr_inner">© 2012 Beehive - Powered by Sumeru Software Solutions</div>
+</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  
+</body></html>

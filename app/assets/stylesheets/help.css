@@ -1,0 +1,12 @@
+#help_table{ font-size:12px; width:100%;text-align:left; background-color: white;}
+#help_table th{background:#0db0eb; color:#fff; font-size:18px;}
+#help_table td{color:#333; padding-left: 5px;}
+#help_table tr{border-color: white;}
+#help_table .highlight{ background:#CCCCCC; font-size:12px;font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;}
+#help_table table{ width:100%;}
+#help_table {border:solid 1px #ececec; clear:both;}
+.inner_table td{border:solid 1px #ccc; padding: 5px !important;}
+#help_table th{text-align:center;}
+.action_type{color:red;}
+.action{color:green;}
+.help_note{ color: #adadad; font-size: 12px;}

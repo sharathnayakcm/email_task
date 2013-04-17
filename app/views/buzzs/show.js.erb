@@ -1,0 +1,7 @@
+$('#buzzes_list').html("<%= j render :partial => 'cugs/buzz_data', :locals => {:buzz => @buzz } %>")
+$('#buzz_<%=@buzz.id%>').effect("highlight", {color:"#DFDFDF"}, 3000)
+$('html, body').animate({
+scrollTop: $(document).height()
+}, 'slow');
+$(".apple_overlay_link").overlay({mask: '#ebecff'});
+tooltip_active()

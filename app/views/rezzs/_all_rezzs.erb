@@ -1,0 +1,7 @@
+<div id="formElem">
+  <% if @rezzs.count > 1 %>
+    <% for rezz in @rezzs %>
+      <%= render :partial => "rezz", :locals => {:rezz => rezz, :display_link => false , :from_rezz => 'rezz'} %>
+    <% end %>
+  <%end%>
+</div>

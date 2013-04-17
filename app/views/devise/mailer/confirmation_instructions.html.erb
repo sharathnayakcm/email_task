@@ -1,0 +1,15 @@
+<p>Welcome <%= @resource.full_name.titleize %> to Beehive.</p>
+
+<p>You can activate your account using the link below:</p>
+
+<p><%= link_to 'Activate my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+
+<p>Your login credentials are as follows:-</p>
+
+Username: <%= @resource.email %> <br />
+Password: <%= @resource.password %>
+
+<p>
+  Regards, <br />
+  Beehive Support Team.
+</p>

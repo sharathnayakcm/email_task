@@ -1,0 +1,99 @@
+<label>Filters:</label>
+<div class="clear"></div>
+<div>
+  <div class="fil_title">Search In</div>
+  <ul class="search_filter">
+    <li id="search_in" style="display: none;">
+      <span><%= radio_button_tag 'beehive_search[current_cug_id]', 'true', false, :id=> 'current_cug', :class => 'beehive_current_cug' %></span>
+      <span>Current CUG</span>
+    </li>
+    <li>
+      <span class="radio_text_align"><%= radio_button_tag 'beehive_search[current_cug_id]', 'cug', false, :class => 'beehive_current_cug' %></span>
+      <span>Select CUGs</span>
+    </li>
+    <li>
+      <span class="radio_text_align"><%= radio_button_tag 'beehive_search[current_cug_id]', 'all', true, :class => 'beehive_current_cug' %></span>
+      <span>All CUGs</span>
+    </li>
+    <li class="row" id="cug_search" style="display: none;">
+
+      <label class="left">Search CUG Name:</label>
+      <%= text_field_tag 'beehive_search[search_cug_name]', '', :id => "search_cug_name", :class => "fld long" %>
+
+    </li>
+  </ul>
+</div>
+<div class="clear"></div>
+<% if !@subscribed_channels_tag_list.blank? %>
+  <div class="fil_title">
+    <div id="tags_box" style="cursor: pointer">
+      <div style="float: left; padding: 3px;">Tags</div>
+      <div><%= image_tag 'beehive-newui/search_accor_down.png', :style=>"padding-top: 0px;" %></div>
+    </div>
+    <span class="right" id="tags_select_all" style="display:none;">
+      <div class="left"><%= check_box_tag 'beehive_search_tags', '', false, :onClick => "select_all_options(this, 'tags');" %></div>
+      <div class="search_any">All</div>
+    </span>
+  </div>
+  <div class="clear"></div>
+  <div id="tags_scrollbar" class="tag_scroll">
+    <ul id="tags_options">
+      <% @subscribed_channels_tag_list.each do |t| %>
+        <li>
+          <span class="radio_text_align"><%= check_box_tag 'beehive_search[tags][]', t[:tag_name], false, :class => 'beehive_search_tags',:onclick=>"check_uncheck_all('beehive_search_tags')" %></span>
+          <span><%= t[:tag_name] %></span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="clear"></div>
+<% end %>
+<div class="fil_title"><div id="flags_box" style="cursor: pointer"><div style="float: left; padding: 3px;">Flags</div><div><%= image_tag 'beehive-newui/search_accor_down.png', :style=>"padding-top: 0px;" %></div></div>
+  <span class="right" id="flags_select_all" style="display:none;">
+    <div class="left"><%= check_box_tag 'beehive_search_flags', '', false, :onClick => "select_all_options(this, 'flags');" %></div>
+    <div class="search_any">All</div>
+  </span>
+</div>
+<ul class="search_filter" id="flags_options" style="display: none">
+  <% @flags.each do |f| %>
+    <li>
+      <%= check_box_tag 'beehive_search[flags][]', f.id, false, :id=> "beehive_search_flag_id_#{f.id}", :class => 'beehive_search_flags', :style => "display:none" %>
+      <%= image_tag "flag_#{f.name.downcase}.png", :id=> "beehive_search_flag_#{f.id}", :height=> 16, :width => 16, :alt => f.name, :onClick=> "select_flag_check('#{f.id}');", :class => "buzz_flags" %>
+    </li>
+  <% end %>
+</ul>
+<div class="clear"></div>
+<% if !@subscribed_channels_subscribed_user_list.blank? %>
+  <div class="fil_title"><div id="buzzed_by_box" style="cursor: pointer"><div style="float: left; padding: 3px;">Buzzed By</div><div><%= image_tag 'beehive-newui/search_accor_down.png', :style=>"padding-top: 0px;" %></div></div>
+    <span class="right" id="buzzed_by_select_all" style="display:none;">
+      <div class="left"><%= check_box_tag 'beehive_search_buzzed_by', '', false, :onClick => "select_all_options(this, 'buzzed_by');" %></div>
+      <div class="search_any">All</div>
+    </span>
+  </div>
+  <div class="clear"></div>
+  <div id="buzzedby_scrollbar" class="user_scroll">
+    <ul class="" id="buzzed_by_options" style="">
+      <% @subscribed_channels_subscribed_user_list.each do |b| %>
+        <li>
+          <span><%= check_box_tag 'beehive_search[buzzed_by][]', b[:user_id], false, :class => 'beehive_search_buzzed_by',:onclick=>"check_uncheck_all('beehive_search_buzzed_by')" %></span>
+          <span><%= b[:user_name] %></span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="clear"></div>
+<% end %>
+<div class="fil_title"><div id="insync_type_box" style="cursor: pointer"><div style="float: left; padding: 3px;">Insync Type</div><div><%= image_tag 'beehive-newui/search_accor_down.png', :style=>"padding-top: 0px;" %></div></div>
+  <span class="right" id="insync_type_select_all" style="display:none;">
+    <div class="left"><%= check_box_tag 'beehive_search_insync_types', '', true, :onClick => "select_all_options(this, 'insync_types');" %></div>
+    <div class="search_any">All</div>
+  </span></div>
+<ul class="search_filter" id="insync_type_options" style="display: none">
+  <% @insync_type.each do |i| %>
+    <li>
+      <span><%= check_box_tag 'beehive_search[insync_type][]', i[:val], true, :class => 'beehive_search_insync_types' ,:onclick=>"check_uncheck_all('beehive_search_insync_types')"%></span>
+      <span><%= i[:name] %></span>
+    </li>
+  <% end %>
+</ul>
+<div class="clear"></div>

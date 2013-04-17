@@ -1,0 +1,9 @@
+<% @buzz_tasks.completed_dozzes.each do |buzz_task| %>
+  <tr>
+    <td><%= buzz_task.name %></td>
+    <td><%= buzz_task.due_date.strftime("%d %b %Y") if buzz_task.due_date%></td>
+    <td><div class="field_priority"><%= buzz_task.priority.capitalize %></div></td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+<% end %>

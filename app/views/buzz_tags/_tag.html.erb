@@ -1,0 +1,4 @@
+<% buzz_tag = tag %>
+<div id = "delete_tag_<%= buzz_tag.id %>" class = "buzz_tag_name"><%= buzz_tag.tag.name %>
+  <%= link_to image_tag('close_button.png'), buzz_tag_path(buzz_tag.id, :tag_id => buzz_tag.tag.id, :buzz_id => buzz_tag.buzz.id, :channel_id => @channel.id), :method => :delete, :remote => true %>
+</div>

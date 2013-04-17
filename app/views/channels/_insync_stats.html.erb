@@ -1,0 +1,8 @@
+<div class="insync_tabs">
+  <ul class="insync_stats" id="insync_stats_block">
+    <li> Active buzzers: <%= @channel.active_buzzers %>.</li>
+    <li> Moderator: <b><%= @channel.moderator_name(current_user) %></b>.</li>
+    <li>24 hrs buzz rate: <%= @channel.buzz_rate_count("24") %>.</li>
+    <li>72 hrs buzz rate: <%= @channel.buzz_rate_count("72") %>.</li>
+  </ul>
+</div>

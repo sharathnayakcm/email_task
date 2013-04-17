@@ -1,0 +1,7 @@
+$(".cug_related_block").html("");
+$('#buzzes_list').html("<%= (j render :partial => 'edit') %>")
+$("#breadcrum").html("<%= (j render :partial => '/shared/breadcrumb_links') %>");
+$('.stats_filter_icons li.insync_buzz').hide();
+buttons_styling();
+$("ul.tabs").tabs("div.panes > div");
+$('.form tr:even').css('background','#f4f4f4');

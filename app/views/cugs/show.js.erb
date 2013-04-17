@@ -1,0 +1,10 @@
+$("#cug_info_data").html("<%= j render :partial => "show" %>")
+$("ul.tabs").tabs("div.panes > div");
+
+if($('.group_view').length == 0){
+  $.ajax({
+  type: 'get',
+  url: "/buzzs?channel_id=<%=@channel.id%>&cug_view_type=<%= params[:cug_view_type] %>",
+  dataType: "script"
+  });
+}

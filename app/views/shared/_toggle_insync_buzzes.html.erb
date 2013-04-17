@@ -1,0 +1,43 @@
+<span class="filters_icon"></span>
+<div class ="toggle_link <%= 'ipad_device' if is_tablet_device? %>" id="filters_block">
+  <%= form_for :channel_filter_check, :url =>  filter_buzzs_buzzs_path(:channel_id => @channel.id, :cug_view_type => params[:cug_view_type]), :remote => true, :html => {:method => :get} do %>
+
+    <div class="apply_to">Apply Buzzes to:</div>
+    
+    <div class="channel_filter_checks">
+      <%= check_box_tag 'show_out_insync', '', (params[:show_out_insync] || params[:commit].blank?) ? true : false %> <span>Out of sync</span>
+      <span style="margin-left: 15px;"><%= check_box_tag 'show_in_insync', '', (params[:show_in_insync] || params[:commit].blank?) ? true : false %> <span>Insync</span></span>
+    </div>
+    <div class="clear divider"></div>
+
+    <div class="channel_filter_checks">
+      <%= check_box_tag 'priority_filter', '', (params[:priority_filter]) ? true : false %> <span>Priority Buzzes</span>
+    </div>
+    <div class="channel_filter_checks">
+      <%= check_box_tag 'with_attachment_filter', '', (params[:with_attachment_filter]) ? true : false %> <span>With Attachment Buzzes</span>
+    </div>
+    <div class="channel_filter_checks">
+      <%= check_box_tag 'awaiting_for_response_filter', '', (params[:awaiting_for_response_filter]) ? true : false %> <span>Awaiting Response Buzzes</span>
+    </div>
+    <div class ="channel_filter_sub_checks" id="awaiting_for_response_filter_block">
+      <% @channel.get_response_awaiting_users(current_user.id).each do |user| %>
+        <div><%= check_box_tag 'awaiting_for_response_filter_user[]', user.id, (params[:awaiting_for_response_filter_user] && params[:awaiting_for_response_filter_user].map(&:to_i).include?(user.id)) ? true : false %> <%= user.first_name %></div>
+        <div class="clear"></div>
+      <% end %>
+    </div>
+    <div class="channel_filter_checks">
+      <%= check_box_tag 'response_expected_filter', '', (params[:response_expected_filter]) ? true : false %>
+      <span>Response Expected Buzzes</span>
+    </div>
+    <div class="channel_filter_sub_checks" id="response_expected_filter_block">
+      <% @channel.get_response_expected_users(current_user.id).each do |rs| %>
+        <div><%= check_box_tag 'response_expected_filter_user[]', rs.owner.id, (params[:response_expected_filter_user] && params[:response_expected_filter_user].map(&:to_i).include?(rs.owner.id)) ? true : false %> <%= rs.owner.first_name %></div>
+        <div class="clear"></div>
+      <% end %>
+    </div>
+    <div class="channel_filter_buttons popup_actions">
+      <%= submit_tag "Filter", :class => 'inner_button', :disable_with => "Loading buzzs..." %>
+      <%= link_to "Clear", buzzs_path(:channel_id => @channel.id, :cug_view_type => params[:cug_view_type]), :remote => true %>
+    </div>
+  <% end %>
+</div>

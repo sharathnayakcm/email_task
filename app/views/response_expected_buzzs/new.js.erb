@@ -1,0 +1,14 @@
+<% if @user_names.size < 1 %>
+  <% error = 'No Users subscribed to this CUG. Hence Buzz cannot be made as Responce Expected.' %>
+<% else %>
+  $(".close_modal").show();
+  $("#overlay_data").hide().html("<%= j render("new") %>").fadeIn(2000);
+  buttons_styling();
+  $('#response_expected_hide_insync_cugs').attr('value', $('.hide_show_insyn_chk_box').is(':checked'))
+<%end%>
+
+<% if error.present?  %>
+  $('.close_modal').click();
+  $("#msg").html("<span class='err_msg'><%= error %></span>")
+  notify();
+<% end %>

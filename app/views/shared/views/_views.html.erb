@@ -1,0 +1,2 @@
+<%= render :partial => "shared/views/#{views[:beehive_view_for]}_view_list", :locals => {:channel_data => views}  %>
+<li class=<%='list_divider' if views_counter+1 != @channels.size%> ></li>

@@ -1,0 +1,20 @@
+$(".close_modal").click();
+/* Updates flag count and date status of the flag selected by the user */
+<% buzz_flags = @buzz.buzz_flags.not_expired(current_user.id) %>
+<% if buzz_flags.count > 0 %>
+  $(".flag_count_<%=@buzz.id%>").addClass('buzz_icons_count').html("<%= buzz_flags.count %>");
+  <% flags = buzz_flags_tool_tip(buzz_flags) %>
+  $(".buzz_flag_<%= @buzz.id %>").attr("title","<%= j flags.join('').html_safe %>");
+<% else %>
+  $(".flag_count_<%=@buzz.id%>").removeClass('buzz_icons_count').html("");
+  $(".buzz_flag_<%= @buzz.id %>").attr("title", "No Flag");
+<% end %>
+tooltip_active();
+
+<% beehive_view = BeehiveView.get_view_by_name("Flags") %>
+<% beehive_view.root.children.each do |children| %>
+<%  cugs = current_user.get_cugs_unsync_count(current_user.send(children.view_scope, params[:cug_name]), params[:hide_insync_cugs]) %> 
+  if($('#cug_block_<%=children.id%>_data').length > 0)
+    $('#cug_block_<%=children.id%>_data').html("<%= j (render :partial=> 'cugs/cugs', :locals => {:cugs => cugs, :cug_type => children.id, :keyword => ''}) %>")
+  $('#cug_block_<%=children.id%>').next().text('<%= "#{children.view_name} (#{cugs.size})"%>')
+<% end %>

@@ -1,0 +1,6 @@
+/* Buzz name created by the user for a buzz is deleted */
+$(".parent_buzz_name_<%= @buzz.root_id %>").html('');
+$(".close_modal").click();
+$('#msg').html("<span class = 'info_msg'>Buzz Name removed Successfully.</span>");
+notify();
+$('.parent_buzz_name_view_<%= @buzz.root_id %>').show();

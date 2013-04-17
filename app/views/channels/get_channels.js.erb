@@ -1,0 +1,25 @@
+$('.channel_related_block').html('');
+$('#search_in').hide();
+$(".channel_stats_icon").hide();
+
+$("#channel_view_block").html("<%= j render :partial => "shared/views/views", :collection => @channels %>");
+
+$("#breadcrum").html("<%= j render :partial => "shared/breadcrumb_links" %>");
+$('.top_links li a.buzz_icon').attr('href', '<%= new_buzz_path(:channel_or_cug => 'channel')%>');
+
+<% if params[:group_view] && params[:group_view] == "true" %>
+  $("#buzzes_list").html("<%= j render :partial => "shared/channels" ,:locals => {:channels => (@selected_beehive_view_channels.blank? ? @channels.first[:channels] : @selected_beehive_view_channels[:channels])} %>");
+  tooltip_active();
+  activating_home_link();
+  var clickLink = $(".apple_overlay_link").overlay({mask: '#ebecff'});
+  $(".apple_overlay_link").bind("click",function(){clickLink.load();});
+<% else %>
+  get_first_channel_opened_block()
+<% end %>
+
+<% if !params[:opened_block].blank? %>
+  toggle_effect_channel('<%=params[:opened_block]%>');
+<% end %>
+<% if  @beehive_view.ancestry? %>
+  toggle_effect_channel('channel_block_<%=@beehive_view.id%>');
+<% end %>

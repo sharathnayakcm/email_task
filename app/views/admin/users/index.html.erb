@@ -1,0 +1,44 @@
+<span id="msg" style="display: none;"><%= show_flash_message %></span>
+<h2>User Management</h2>
+<div style="float: right; padding-bottom: 5px;">
+  <%= link_to "Invite/ Add User", new_admin_user_path %> |
+  <%= link_to "Upload CSV", upload_csv_admin_users_path %>
+</div>
+<div class="clear"></div>
+<div id="grid">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr >
+      <th scope="col">Sr.No.</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email(user name)</th>
+      <th scope="col">Is Admin?</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+    <% i = params[:page].to_i > 1 ? (params[:page].to_i-1)*10+1 : 1 %>
+    <% @users.each do |u| %>
+      <tr class="highlight">
+        <td><%= i %></td>
+        <td><%= u.first_name %></td>
+        <td><%= u.last_name %></td>
+        <td><%= u.email %></td>
+        <td><%= u.admin_status %></td>
+        <td><%= u.user_account_status %></td>
+        <td>
+          <span>
+            <%= link_to image_tag("social/edit.png", :style => "width: 17px; height: 17px; border: 0", :alt=> "Edit"), edit_admin_user_path(u) %>
+          </span>
+          <span>
+            <%= user_status_link(u) %>
+          </span>
+        </td>
+      </tr>
+      <% i += 1 %>
+    <% end %>
+  </table>
+</div>
+<div class="clear"></div>
+<div id="grid">
+  <%= will_paginate(@users) %>
+</div>

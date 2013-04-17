@@ -1,0 +1,12 @@
+<% if @user_names.size < 2 %>
+  <% error = @user_names.size == 1 ? 'Only 1 User subscribed to this CUG. Hence Buzz cannot be limited.' : "You can limit the buzz only when there are more than two users subscribed to this CUG." %>
+<% else %>
+  $(".close_modal").show();
+  $("#overlay_data").hide().html("<%= j render("shared/limit_buzz") %>").fadeIn(2000);
+  buttons_styling();
+<%end%>
+<% if error.present?  %>
+  $('.close_modal').click();
+  $("#msg").html("<span class='err_msg'><%= error %></span>")
+  notify();
+<% end %>

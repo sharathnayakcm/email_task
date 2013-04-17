@@ -1,0 +1,31 @@
+$('.close_modal').click();
+<%  if flash[:notice] %>
+<% type =  @channel.is_cug == true ? "cug": "channel" %>
+if($(".selected_<%=type%>_topic").length == 0){
+  if($("#buzzes_list_<%=@channel.id%>").length > 0){
+    $('#buzzes_list_<%=@channel.id%> .no_buzzs_found').remove();
+    $("#buzzes_list_<%=@channel.id%>").prepend('<%= j render :partial => "#{type}s/buzz_data" ,:locals => {:buzz => @buzz} %>');
+  }
+}
+else{
+  var selected_channel = $(".selected_<%=type%>_topic a").attr('id')
+  var buzzed_channel = "<%= @channel.id%>"
+  if(selected_channel == buzzed_channel && $('.group_view').length > 0){
+    $('#buzzes_list .no_buzzs_found').remove();
+    $('#buzzes_list').prepend('<%= j render :partial => "#{type}s/buzz_data" ,:locals => {:buzz => @buzz} %>');
+  }
+}
+$("#add_new_buzz").html('');
+$('.top_links li a').removeClass('active');
+$('.top_links li .home').addClass('active');
+$(".apple_overlay_link").overlay({mask: '#ebecff'});
+tooltip_active();
+if($('.insync_count_number_<%=@channel.id%>').length > 0){
+  $('.insync_count_number_<%=@channel.id%>').text('(<%=@channel.unsync_buzz_count(current_user)%>)')
+}
+<%  else %>
+  $('#add_buzz_spinner').hide();
+<%  end %>
+$('#msg').html('<%= j show_flash_message %>')
+notify();
+$('body').css('cursor', 'default');

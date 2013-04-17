@@ -1,0 +1,70 @@
+<%= tinymce_assets %>
+<%= tinymce %>
+<% cug_or_channel = @buzz.channel.channel_or_cug  %>
+<div class="rezz add_rezz_pop_up content <%= cug_or_channel %>" id="new_rezz<%=@buzz.id%>">
+  <%= form_for :rezz, :url => rezzs_path(:buzz_id => @buzz.id), :remote => true, :html => {:id => 'rezzout',:multipart => true} do |f| %>
+    <% if cug_or_channel == 'CUG' %>
+      <div class="channel_users_name clear">
+        <%= @user_names.present? ? (render :partial => 'buzzs/channel_user', :collection => @user_names) : "No members present" %>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+    <div id="new_rezz_users_data_block">
+      <table class="new_buzz_actions flds" cellpadding="0" cellspacing="0">
+        <tr>
+          <td class="icon"><%= image_tag("attachment.png")%></td>
+          <td class="label"><label>Attachment</label></td>
+          <td class="colon">:</td>
+          <td class="field">
+            <div class="file_browse left" ><%= f.file_field :attachment %></div>
+          </td>
+        </tr>
+        <% if cug_or_channel == 'CUG' %>
+          <tr>
+            <td class="icon"><%= image_tag("beehive-newui/response-expected.png")%></td>
+            <td class="label"><label>Response Expected From</label></td>
+            <td class="colon">:</td>
+            <td class="field">
+              <div id="new_buzz_response" class="drop_boxes">
+                <span class="placeholder">Drag & Drop Names Here...</span>
+              </div>
+              <%= hidden_field_tag :response_expected %>
+            </td>
+          </tr>
+          <tr>
+            <td class="icon"><%= image_tag("beehive-newui/priority.png")%></td>
+            <td class="label"><label>Priority For</label></td>
+            <td class="colon">:</td>
+            <td class="field">
+              <div id="new_buzz_priority" class="drop_boxes">
+                <span class="placeholder">Drag & Drop Names Here...</span>
+              </div>
+              <%= hidden_field_tag :prioritize_user_ids %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <span id="attached_file_add_buzz"></span>
+    <span id="dashboard_msg_rezz"></span>
+    <div id="empty_rezz_msg" class="error_msg_color"></div>
+    <div class="float_left rezz_textbox">
+      <%= f.text_area :message, :id => "rezz_command", :class => "buzz", :onkeyup => "count_char('#rezz_command', '#dashboard_msg_rezz');", :placeholder => "Rezz here..." %>
+    </div>
+    <%= f.hidden_field :channel_id, :value => @buzz.channel.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= hidden_field_tag "hide_insync_cugs", '', :id => "new_rezz_hide_insync_cugs_#{@buzz.id}" %>
+    <div class="buttons">
+      <div class="buzz_round_block_radio button1">
+        <span class="radio_text_align"> <%= f.radio_button :is_richtext_editor, false, :class => 'rezz_out_type', :checked => "checked" %></span><span> Compact Buzz</span>
+        &nbsp;&nbsp;
+        <span class="radio_text_align"> <%= f.radio_button :is_richtext_editor, true, :class => 'rezz_out_type' %></span><span> Rich Text</span>
+      </div>
+
+      <div class="buzzout_img rezz_round_block button3">
+        <%= image_submit_tag("buzzout.png",:onclick=>"return check_rezzout();", :id=> "buzzout_img", :alt => "Rezzout", :title => "Rezzout") %>
+      </div>
+    </div>
+    <div class="clear"></div>
+  <% end  %>
+</div>

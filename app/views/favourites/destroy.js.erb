@@ -1,0 +1,15 @@
+$('.fav_icon_<%=params[:channel_id]%>').html('<%= j (link_to  "&nbsp".html_safe, favourites_path(:channel_id => params[:channel_id], :channel_type => params[:channel_type]), :remote => true, :class => "cug_fav_icon offstar", :title => "Favourite #{params[:channel_type]}", :method => "post") %>');
+tooltip_active();
+if($('.left_nav li a.channel').hasClass('active')) group_view = 'channel'
+else group_view = 'cug'
+if (($("#cug_view_type") && $("#cug_view_type option:selected").text() == "Favorite") || ($("#channel_view_type") && $("#channel_view_type option:selected").text() == "Favorite Channels")){
+  if(group_view == 'cug')
+    $('#'+group_view+'_topic_<%=params[:channel_id]%>_'+$("#cug_view_type option:selected").val()).remove();
+  else
+    $('#'+group_view+'_topic_<%=params[:channel_id]%>').remove();
+  }
+if($('.'+group_view+'_topic_links').length == 0)
+empty_channels();
+$('#'+group_view+'_block_'+$("#"+group_view+"_view_type option:selected").val()).next().text($("#"+group_view+"_view_type option:selected").text()+ ' ('+$('.'+group_view+'_topic_links').length+')')
+$('#msg').html("<%= j show_flash_message %>");
+notify();

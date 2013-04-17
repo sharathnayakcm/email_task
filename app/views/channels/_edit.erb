@@ -1,0 +1,60 @@
+<div class="tab_wrapper">
+  <ul class="tabs">
+    <li><a class="current" href="#">Edit</a></li>
+    <li><a class="current" href="#">Channel Stats</a></li>
+  </ul>
+  <div class="panes">
+    <div>
+      <%= form_for(@channel, :remote => true, :html => {:id => "edit_channel"}) do |f| %>
+        <table class="manage_mode flds form" cellpadding = "0" cellspacing ="0" >
+          <tbody>
+            <tr>
+              <th><label>Name</label>:</th>
+              <td><%= f.text_field("name", :disabled => true, :size => 20) %></td>
+            </tr>
+            <tr>
+              <th><label>Moderator of Channel</label>:</th>
+              <td><%= @channel.moderator_name(current_user) %></td>
+            </tr>
+            <%= f.fields_for :channel_aliases, @channel_aliases do |ca| %>
+              <tr>
+                <%= ca.hidden_field :user_id %>
+                <th><label>Alias Name</label>:</th>
+                <td><%=  ca.hidden_field "_destroy" %><%= ca.text_field :name, :onkeyup => "if(this.value==''){jQuery(this).prev().val('1');}else{jQuery(this).prev().val('0');}", :class => 'alias_name' %></td>
+              </tr>
+            <% end %>
+            <% is_fav = check_channel_is_fav(current_user,@channel.id) %>
+            <%= f.fields_for :watch_channels, @fav_channel do |fc| %>
+              <tr>
+                <th><label>Favorite</label>:</th>
+                <td>
+                  <%= link_to "&nbsp".html_safe, "javascript://", :class => "manage_mode_fav_icon #{is_fav.blank? ? 'offstar' : 'onstar'}" %>
+                  <%= fc.hidden_field :user_id %>
+                  <%= fc.hidden_field :_destroy, :value => is_fav.blank? ? 'true' : 'false', :id => 'fav_manage_mode' %>
+                </td>
+              </tr>
+            <% end %>
+            <% if @channel.user_id == current_user.id %>
+              <tr>
+                <th><label>Close Channel</label>:</th>
+                <td><%= f.check_box :is_active, {:checked => false}, false, false %></td>
+              </tr>
+            <% elsif @channel.is_subscribed?(current_user) %>
+              <tr>
+                <th><label>Unsubscribe</label>:</th>
+                <td><%= check_box_tag 'unsubscribe', true, false, :onClick => "return confirm('Are you sure, you want to unsubscribe?');" %></td>
+              </tr>
+            <% end %>
+            <tr>
+              <th>&nbsp;</th>
+              <td class="popup_actions">
+                <%= submit_tag "Save" ,:class =>"inner_button sb", :disable_with => "Saving...", :onclick => "return check_alias_name_validation('Channel');"%>
+                <%= link_to "Cancel", buzzs_path(:channel_id => @channel.id, :channel_view_type => params[:channel_view_type]), :class =>"inner_button_link sb", :method => :get, :remote => true %>
+              </td>
+            </tr>
+          </tbody></table>
+      <% end %>
+    </div>
+    <%= render :partial => 'channels/insync_stats' %>
+  </div>
+</div>

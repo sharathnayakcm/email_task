@@ -1,0 +1,37 @@
+<div id ="limit_box" class="content">
+  <div id="error_explanation"></div>
+  <div class="clear"></div>
+  <div class="limit_unselect_all">
+    <span class="limit_checkbox_align"> Unselect all</span>
+    <span class="limit_input_box unselect"><%= check_box_tag("unselect_all[" + @buzz.id.to_s + "]", "unselect_all") %></span>
+  </div>
+  <%= form_tag('/buzzs/limit_user',:id=> 'limit_buzz_frm', :remote => true) do %>
+    <%= hidden_field_tag "buzz_id", @buzz.id %>
+    <table class="details popup_data" id="<%=@buzz.id%>">
+      <% @user_names.each do |u| %>
+        <tr>
+          <td id="limit_<%=u.id%>_<%=@buzz.id%>">
+            <span class="radio_text_align" id = "user_checkbox_<%=u.id%>" >
+              <%= check_box_tag("user_ids[]", u.id, check_if_user_is_member(@buzz,u)) %>
+            </span>
+            <span class="limit_checkbox">
+              <%= u.full_name %>
+            </span>
+          </td>
+        </tr>
+      <% end %>
+      <tr>
+      </tr>
+    </table>
+
+      <div class="popup_action_info">
+      <span>Moderator can limit a buzz for any user.Once the buzz is limited for a particular user, the respective user gets a 'L' icon (Limited user) for that buzz.
+      </span>
+    </div>
+  <div class="clear"></div>
+    <div class="popup_actions">
+      <%= submit_tag "Save", :class => 'inner_button', :disable_with => "Saving..." %>
+      <div class="action_button_top"><a onClick="$('.close_modal').click();">Cancel</a></div>
+    </div>
+  <% end %>
+</div>

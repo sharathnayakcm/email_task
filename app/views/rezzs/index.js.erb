@@ -1,0 +1,21 @@
+<% if @buzz.channel.is_subscribed?(current_user) %>
+  if($('#arrow_rezz_icon_<%= @buzz.id %>').hasClass('active'))
+  {
+    $("#view_rezzs_<%= @buzz.id %>").slideUp('slow', function(){
+      $('.view_rezzs').show().html("");
+    });
+    $('#arrow_rezz_icon_<%= @buzz.id %>').removeClass('active');
+  }
+  else
+  {
+    $('.arrow_rezz_icon').removeClass('active');
+    $('#arrow_rezz_icon_<%= @buzz.id %>').addClass('active')
+    $('.view_rezzs').html("");
+    $("#view_rezzs_<%= @buzz.id %>").html("<%= j render :partial => 'all_rezzs' %>").slideDown('slow');
+    $('.view_rezzs .buzz_post:last').css('border-bottom', 'none');
+    $(".view_rezzs .arrow_rezz_icon_block").html('');
+  }
+<% else %>
+  $('#msg').html('<%= j show_flash_message %>')
+  notify();
+<%end%>

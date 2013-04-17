@@ -1,0 +1,11 @@
+<% if flash[:notice].present? %>
+  $.ajax({
+  type:'get',
+  url:"/channels/new?group_type=<%=params[:group_type]%>",
+  dataType:"script"
+  })
+<%else%>
+  $('#add_channel_name').css('border','2px solid red');
+<% end %>
+$('#msg').html("<%= show_flash_message %>");
+notify();

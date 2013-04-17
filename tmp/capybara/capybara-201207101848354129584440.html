@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <title>Beehive</title>
+    <link type="text/css" rel="stylesheet" media="screen" href="/assets/application.css" />
+    <script type="text/javascript" src="/assets/application.js"></script>
+    
+    <link type="image/vnd.microsoft.icon" rel="shortcut icon" href="/favicon.ico" />
+  </head>
+  <body onkeypress="return checkSubmit(event)" onload="notify();">
+    <div><div id="boxd"></div></div>
+    <div id="login">
+      <div class="logo"><a href="/"><img width="236" height="139" border="0" alt="Beehive" src="/assets/login_logo.png" /></a></div>
+      <div class="container">
+        <h1>Login</h1>
+<span style="display: none;" id="msg"></span>
+<form onsubmit="return login_validation();" method="post" id="loginfrm" class="new_user" autocomplete="off" action="/users/sign_in" accept-charset="UTF-8"><div style="margin:0;padding:0;display:inline"><input type="hidden" value="✓" name="utf8" /></div>
+  <ul>
+    <li class="fld"><input type="text" value="" size="30" placeholder="Enter your email" name="user[email]" id="user_email" class="txt_fld" /></li>
+    <li class="fld"><input type="password" size="30" placeholder="Enter your password" name="user[password]" id="user_password" class="txt_fld" /></li>
+    <li class="right"><div class="left fp"><a href="/users/password/new">Forgot Password?</a></div>
+      <div class="button"><a onclick="submit_me('#loginfrm');" href="#">login</a></div></li>
+  </ul>
+</form>
+        <div class="clear"></div>
+        <!--
+        <div class="social">
+          <ul>
+            <li><a href="#"><img src="/assets/social/facebook.png"  alt="Facebook" border="0" /></a></li>
+            <li><a href="#"><img src="/assets/social/twitter.png"  alt="Facebook" border="0" /></a></li>
+            <li><a href="#"><img src="/assets/social/yahoo.png" alt="Facebook" border="0" /></a></li>
+            <li><a href="#"><img src="/assets/social/blogger.png"  alt="Facebook" border="0" /></a></li>
+          </ul>
+        </div>
+        -->
+        <div class="cr">© 2012 Beehive - Powered by Sumeru Software Solutions</div>
+      </div>
+    </div>
+  
+</body></html>

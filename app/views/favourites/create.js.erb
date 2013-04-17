@@ -1,0 +1,4 @@
+$('.fav_icon_<%= params[:channel_id] %>').html('<%= j (link_to  "&nbsp".html_safe, favourite_path(@fav_channel.id, :channel_id => params[:channel_id], :channel_type => params[:channel_type]), :remote => true, :class => "cug_fav_icon onstar", :title => "Favourite #{params[:channel_type]}", :method => "delete") %>');
+tooltip_active();
+$('#msg').html("<%= show_flash_message %>");
+notify();

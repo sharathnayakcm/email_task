@@ -1,0 +1,11 @@
+$(".close_modal").show();
+$("#overlay_data").hide().html("<%= j render("icons_help") %>").fadeIn(2000);
+$('.apple_overlay').css('top', '100px');
+if($('.left_nav li a.cug').hasClass('active')){
+  $('.channel_icons').css('display', 'none');
+  $('.cug_icons').css('display', 'block');
+}
+else{
+  $('.channel_icons').css('display', 'block');
+  $('.cug_icons').css('display', 'none');
+}

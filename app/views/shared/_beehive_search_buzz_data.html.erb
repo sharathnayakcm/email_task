@@ -1,0 +1,13 @@
+<fieldset class="step content group_view" >
+  <% c[:buzzs].each do |b| %>
+    <%= render :partial => "#{b.channel.is_cug ? 'cugs' : 'channels'}/buzz_data",:locals => {:buzz => b,:channel => b.channel } %>
+  <% end %>
+  <% if c[:buzzs].next_page %>
+    <div class="pagination" id="more_buzzs_<%= c[:id] %>_<%=c[:buzzs].current_page%>">
+      <div id="more_buzz" class ="more_buzz">
+        <div class="more_buzzes_icon">&nbsp;</div>
+        <%= link_to "more buzzes..", beehive_search_more_home_index_path(:channel_id => c[:id], :beehive_search => params[:beehive_search] , :next_page => c[:buzzs].next_page), :remote => true, :disable_with => "Loading buzzes..."%>
+      </div>
+    </div>
+  <% end %>
+</fieldset>

@@ -1,0 +1,58 @@
+<span id="msg"><%= show_flash_message %></span>
+<h2>Add/ Invite User</h2>
+
+<%= form_for(@user, :url => admin_users_path, :html => {:onSubmit => "return user_new_profile_validation();"}) do |f| %>
+
+  <table class="profile_mode flds form" id="admin_add_user" cellpadding = "0" cellspacing ="0">
+    <tr class="row">
+      <th><label><%= f.label :display_name %></label>:</th>
+      <td><%= f.text_field :display_name %></td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <th><label><%= f.label :first_name %></label>:</th>
+      <td><%= f.text_field :first_name %></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th><label><%= f.label :last_name %></label>:</th>
+      <td><%= f.text_field :last_name %></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th><label><%= f.label :email %></label>:</th>
+      <td><%= f.text_field :email %></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th><label><%= f.label :admin %></label>:</th>
+      <td><%= f.check_box :is_admin %></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th><label><%= f.label :activate %></label>:</th>
+      <td><%= f.check_box :is_active %></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th><label><%= f.label :password %></label>:</th>
+      <td><%= f.password_field :password %></td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <th><label><%= f.label :password_confirmation %></label>:</th>
+      <td><%= f.password_field :password_confirmation %></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr><th></th></tr>
+    
+    <tr>
+      <th>&nbsp;</th>
+      <td class="popup_actions"><%= f.submit "Save" ,:class =>"inner_button" ,:disable_with => "Saving..."%></td>
+    </tr>
+
+  </table>
+
+<% end %>

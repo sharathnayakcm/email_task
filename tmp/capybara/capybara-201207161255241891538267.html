@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <title>Beehive</title>
+    <link type="text/css" rel="stylesheet" media="screen" href="/assets/application.css" />
+    <script type="text/javascript" src="/assets/application.js"></script>
+    
+    <link type="image/vnd.microsoft.icon" rel="shortcut icon" href="/favicon.ico" />
+  </head>
+  <body onload="notify();">
+    <div id="notify_message"><div id="boxd"></div></div>
+    <div>
+      <span style="display: none;" id="msg"></span>
+      <div id="dashboard">
+        <div class="logo"><a href="/"><img border="0" alt="Beehive" src="/assets/dashboard_logo.png" /></a></div>
+<div class="top_links">
+  <span><a href="/users/edit">Sahana</a></span>
+  <span> | </span>
+  <span><a href="/home/dashboard">Dashboard</a></span>
+  <span> | </span>
+  <span><a rel="nofollow" data-method="delete" href="/users/sign_out">Logout</a></span>
+  <span> | </span>
+  <span><a target="_blank" href="/home/help">Help</a></span></div>
+<div class="clear"></div>
+
+        <div class="container">
+          <div class="container_top"></div>
+          <div class="container_mid">
+            <!--Tabs Starts Here-->
+            <div id="wrapper">
+  <div id="navigation">
+    <ul>
+      <li class=""><a href="/home">Watch</a></li>
+<li class=""><a href="/home/channels">Channels</a></li>
+<li class="selected"><a href="/home/cugs">CUGs</a></li>
+<li class=""><a href="/home/today">Today</a> </li>
+<li class=""><a href="/home/calendar">Calendar</a> </li>
+    </ul>
+    <div class="current_page"> Now Screen:  CUG "sukicug"</div>
+  </div>
+  <div>
+  <form method="post" id="buzzout" enctype="multipart/form-data" action="/home/process_command" accept-charset="UTF-8"><div style="margin:0;padding:0;display:inline"><input type="hidden" value="✓" name="utf8" /></div>
+    <div class="float_left">
+      <textarea rows="20" placeholder="Type your command here ......" onkeyup="count_char('#command');check_here('#command');" name="beehive[command]" id="command" cols="40" class="buzz"></textarea>
+    </div>
+
+    <div class="buzzout_img">
+      <span class="file-wrapper">
+        <input type="file" onchange="get_attachment_name(this, 'attached_file');" onclick="return check_attachment();" name="beehive[attachfile]" id="attachfile" />
+        <img title="Add attachment" src="/assets/attachment_big.png" id="attach_img" alt="attachment" />
+      </span>
+    </div>
+
+    <div class="buzzout_img">
+      <input type="image" title="Buzzout" src="/assets/buzzout.png" onclick="return submit_command('buzzout');" id="buzzout_img" alt="Buzzout" />
+    </div>
+    <div class="step">
+      <span id="dashboard_msg"></span>
+      <span id="attached_file"></span>
+        <input type="hidden" value="5" name="beehive[channel_id]" id="beehive_channel_id" />
+    </div>
+    <input type="hidden" name="myerror" id="myerror" />
+    <div class="clear"></div>
+</form></div>
+  <div id="steps">
+    <div id="formElem">
+      <fieldset class="step">
+          <legend class="cug_links">
+            <ul class="sub_tabs">
+  <li id="watch" class="watch"><a data-remote="true" data-confirm="Are you sure, you want to Add to Watch this CUG?" href="/home/add_to_watch?channel_id=5&amp;link_text=add+to+watch&amp;update_div=watch">Add to Watch</a></li>
+  <li id="involvement" class="involvement"><a data-remote="true" data-confirm="Are you sure, you want switch to peripheral" href="/home/change_cug_type?channel_id=5&amp;type=Switch+to+Peripheral&amp;update_div_id=involvement">Switch to Peripheral</a></li>
+  <li class="insync selected"><a data-remote="true" href="/home/5/insync_stats">In Sync Stats</a></li>
+  <li class="cug_stats"><a data-remote="true" href="/home/5/cug_stats">CUG Stats</a></li>
+  <!--<li class="find"></li>-->
+  <li class="tags"><a data-remote="true" href="/buzz_tags/filter_by_tags?channel_id=5">Tags</a></li>
+  <li class="flags"><a data-remote="true" href="/buzz_flags/filter_by_flags?channel_id=5">Flags</a></li>
+  <li class="cug_channel_tasks"><a data-remote="true" href="/buzz_tasks/cug_channel_tasks?id=5&amp;is_channel=true">Dozz</a></li>
+  <li id="cug_links_spinner" style="display: none;"><img src="/assets/small-spinner.gif" alt="Small-spinner" /></li>
+</ul>
+
+<div class="right_links">
+  <div class="jump_to"><span>Jump to:</span><select name="unsync_cugs" id="unsync_cugs"><option value="">Select ...</option><option value="0">Dashboard</option></select></div>
+</div>
+
+          </legend>
+          <div id="cug_content" class="content left"><div class="toggle_link">
+  <span class="cug_insync_link" style="float:right; list-style:none;">
+    <a onclick="hide_insync_watch_cugs();" id="hide_insync_link" style="display: none;">Hide Insync Buzzes</a>
+  </span>
+  <span class="cug_insync_link">
+    <a onclick="show_insync_watch_cugs();" style="" id="show_insync_link">Show Insync Buzzes</a>
+  </span>
+</div>
+
+<ul class="insync_stats">
+        <li>You <span>Never InSynced</span></li>
+</ul>
+
+
+
+
+</div>
+          <div class="clear"></div>
+          <div id="buzzes_list">  <div id="buzz_3" class="content  today_unsync">
+    <span>By <a href="#">Suki</a></span>
+    <span>1 minute ago</span>
+    <span class="parent_buzz_name_3 buzz_title" id="buzz_name_view_3"></span>
+    <span></span>
+    <ul class="buzz_actions">
+  <li><a data-remote="true" href="/buzz_names/new?buzz_id=3"><img title="No name" src="/assets/buzz_name.png" class="parent_buzz_name_3" alt="Buzz_name" /></a></li>
+  <li id="flag_div_3" class="flag_list"><a href="/buzz_flags?buzz_id=3" data-remote="true"><img src="/assets/flag.png" class="buzz_flag_3" alt="Flag" /> <span class="flag_count_3"></span></a></li>
+  <li id="task_div_3"><a href="/buzz_tasks?id=3" data-remote="true"><img title="Dozz" src="/assets/buzz_dozz.png" id="buzz_dozz_img_3" alt="Buzz_dozz" /><span id="dozz_tasks_incom_count_3"></span></a></li>
+  <li id="tag_div_3"><a href="/buzz_tags/buzz_tag_list?buzz_id=3&amp;channel_id=5" data-remote="true"><img title="No Tag" src="/assets/buzz_tag.png" id="buzz_tag_img_3" alt="Buzz_tag" /><span id="buzz_tag_count_3"></span></a></li>
+  
+  <li id="view_3"><a href="/rezzs/view_all?buzz_id=3&amp;hide=false" data-remote="true"><img title="Create Rezz" src="/assets/view_rezz.png" alt="View_rezz" /></a></li>
+  <li id="insync_div_3" class="5_insync_buzz"><a data-remote="true" href="/home/insync_buzz?buzz_id=3&amp;channel_id=5&amp;update_div_id=insync_div_3"><img title="Insync" src="/assets/in_sync.png" alt="In_sync" /></a></li>
+  
+</ul>
+<div style="position:absolute; z-index: 10; right: 10px;" class="limit_buzzs" id="update_limit_buzz_3"></div>
+<div class="buzz_tag_list buzz_pop_up" id="tag_list_3"></div>
+<div class="buzz_task_list buzz_pop_up" id="task_list_3"></div>
+<div class="buzz_flag_list buzz_pop_up" id="flag_list_3"></div>
+<div class="add_buzz_name buzz_pop_up" id="buzz_name_3"></div>
+
+<div style="display:none" class="buzz_over_flag" id="flags_3">
+    No flag
+</div>
+
+
+
+<br />
+    <ul class="tag_cloud">
+      <li>
+        <div id="tag_tip"><img width="12" height="9" src="/assets/tag_cloud_tip.png" /></div>
+        <div class="mssg">this is buzz3</div>
+      </li>
+    </ul>
+    <div class="new_rezz" style="display:none" id="rezz_3"></div>
+    <div class="view_rezzs" id="view_rezzs_3"></div>
+  </div>
+<div id="no_insync" class="today_cug display_none"><p>You are Insync with all the buzzes</p></div>
+  <div id="buzz_2" class="content  today_unsync">
+    <span>By <a href="#">Suki</a></span>
+    <span>1 minute ago</span>
+    <span class="parent_buzz_name_2 buzz_title" id="buzz_name_view_2"></span>
+    <span></span>
+    <ul class="buzz_actions">
+  <li><a data-remote="true" href="/buzz_names/new?buzz_id=2"><img title="No name" src="/assets/buzz_name.png" class="parent_buzz_name_2" alt="Buzz_name" /></a></li>
+  <li id="flag_div_2" class="flag_list"><a href="/buzz_flags?buzz_id=2" data-remote="true"><img src="/assets/flag.png" class="buzz_flag_2" alt="Flag" /> <span class="flag_count_2"></span></a></li>
+  <li id="task_div_2"><a href="/buzz_tasks?id=2" data-remote="true"><img title="Dozz" src="/assets/buzz_dozz.png" id="buzz_dozz_img_2" alt="Buzz_dozz" /><span id="dozz_tasks_incom_count_2"></span></a></li>
+  <li id="tag_div_2"><a href="/buzz_tags/buzz_tag_list?buzz_id=2&amp;channel_id=5" data-remote="true"><img title="No Tag" src="/assets/buzz_tag.png" id="buzz_tag_img_2" alt="Buzz_tag" /><span id="buzz_tag_count_2"></span></a></li>
+  
+  <li id="view_2"><a href="/rezzs/view_all?buzz_id=2&amp;hide=false" data-remote="true"><img title="Create Rezz" src="/assets/view_rezz.png" alt="View_rezz" /></a></li>
+  <li id="insync_div_2" class="5_insync_buzz"><a data-remote="true" href="/home/insync_buzz?buzz_id=2&amp;channel_id=5&amp;update_div_id=insync_div_2"><img title="Insync" src="/assets/in_sync.png" alt="In_sync" /></a></li>
+  
+</ul>
+<div style="position:absolute; z-index: 10; right: 10px;" class="limit_buzzs" id="update_limit_buzz_2"></div>
+<div class="buzz_tag_list buzz_pop_up" id="tag_list_2"></div>
+<div class="buzz_task_list buzz_pop_up" id="task_list_2"></div>
+<div class="buzz_flag_list buzz_pop_up" id="flag_list_2"></div>
+<div class="add_buzz_name buzz_pop_up" id="buzz_name_2"></div>
+
+<div style="display:none" class="buzz_over_flag" id="flags_2">
+    No flag
+</div>
+
+
+
+<br />
+    <ul class="tag_cloud">
+      <li>
+        <div id="tag_tip"><img width="12" height="9" src="/assets/tag_cloud_tip.png" /></div>
+        <div class="mssg">this is buzz2</div>
+      </li>
+    </ul>
+    <div class="new_rezz" style="display:none" id="rezz_2"></div>
+    <div class="view_rezzs" id="view_rezzs_2"></div>
+  </div>
+<div id="no_insync" class="today_cug display_none"><p>You are Insync with all the buzzes</p></div>
+</div>
+          <div id="no_insync" class="today_cug display_none"><p>You are Insync with all the buzzes</p></div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+            <!--Tabs Ends Here-->
+            <div class="clear"></div>
+          </div>
+          <div class="container_bottom"></div>
+          <div id="footer">
+<div class="social_inner">
+<!--
+<ul>
+<li><a href="#"><img src="/assets/social/facebook.png"  alt="Facebook" border="0" /></a></li>
+<li><a href="#"><img src="/assets/social/twitter.png"  alt="Facebook" border="0" /></a></li>
+<li><a href="#"><img src="/assets/social/yahoo.png" alt="Facebook" border="0" /></a></li>
+<li><a href="#"><img src="/assets/social/blogger.png"  alt="Facebook" border="0" /></a></li>
+</ul>
+-->
+</div>
+<div class="cr_inner">© 2012 Beehive - Powered by Sumeru Software Solutions</div>
+</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  
+</body></html>

@@ -1,0 +1,15 @@
+<fieldset class="step content" >
+  <%= render :partial => "/shared/search_for" %>
+</fieldset>
+<% if @search_data.count > 0 %>
+  <% @search_data.each do |c| %>
+    <div id="cug_topic_name_display" buzzid ="<%= c[:id] %>">
+      <div class="group_icon"></div><%= c[:name] %></div>
+    <div class="clear"></div>
+    <div id="buzzes_list_<%= c[:id] %>">
+      <%= render :partial => 'shared/beehive_search_buzz_data', :locals => {:c => c}  %>
+    </div>
+  <% end %>
+<% else %>
+  <fieldset class="step no_buzzs_found">Sorry no records found. Try again</fieldset>
+<% end %>

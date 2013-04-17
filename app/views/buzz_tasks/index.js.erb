@@ -1,0 +1,8 @@
+$(".close_modal").show();
+$("#overlay_data").hide().html("<%= j render("buzz_task_list") %>").fadeIn(2000);
+buttons_styling();
+init_datepicker();
+<% if @msg.present? %>
+  $('#msg').html("<span class='err_msg'><%=@msg%>.</span>");
+  notify();
+<%end%>

@@ -1,0 +1,29 @@
+<li class="tree">
+  <div id="<%= channel_data[:beehive_view_id] %>_channels">
+    <ul>
+      <li id ="channels_node">
+        <div class="channel_icon view_icon" id="channel_block_<%=channel_data[:beehive_view_id]%>" channels_count ="<%= channel_data[:channels].size %>" view_type ="<%= channel_data[:beehive_view_id] %>"></div>
+        <%= link_to "#{channel_data[:beehive_view_name]} (#{channel_data[:channels].size})", "javascript://", :path => get_channels_channels_path(:channel_view_type => channel_data[:beehive_view_id]), :class => "channel_group_view_link heading"  %>
+        <div class="clear"></div>
+        <div class="channel_names_block" id="channel_block_<%=channel_data[:beehive_view_id]%>_data" >
+          <%= render :partial=> 'channels/channel_names', :locals => {:channels => channel_data[:channels], :channel_type => channel_data[:beehive_view_id],:keyword => channel_data[:keyword]}  %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</li>
+<script type="text/javascript">
+  $(function () {
+    $("#<%= channel_data[:beehive_view_id] %>_scrollbar").mCustomScrollbar({
+      advanced:{
+        updateOnBrowserResize:true,
+        updateOnContentResize:true
+      }
+    });
+    update_scroll_by_keyword_arrows("#<%= channel_data[:beehive_view_id] %>_scrollbar");
+    tooltip_active();
+<% if params[:channel_view_type].present? %>
+      $('#channel_view_type option[value=<%= @beehive_view.ancestry.blank? ? @beehive_view.id : @beehive_view.ancestry%>]').attr('selected', 'selected');
+<% end %>
+  });
+</script>

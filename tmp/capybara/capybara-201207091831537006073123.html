@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <title>Beehive</title>
+    <link type="text/css" rel="stylesheet" media="screen" href="/assets/application.css" />
+    <script type="text/javascript" src="/assets/application.js"></script>
+    
+    <link type="image/vnd.microsoft.icon" rel="shortcut icon" href="/favicon.ico" />
+  </head>
+  <body onload="notify();">
+    <div id="notify_message"><div id="boxd"></div></div>
+    <div>
+      <span style="display: none;" id="msg"></span>
+      <div id="dashboard">
+        <div class="logo"><a href="/"><img border="0" alt="Beehive" src="/assets/dashboard_logo.png" /></a></div>
+<div class="top_links">
+  <span><a href="/users/edit">Sahana</a></span>
+  <span> | </span>
+  <span><a href="/home/dashboard">Dashboard</a></span>
+  <span> | </span>
+  <span><a rel="nofollow" data-method="delete" href="/users/sign_out">Logout</a></span>
+  <span> | </span>
+  <span><a target="_blank" href="/home/help">Help</a></span></div>
+<div class="clear"></div>
+
+        <div class="container">
+          <div class="container_top"></div>
+          <div class="container_mid">
+            <!--Tabs Starts Here-->
+            <script type="text/javascript">
+  $(document).ready(function(){
+    hide_insync_watch_cugs();
+  })
+</script>
+<div id="wrapper">
+  <div id="navigation">
+    <ul>
+      <li class="selected"><a href="/home">Watch</a></li>
+<li class=""><a href="/home/channels">Channels</a></li>
+<li class=""><a href="/home/cugs">CUGs</a></li>
+<li class=""><a href="/home/today">Today</a> </li>
+<li class=""><a href="/home/calendar">Calendar</a> </li>
+    </ul>
+    <div class="current_page"> Now Screen: Watch </div>
+  </div>
+  <div>
+  <form method="post" id="buzzout" enctype="multipart/form-data" action="/home/process_command" accept-charset="UTF-8"><div style="margin:0;padding:0;display:inline"><input type="hidden" value="✓" name="utf8" /></div>
+    <div class="float_left">
+      <textarea rows="20" placeholder="Type your command here ......" onkeyup="count_char('#command');check_here('#command');" name="beehive[command]" id="command" cols="40" class="buzz"></textarea>
+    </div>
+    <div class="buzzout_img">
+      <img title="Add attachment" src="/assets/attachment_big.png" onclick="check_attachment('attachfile');" alt="attachment" />
+    </div>
+    <div class="buzzout_img">
+      <img title="Buzzout" src="/assets/buzzout.png" onclick="submit_command('buzzout');" id="buzzout_img" alt="Buzzout" />
+    </div>
+    <div class="step">
+      <span id="dashboard_msg"></span>
+      <span id="attached_file"></span>
+      <input type="file" onchange="get_attachment_name(this, 'attached_file');" name="beehive[attachfile]" id="attachfile" />
+    </div>
+    <input type="hidden" name="myerror" id="myerror" />
+    <div class="clear"></div>
+</form></div>
+  <div id="steps">
+    <div id="formElem">
+      <fieldset class="step">
+        <legend>Watch</legend>
+        <div class="watch_content">
+          <span class="cug_insync_link" style="float:right; list-style:none;"><a onclick="hide_insync_watch_cugs();" id="hide_insync_link" style="display: none;">Hide Insync Buzzes</a></span>
+          <span class="cug_insync_link"><a onclick="show_insync_watch_cugs();" style="" id="show_insync_link">Show Insync Buzzes</a></span>
+        </div>
+        <div id="buzzes_list">
+            <div class="content">
+              <ul class="tag_cloud">
+                <li>
+                  <div id="tag_tip"><img width="12" height="9" src="/assets/tag_cloud_tip.png" /></div>
+                  <div class="mssg">No buzzes found in your watch list.</div>
+                </li>
+              </ul>
+            </div>
+          <div id="no_insync" class="today_cug display_none" style="display: block;"><p>You are Insync with all the buzzes</p></div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+            <!--Tabs Ends Here-->
+            <div class="clear"></div>
+          </div>
+          <div class="container_bottom"></div>
+          <div id="footer">
+<div class="social_inner">
+<!--
+<ul>
+<li><a href="#"><img src="/assets/social/facebook.png"  alt="Facebook" border="0" /></a></li>
+<li><a href="#"><img src="/assets/social/twitter.png"  alt="Facebook" border="0" /></a></li>
+<li><a href="#"><img src="/assets/social/yahoo.png" alt="Facebook" border="0" /></a></li>
+<li><a href="#"><img src="/assets/social/blogger.png"  alt="Facebook" border="0" /></a></li>
+</ul>
+-->
+</div>
+<div class="cr_inner">© 2012 Beehive - Powered by Sumeru Software Solutions</div>
+</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  
+</body></html>

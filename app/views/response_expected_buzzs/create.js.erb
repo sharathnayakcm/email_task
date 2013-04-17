@@ -1,0 +1,35 @@
+<% if flash[:notice] %>
+  <% beehive_view, beehive_view_for_normal, cugs, normal_cugs = BeehiveView.find_view_related_cugs(current_user, "Awaiting Responses", "Normal", params[:hide_insync_cugs])  %>
+  $('.close_modal').click();
+  <% buzz_members = @buzz.responded_users.select("last_name, first_name, display_name") %>
+  <% if buzz_members.size > 0 %>
+    $("#response_buzz_img_<%= @buzz.id %>").attr("title", "<%= j response_expected_tooltip(buzz_members).html_safe%>");
+    $("#buzz_response_count_<%= @buzz.id %>").addClass('buzz_icons_count').html("<%=  buzz_members.size %>")
+    $("#action_awaiting_response_<%= @buzz.id %>").html("<%= j image_tag("beehive-newui/awaiting_response.png", :title => 'Awating for Response(s)') %>");
+  <% else %>
+    $("#response_buzz_img_<%= @buzz.id %>").attr("title", 'Response Expected Buzz');
+    $("#buzz_response_count_<%= @buzz.id %>").removeClass('buzz_icons_count').html("");
+    $("#action_awaiting_response_<%= @buzz.id %>").html("");
+  <% end %>
+  if($('#cug_block_<%=beehive_view.id%>_data').length > 0)
+  $('#cug_block_<%=beehive_view.id%>_data').html("<%= j (render :partial=> 'cugs/cugs', :locals => {:cugs => cugs, :cug_type => beehive_view.id, :keyword => ''}) %>")
+  if($('#cug_block_<%beehive_view_for_normal.id%>_data').length > 0)
+  $('#cug_block_<%beehive_view_for_normal.id%>_data').html("<%= j (render :partial=> 'cugs/cugs', :locals => {:cugs => normal_cugs, :cug_type => beehive_view_for_normal.id, :keyword => ''}) %>")
+  $('#msg').html("<%= j show_flash_message %>");
+  notify();
+  tooltip_active();
+  if($('.cug_group_view').length > 1)
+    obj = $('.cug_group_view.open').prev().attr("id")
+  else
+    obj = $('.cug_group_view').prev().attr("id")
+  toggle_effect_channel(obj);
+  $('#cug_block_<%=beehive_view.id%>').next().text('<%= "#{beehive_view.view_name} (#{cugs.size})"%>')
+<% else %>
+  $('#error_explanation').html("<%= j show_flash_message %>")
+  $("#response_expected .users_data :checkbox:checked").each(function(){
+  var obj = '#'+$(this).attr("id").match(/^[^\d]+\d+/)[0]+'_expiry_date'
+  if($(obj).val() == ''){
+  $(obj).css('border', '2px solid red');
+  }
+  });
+<% end %>

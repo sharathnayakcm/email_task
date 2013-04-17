@@ -1,0 +1,64 @@
+<%= form_for(@channel, :url => channels_path(:group_type => params[:group_type]), :remote => true, :html => {:id => "add_cug"}) do |f| %>
+  <table class="adchan flds form" cellpadding = "0" cellspacing ="0">
+    <tr class="row">
+      <th><label>Name</label>:</th>
+      <td><%= f.text_field :name, :id=> 'add_channel_name', :class => "fld", :placeholder => "#{params[:group_type] == 'cug'? params[:group_type].upcase : params[:group_type].capitalize} name......", :maxlength=>"25" %></td>
+    </tr>
+    <% if params[:group_type] == 'cug' %>
+      <tr>
+        <th><label>Members</label>:</th>
+        <td><%= text_area_tag :members,'', :id => "channel_members" %></td>
+      </tr>
+    <% end %>
+      <%=  f.hidden_field :is_cug,:value=> params[:group_type] == "cug" ? true : false %>
+    <tr class="row">
+      <td colspan="2" class ="add_channel_command">
+        <div class="buzz_block">
+          <%= f.fields_for :buzzs do |buzz| %>
+          <%= buzz.hidden_field :user_id, :value => current_user.id %>
+          <%= buzz.text_area :message, :id => "command", :class => "buzz add_channel_buzz", :value => flash[:command].nil? ? '' : flash[:command] || params[:command], :onkeyup => "count_char('#command', '#dashboard_msg');", :placeholder => "Buzz here ......" %>
+          <div class="buttons">
+            <div class="buzzout_img">
+              <span class="file-wrapper">
+                <%= buzz.file_field :attachment, :id => "attachfile", :onchange => "get_attachment_name(this, 'attached_file');", :onClick => "return check_attachment('attached_file');" %>
+                <%= image_tag("attachment_big.png", :alt => "attachment", :title => "Add Attachment", :id => 'attach_img') %>
+              </span>
+            </div>
+
+            <div class="buzzout_img">
+              <%= image_submit_tag("buzzout.png", :id=> "buzzout_img", :alt => "Buzzout", :title => "Buzzout to Create #{params[:group_type] == 'cug' ? 'CUG' : 'Channel'}", :onClick => "return validate_add_channel_cug();") %>
+            </div>
+          </div>
+          <% end %>
+          <div id ="add_buzz_spinner" style="display: none;"><%= image_tag('small-spinner.gif') %></div>
+          <div><span id="attached_file"></span></div>
+          <div class="step">
+            <span id="dashboard_msg"></span>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </td>
+    </tr>
+  </table>
+<% end %>
+
+
+<script type="text/javascript">
+<% if params[:group_type] == 'cug' %>
+    $(document).ready(function() {
+      $("#channel_members").tokenInput("<%= search_members_cugs_path %>",{
+        propertyToSearch: "name",
+        resultsFormatter: function(item){ return "<li>" + "<div style='display: inline-block; padding-left: 10px;'><div class='full_name'>" + item.name + "</div><div class='email'>" + item.email + "</div></div></li>" },
+        theme: "facebook",
+        preventDuplicates: true,
+        hintText: "Type here to search",
+        onAdd: function (item) {
+          $('#channel_members').attr("value",$('#channel_members').val()+",")
+        },
+        onDelete: function (item) {
+          $('#channel_members').val().replace(item.id+',', '');
+        }
+      });
+    });
+<% end %>
+</script>

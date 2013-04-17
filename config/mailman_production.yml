@@ -1,0 +1,7 @@
+## YAML Template.
+---
+beehive:
+  username: buzz@sumerusolutions.com
+  password: Sumeru1@3$
+  server: mail.sumerusolutions.com
+  port: 995

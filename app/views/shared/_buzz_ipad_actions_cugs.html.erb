@@ -1,0 +1,15 @@
+<div class="right"><span class = 'ipad_buzz_icons' id = <%=buzz.id%>></span></div>
+<ul class="buzzers ipad_buzzers_icon" id = "ipad_buzzer_icons_<%=buzz.id%>">
+  <%= remove_buzz_link(buzz) %>
+  <%= buzz_flag_link(buzz,current_user) %>
+  <%= buzz_tag_link(buzz) %>
+  <%= buzz_name_link(buzz, buzz_name)%>
+  <%= limit_buzz_link(buzz) %>
+  <%= response_expected_link(buzz) %>
+  <%= priorty_buzz_link(buzz) %>
+  <%= buzz_dozz_link(buzz) %>
+  <%= create_and_view_rezz_link(buzz) %>
+  <% unless (local_assigns.has_key? :from_rezz) %>
+    <%= buzz_insync_link(buzz, last_insync_id) %>
+  <% end %>
+</ul>

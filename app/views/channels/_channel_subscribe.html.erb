@@ -1,0 +1,4 @@
+<span class="filters_icon"></span>
+<div class ="channel_subscribe"  id="filters_block">
+  <%= link_to "Add to my channels" , subscriptions_path(:id => @channel.id),  :method => :post, :remote => true %>
+</div>

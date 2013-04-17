@@ -1,0 +1,9 @@
+<% if @msg.blank? %>
+$('#properties_buzz_tag_id_block').html('<%= j (select_tag :tag_id, options_for_select(@cug_tags), :prompt => "Select...", :id =>"properties_buzz_tag_id") %>');
+val = $('#properties_buzz_tag_id option:contains("<%=params[:tag]%>")').val()
+add_tag_to_buzz_properties(val, '<%= params[:tag] %>');
+cancel_add_buzz_tag_properties();
+<% else %>
+$('#error_explanation_buzz_tag').html('<%= j @msg %>')
+$('#tag_name_buzz_properties').css('border', '2px solid red');
+<% end %>
